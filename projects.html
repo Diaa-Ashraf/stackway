@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackWay | المشاريع</title>
+    
+    <meta name="description" content="تصفح مجموعة من مشاريعنا التي تعرض خبرات التطوير، والابتكار في التصميم، والحلول التقنية.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 40px;
+        }
+        .pagination-controls .page-btn,
+        .pagination-controls .page-number {
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.03);
+            color: var(--text-color);
+            min-width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            padding: 0 14px;
+        }
+        .pagination-controls .page-number.active,
+        .pagination-controls .page-btn:hover,
+        .pagination-controls .page-number:hover {
+            background: var(--clr-green);
+            border-color: var(--clr-green);
+            color: #0b0b0b;
+        }
+        .pagination-controls .page-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+    </style>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="dark-mode">
+
+    <header>
+        <nav class="nav-pill">
+            <div class="logo">
+                <img src="logo.svg" alt="StackWay Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html" class="services-trigger">الخدمات <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-right: 5px;"></i></a></li>
+                <li><a href="projects.html" class="active">المشاريع</a></li>
+                <li><a href="index.html#about">من نحن</a></li>
+                <li><a href="index.html#contact">تواصل معنا</a></li>
+            </ul>
+            <div class="nav-tools">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-glow" style="padding: 8px 20px; font-size: 0.8rem;">تواصل الآن</button>
+                <button class="menu-toggle" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Services Sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Services Sidebar -->
+    <aside class="services-sidebar" id="servicesSidebar">
+        <div class="sidebar-header">
+            <h3>الخدمات</h3>
+            <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="sidebar-content">
+            <a href="services.html" class="sidebar-service-item">
+                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="service-info">
+                    <h4>إنشاء تطبيقات</h4>
+                    <p>أنشئ تطبيقك الخاص بسهولة واحترافية.</p>
+                </div>
+            </a>
+            <a href="services.html" class="sidebar-service-item">
+                <div class="service-icon"><i class="fas fa-globe"></i></div>
+                <div class="service-info">
+                    <h4>إنشاء مواقع</h4>
+                    <p>أنشئ موقعك الإلكتروني باحترافية وسرعة عالية.</p>
+                </div>
+            </a>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="services.html" class="btn-glow" style="width: 100%; justify-content: center;">تصفح كل الخدمات</a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="page-main">
+        <!-- Projects Header -->
+        <section class="projects-page-header">
+            <div class="container" style="text-align: center; margin-bottom: 50px;">
+                <h1 style="font-size: 4rem; font-weight: 900; margin-bottom: 20px;" class="animate-hero">مشاريع مختارة</h1>
+                <p class="animate-hero" style="font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto;">مجموعة من المشاريع التي تعرض خبرات التطوير، والابتكار في التصميم، والحلول التقنية.</p>
+                
+                <!-- Filter Pills -->
+                <div class="filter-pills animate-hero" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px;">
+                    <button class="filter-btn active" data-filter="all">الكل</button>
+                    <button class="filter-btn" data-filter="mobile"><i class="fas fa-mobile-alt" style="margin-left: 8px;"></i> برمجة الهواتف</button>
+                    <button class="filter-btn" data-filter="web"><i class="fas fa-globe" style="margin-left: 8px;"></i> تطوير الويب</button>
+                    <button class="filter-btn" data-filter="uiux"><i class="fas fa-pen-nib" style="margin-left: 8px;"></i> تصميم واجهات UI/UX</button>
+                    <button class="filter-btn" data-filter="sys"><i class="fas fa-server" style="margin-left: 8px;"></i> نظم إدارية</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-grid-section" style="padding-bottom: 100px;">
+            <div class="container">
+                <div class="project-grid">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card reveal-up" data-category="mobile">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="images/Salumida3%20(1).png" alt="Salumida">
+                                    <div class="front-content-overlay">
+                                        <h3>تطبيق سالوميدا</h3>
+                                        <p>نظام الأكل الصحي والتغذية</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>تطبيق سالوميدا</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير تطبيقات</span>
+                                    <p>تطبيق يعتمد على الاشتراكات لخيارات الأكل الصحي، استشارات التغذية، والتدريب عن بعد.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">WebSockets</span>
+                                    </div>
+                                    <a href="project-details.html?project=salumida" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" alt="Ejarku">
+                                    <div class="front-content-overlay">
+                                        <h3>منصة إيجاركو</h3>
+                                        <p>نظام تأجير متعدد الأسواق</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>منصة إيجاركو</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
+                                    <p>منصة تأجير متعددة الأسواق للعقارات والسيارات مع دعم البحث بالذكاء الاصطناعي والاشتراكات.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel 12</span>
+                                        <span class="tool-pill">Filament v5</span>
+                                        <span class="tool-pill">GLM-4 AI</span>
+                                    </div>
+                                    <a href="project-details.html?project=ejarku" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800" alt="Al-Sheikh Store">
+                                    <div class="front-content-overlay">
+                                        <h3>متجر الشيخ</h3>
+                                        <p>منصة تجارة إلكترونية للهواتف</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>متجر الشيخ</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
+                                    <p>متجر إلكتروني متكامل لبيع الهواتف المحمولة وإدارة الطلبات والمنتجات بلغات متعددة.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">Spatie Permission</span>
+                                    </div>
+                                    <a href="project-details.html?project=al-sheikh" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Al-Amrousi ERP">
+                                    <div class="front-content-overlay">
+                                        <h3>نظام العمروسي ERP</h3>
+                                        <p>نظام متكامل لإدارة المنتجات، المبيعات والحسابات</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>نظام العمروسي ERP</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
+                                    <p>نظام متكامل لإدارة موارد المؤسسة (ERP) يغطي المنتجات والطلبات والحسابات والمبيعات.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">Fortify & Jetstream</span>
+                                    </div>
+                                    <a href="project-details.html?project=al-amrousi" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" alt="ERP System">
+                                    <div class="front-content-overlay">
+                                        <h3>نظام ERP للمصانع</h3>
+                                        <p>إدارة متكاملة لجميع الموارد</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>نظام ERP للمصانع</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
+                                    <p>نظام إداري شامل لإدارة الموارد البشرية، المشتريات، المخازن والمبيعات بشكل متكامل ومترابط.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">ريأكت</span>
+                                    </div>
+                                    <a href="project-details.html" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="images/Hey.PNG" alt="Senerm HRMS">
+                                    <div class="front-content-overlay">
+                                        <h3>نظام HRMS لشركة سينرم</h3>
+                                        <p>إدارة الموارد البشرية والرواتب</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>نظام HRMS لشركة سينرم</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
+                                    <p>نظام متكامل لإدارة شؤون الموظفين، الحضور والانصراف، والرواتب مع صلاحيات وصول آمنة وقاعدة بيانات محسنة.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Full Stack</span>
+                                        <span class="tool-pill">قواعد بيانات محسنة</span>
+                                    </div>
+                                    <a href="project-details.html?project=senerm-hr" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 7 -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800" alt="Al-Tawheed POS">
+                                    <div class="front-content-overlay">
+                                        <h3>نظام نقاط بيع التوحيد</h3>
+                                        <p>نظام POS لسوبر ماركت التوحيد</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>نظام نقاط بيع التوحيد</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
+                                    <p>نظام نقاط بيع متكامل لسوبر ماركت التوحيد يشمل إدارة المنتجات، السلة، المصروفات، الرواتب، والصلاحيات.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">jQuery</span>
+                                    </div>
+                                    <a href="project-details.html?project=al-tawheed-pos" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 8 -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="images/png_logo.png" alt="Senerm Group Website">
+                                    <div class="front-content-overlay">
+                                        <h3>موقع مجموعة سينرم</h3>
+                                        <p>موقع تعريفي للمجموعة</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>موقع مجموعة سينرم</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
+                                    <p>موقع تعريفي متكامل ومتجاوب لمجموعة سينرم يعرض خدمات وأعمال الشركة بتصميم عصري وأداء عالي الاستجابة.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">HTML & CSS</span>
+                                        <span class="tool-pill">JavaScript</span>
+                                    </div>
+                                    <a href="project-details.html?project=senerm-website" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 9 -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="images/farm.png" alt="نظام القاضي لإدارة المزارع">
+                                    <div class="front-content-overlay">
+                                        <h3>القاضي</h3>
+                                        <p>نظام إدارة مزرعة دواجن متكامل</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>القاضي</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
+                                    <p>نظام شامل لإدارة العلف، النشارة، الكتاكيت، الغاز، الأدوية، العمال، والمصاريف، مع إغلاق الدورة وحساب النتائج بعد المبيعات تلقائياً.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لارافيل</span>
+                                        <span class="tool-pill">قواعد بيانات</span>
+                                        <span class="tool-pill">تقارير مالية</span>
+                                    </div>
+                                    <a href="project-details.html?project=alqadi" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 10 -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="images/ARTBELLA%20.PNG" alt="Art Bella Store">
+                                    <div class="front-content-overlay">
+                                        <h3>ارتبيلا</h3>
+                                        <p>متجر تجميل متعدد البائعين</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>ارتبيلا</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">سوق إلكتروني</span>
+                                    <p>متجر مستحضرات تجميل متعدد البائعين مع social feed، Reels، ملاحظات، ودعم بائعين متعددين.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel</span>
+                                        <span class="tool-pill">Vue.js</span>
+                                        <span class="tool-pill">Realtime</span>
+                                    </div>
+                                    <a href="project-details.html?project=artbella" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 11 -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="images/Perfectpharma.PNG" alt="Perfect Farm Platform">
+                                    <div class="front-content-overlay">
+                                        <h3>بيرفكت فارم</h3>
+                                        <p>منصة صحية متعددة البائعين</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>بيرفكت فارم</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظام صحي SaaS</span>
+                                    <p>منصة كبيرة تربط المرضى بالدكاترة والمستشفيات والصيدليات والموردين، مع SaaS لصيدليات منفصلة وتكامل وصفات إلكترونية.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel</span>
+                                        <span class="tool-pill">API</span>
+                                        <span class="tool-pill">SaaS</span>
+                                    </div>
+                                    <a href="project-details.html?project=perfect-farm" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 12 -->
+                    <div class="project-card reveal-up" data-category="uiux">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Dashboard UI">
+                                    <div class="front-content-overlay">
+                                        <h3>Dashboard UI Kit</h3>
+                                        <p>تصميم واجهات أنظمة متطورة</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>Dashboard UI Kit</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تصميم واجهات UI/UX</span>
+                                    <p>مجموعة أدوات وتصميمات كاملة للوحات التحكم الإدارية توفر تجربة مستخدم سلسة وعصرية.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">فيجما</span>
+                                        <span class="tool-pill">أدوبي إكس دي</span>
+                                    </div>
+                                    <a href="project-details.html" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="pagination-controls">
+                    <button class="page-btn prev" type="button">«</button>
+                    <div class="page-numbers"></div>
+                    <button class="page-btn next" type="button">»</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 20px;">
+                <p>&copy; 2026 StackWay. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.to('.animate-hero', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                stagger: 0.1,
+                ease: "power4.out"
+            });
+            
+            // Filter Logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = Array.from(document.querySelectorAll('.project-card'));
+            const pageNumbersContainer = document.querySelector('.page-numbers');
+            const prevBtn = document.querySelector('.page-btn.prev');
+            const nextBtn = document.querySelector('.page-btn.next');
+            const itemsPerPage = 4;
+            let currentPage = 1;
+            let currentFilter = 'all';
+
+            const renderPagination = (totalPages) => {
+                pageNumbersContainer.innerHTML = '';
+
+                for (let page = 1; page <= totalPages; page += 1) {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'page-number' + (page === currentPage ? ' active' : '');
+                    button.textContent = page;
+                    button.dataset.page = page;
+                    button.addEventListener('click', () => {
+                        currentPage = page;
+                        updateVisibleProjects();
+                    });
+                    pageNumbersContainer.appendChild(button);
+                }
+
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+            };
+
+            const updateVisibleProjects = () => {
+                const filteredCards = projectCards.filter(card => {
+                    return currentFilter === 'all' || card.getAttribute('data-category') === currentFilter;
+                });
+
+                const totalPages = Math.max(1, Math.ceil(filteredCards.length / itemsPerPage));
+                if (currentPage > totalPages) currentPage = totalPages;
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const pageItems = filteredCards.slice(startIndex, startIndex + itemsPerPage);
+
+                projectCards.forEach(card => {
+                    card.style.display = pageItems.includes(card) ? 'block' : 'none';
+                    if (pageItems.includes(card)) {
+                        gsap.to(card, { opacity: 1, scale: 1, duration: 0.4 });
+                    }
+                });
+
+                renderPagination(totalPages);
+                setTimeout(() => ScrollTrigger.refresh(), 300);
+            };
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentFilter = btn.getAttribute('data-filter');
+                    currentPage = 1;
+                    updateVisibleProjects();
+                });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage -= 1;
+                    updateVisibleProjects();
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                const filteredCards = projectCards.filter(card => {
+                    return currentFilter === 'all' || card.getAttribute('data-category') === currentFilter;
+                });
+                const totalPages = Math.max(1, Math.ceil(filteredCards.length / itemsPerPage));
+                if (currentPage < totalPages) {
+                    currentPage += 1;
+                    updateVisibleProjects();
+                }
+            });
+
+            updateVisibleProjects();
+        });
+    </script>
+</body>
+</html>

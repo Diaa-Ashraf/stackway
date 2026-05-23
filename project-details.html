@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackWay | تفاصيل المشروع - تطبيق سالوميدا</title>
+    
+    <meta name="description" content="تفاصيل مشروع تطبيق سالوميدا - نظام الأكل الصحي والتغذية.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <style>
+        .details-hero {
+            position: relative;
+            padding: 180px 0 100px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        .details-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(6, 7, 10, 0.2), var(--bg-color));
+            z-index: 1;
+        }
+        .hero-img-bg {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+            opacity: 0.3;
+            filter: blur(20px);
+            z-index: 0;
+        }
+        .details-hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        .project-mockup {
+            flex: 1;
+            text-align: left;
+        }
+        .project-mockup img {
+            max-width: 350px;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transform: rotateY(-15deg);
+        }
+        .project-title-area {
+            flex: 1;
+        }
+        .project-title-area h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 10px 30px rgba(0,230,118,0.3);
+        }
+        .project-title-area p {
+            font-size: 1.5rem;
+            color: var(--clr-green);
+            font-weight: 700;
+        }
+
+        /* Layout for details */
+        .project-details-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            padding: 60px 0;
+        }
+        
+        .meta-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .meta-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .meta-card:hover {
+            border-color: var(--clr-green);
+            transform: translateY(-5px);
+        }
+        .meta-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0,230,118,0.1);
+            color: var(--clr-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 15px;
+        }
+        .meta-card h4 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        .meta-card p {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Main Content */
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .summary-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        .summary-card i {
+            color: var(--clr-green);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .summary-card h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+        .summary-card p {
+            color: var(--text-muted);
+        }
+
+        .content-box {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        .content-box h2 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .content-box h2::after {
+            content: '';
+            height: 30px;
+            width: 5px;
+            background: var(--clr-green);
+            border-radius: 5px;
+        }
+        .content-box p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .tech-pill {
+            display: inline-block;
+            padding: 10px 25px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--clr-green);
+            color: var(--clr-green);
+            border-radius: 50px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 992px) {
+            .details-hero-content { flex-direction: column; text-align: center; }
+            .project-mockup { text-align: center; }
+            .project-details-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+
+    <header>
+        <nav class="nav-pill">
+            <div class="logo">
+                <img src="logo.svg" alt="StackWay Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html">الخدمات</a></li>
+                <li><a href="projects.html" class="active">المشاريع</a></li>
+                <li><a href="index.html#contact">تواصل معنا</a></li>
+            </ul>
+            <div class="nav-tools">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="details-hero">
+            <img src="images/logo%20company.png" class="hero-img-bg" alt="BG">
+            <div class="container">
+                <div class="details-hero-content">
+                    <div class="project-title-area">
+                        <h1 class="animate-hero" style="font-size: 3.5rem;">تطبيق سالوميدا</h1>
+                        <p class="animate-hero">نظام الأكل الصحي والتغذية</p>
+                    </div>
+                    <div class="project-mockup animate-hero">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Raval Mockup">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details -->
+        <section class="project-details-grid container">
+            
+            <!-- Sidebar Metadata -->
+            <div class="meta-sidebar">
+                <div class="meta-card reveal-up">
+                    <div class="meta-icon"><i class="far fa-calendar-alt"></i></div>
+                    <h4>التاريخ</h4>
+                    <p id="project-date">2025-07-04</p>
+                </div>
+                <div class="meta-card reveal-up">
+                    <div class="meta-icon"><i class="fas fa-user-tie"></i></div>
+                    <h4>العميل</h4>
+                    <p id="project-client">سالوميدا</p>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="project-main-content">
+                
+                <!-- Summary Cards -->
+                <div class="summary-cards">
+                    <div class="summary-card reveal-up">
+                        <i class="far fa-star"></i>
+                        <h3 id="project-rating">5.0</h3>
+                        <p>التقييم</p>
+                    </div>
+                    <div class="summary-card reveal-up">
+                        <i class="far fa-clock"></i>
+                        <h3 id="project-duration">6 أيام</h3>
+                        <p>مدة العمل</p>
+                    </div>
+                    <div class="summary-card reveal-up">
+                        <i class="fas fa-users"></i>
+                        <h3 id="project-members">742</h3>
+                        <p>أعضاء</p>
+                    </div>
+                </div>
+
+                <!-- Overview Box -->
+                <div class="content-box reveal-up">
+                    <h2>ملخص المشروع</h2>
+                    <p id="project-overview">تطبيق يعتمد على الاشتراكات يوفر خيارات الأكل الصحي، استشارات التغذية، والتدريب عن بعد.</p>
+                    <ul id="project-features" style="list-style: none; padding-right: 0; margin-top: 20px;">
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--clr-green); margin-top: 5px;"></i>
+                            <span>تطوير الواجهة الخلفية لتطبيق يعتمد على الاشتراكات يوفر خيارات الأكل الصحي، استشارات التغذية، والتدريب عن بعد.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--clr-green); margin-top: 5px;"></i>
+                            <span>تنفيذ نظام اشتراكات للمستخدمين مع تحكم بصلاحيات الوصول للمحتوى والخدمات.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--clr-green); margin-top: 5px;"></i>
+                            <span>استخدام تقنية التخزين المؤقت Laravel Cache لتحسين الأداء وتقليل الحمل على قواعد البيانات.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--clr-green); margin-top: 5px;"></i>
+                            <span>تنفيذ مهام في الخلفية وطوابير Queues لإدارة رسائل البريد الإلكتروني، الإشعارات، والمهام طويلة الأمد.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--clr-green); margin-top: 5px;"></i>
+                            <span>دمج تقنية WebSockets لتفعيل الميزات الحية والتحديثات الفورية.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--clr-green); margin-top: 5px;"></i>
+                            <span>تصميم هيكلة برمجية نظيفة وقابلة للتوسع باستخدام أنماط التصميم (Design Patterns) وبنية تعتمد على الخدمات.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--clr-green); margin-top: 5px;"></i>
+                            <span>تطبيق إدارة محتوى متعدد اللغات باستخدام مكتبات Laravel Translatable.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--clr-green); margin-top: 5px;"></i>
+                            <span>تطبيق أنظمة المصادقة، الصلاحيات، والتحقق لضمان أمان النظام وسلامة البيانات.</span>
+                        </li>
+                        <li style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+                            <i class="fas fa-check-circle" style="color: var(--clr-green); margin-top: 5px;"></i>
+                            <span>تحسين الأداء وضمان توافق بنية الواجهة الخلفية مع محركات البحث SEO.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Technologies Box -->
+                <div class="content-box reveal-up">
+                    <h2>المهارات والتقنيات</h2>
+                    <div id="project-tech" style="margin-top: 20px;">
+                        <span class="tech-pill">لاراڤيل</span>
+                        <span class="tech-pill">WebSockets</span>
+                        <span class="tech-pill">قواعد البيانات</span>
+                        <span class="tech-pill">تحسين محركات البحث</span>
+                        <span class="tech-pill">أنماط التصميم</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 20px;">
+                <p>&copy; 2026 StackWay. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const PROJECTS_DATA = {
+            'salumida': {
+                title: 'تطبيق سالوميدا',
+                subtitle: 'نظام الأكل الصحي والتغذية',
+                bgImage: 'images/logo%20company.png',
+                mockupImage: 'images/Salumida3%20(1).png',
+                date: '2025-07-04',
+                client: 'سالوميدا',
+                rating: '5.0',
+                duration: '6 أيام',
+                members: '742',
+                overview: 'تطبيق يعتمد على الاشتراكات يوفر خيارات الأكل الصحي، استشارات التغذية، والتدريب عن بعد.',
+                features: [
+                    'تطوير الواجهة الخلفية لتطبيق يعتمد على الاشتراكات يوفر خيارات الأكل الصحي، استشارات التغذية، والتدريب عن بعد.',
+                    'تنفيذ نظام اشتراكات للمستخدمين مع تحكم بصلاحيات الوصول للمحتوى والخدمات.',
+                    'استخدام تقنية التخزين المؤقت Laravel Cache لتحسين الأداء وتقليل الحمل على قواعد البيانات.',
+                    'تنفيذ مهام في الخلفية وطوابير Queues لإدارة رسائل البريد الإلكتروني، الإشعارات، والمهام طويلة الأمد.',
+                    'دمج تقنية WebSockets لتفعيل الميزات الحية والتحديثات الفورية.',
+                    'تصميم هيكلة برمجية نظيفة وقابلة للتوسع باستخدام أنماط التصميم (Design Patterns) وبنية تعتمد على الخدمات.',
+                    'تطبيق إدارة محتوى متعدد اللغات باستخدام مكتبات Laravel Translatable.',
+                    'تطبيق أنظمة المصادقة، الصلاحيات، والتحقق لضمان أمان النظام وسلامة البيانات.',
+                    'تحسين الأداء وضمان توافق بنية الواجهة الخلفية مع محركات البحث SEO.'
+                ],
+                technologies: ['لاراڤيل', 'WebSockets', 'قواعد البيانات', 'تحسين محركات البحث', 'أنماط التصميم']
+            },
+            'ejarku': {
+                title: 'منصة إيجاركو',
+                subtitle: 'نظام تأجير متعدد الأسواق',
+                bgImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800',
+                date: '2026-03-15',
+                client: 'إيجاركو للخدمات العقارية والتجارية',
+                rating: '5.0',
+                duration: '25 يوم',
+                members: '1,200+',
+                overview: 'منصة تأجير متعددة الأسواق مصممة للسوق المصري، تتيح للموردين إدراج وإدارة إعلانات التأجير عبر فئات متعددة تشمل العقارات، السيارات، الفنادق، والخدمات مع دعم الاشتراكات والبحث بالذكاء الاصطناعي والإشعارات الفورية.',
+                features: [
+                    'تصميم وبناء البنية التحتية الخلفية (Backend) بالكامل باستخدام Laravel 12 باتباع نمط (Interface → Repository → Service → Controller) النظيف، مما يضمن فصل المهام وقابلية التوسع عبر 9 وحدات أساسية (المصادقة، السوق، الإعلانات، لوحة المورد، لوحة المستخدم، لوحة التحكم، الدفع، الإشعارات، والدردشة الذكية).',
+                    'تصميم قاعدة بيانات علاقاتية تتكون من 23 جدولاً مع تحسين الفهارس (Indexes) على الأعمدة الأكثر تصفية، وتفعيل الحذف الناعم (Soft Deletes) للجداول الأساسية، واستخدام استعلامات الربط (JOINs) بدلاً من التحميل المسبق (Eager Loading) للتخلص تماماً من مشكلة الـ N+1 في جميع نهايات العرض البرمجية (List Endpoints).',
+                    'بناء نظام سوق ديناميكي بالكامل حيث تمتلك كل فئة تأجير (عقارات، سيارات، فنادق) حقول تصفية وفئات ومميزات خاصة بها، ويتم إدارتها ديناميكياً من قاعدة البيانات دون كتابتها برمجياً بشكل ثابت (Hardcoded).',
+                    'دمج بوابات الدفع الإلكتروني (Paymob و Fawry) إلى جانب طرق الدفع اليدوية، مع تفعيل الاشتراكات تلقائياً عبر استدعاءات الخلفية (Callbacks) وتأكيد لوحة الإدارة للمدفوعات اليدوية.',
+                    'تطوير لوحة تحكم كاملة للموردين (Vendor Dashboard) تحتوي على تحليلات الأداء، وتتبع تفاعلات المستخدمين (اتصالات واتساب، الهاتف، البريد الإلكتروني)، ومراقبة استهلاك الاشتراكات، بالإضافة إلى تقديم تقارير تحليلية مدعومة بالذكاء الاصطناعي.',
+                    'دمج نموذج الذكاء الاصطناعي GLM-4 للبحث الذكي عن الإعلانات باستخدام الاستعلامات باللغة الطبيعية وتقديم تحليلات للموردين بناءً على محتوى قاعدة البيانات الحية.',
+                    'أتمتة عمليات صيانة المنصة عبر 4 وظائف مجدولة (Cron Jobs) للتعامل مع انتهاء صلاحية الإعلانات، وإلغاء تفعيل الإعلانات المميزة، وانتهاء الاشتراكات، وإرسال تنبيهات التجديد قبل 7 أيام بشكل جماعي.',
+                    'تقديم نظام إشعارات فورية (Real-time) باستخدام Laravel Reverb (WebSockets) مع آلية احتياطية (Pusher fallback) لبيئات الاستضافة المشتركة.',
+                    'بناء لوحة إدارة متكاملة (Admin Panel) باستخدام Filament v5 تحتوي على موارد (Resources)، وأدوات (Widgets)، وإجراءات مخصصة لمراجعة الإعلانات، والتحقق من الموردين، وتأكيد المدفوعات اليدوية.',
+                    'حماية وأمان المنصة باستخدام Laravel Sanctum لمصادقة رموز API (Tokens) وحزمة Spatie Permission لإدارة الصلاحيات والأدوار (super_admin / moderator / support).'
+                ],
+                technologies: ['Laravel 12', 'Filament v5', 'Laravel Reverb', 'GLM-4 AI', 'Paymob & Fawry', 'Spatie Permission']
+            },
+            'al-sheikh': {
+                title: 'متجر الشيخ',
+                subtitle: 'منصة تجارة إلكترونية للهواتف الذكية',
+                bgImage: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800',
+                date: '2026-01-10',
+                client: 'محلات الشيخ للهواتف الذكية',
+                rating: '5.0',
+                duration: '14 يوم',
+                members: '850+',
+                overview: 'منصة تجارة إلكترونية متكاملة مخصصة لبيع الهواتف الذكية وإكسسواراتها، تتيح للمستخدمين تصفح المنتجات والشراء المباشر، وتوفر للإدارة لوحة تحكم كاملة لمتابعة المخزون والطلبات والعملاء.',
+                features: [
+                    'تطوير نظام تجارة إلكترونية متكامل لبيع الهواتف المحمولة وإكسسواراتها باستخدام إطار العمل Laravel.',
+                    'تنفيذ نظام مصادقة متعدد الصلاحيات (Multi-guard Authentication) لفصل حسابات الإدارة (Admin) عن حسابات العملاء (Client) بشكل آمن بالكامل.',
+                    'بناء وتطوير وحدات برمجية شاملة لإدارة المنتجات (الهواتف الذكية)، الأقسام، سلة التسوق، والطلبات.',
+                    'تطبيق نظام متقدم لإدارة الأدوار والصلاحيات باستخدام حزمة Spatie Laravel Permission لتنظيم صلاحيات لوحة التحكم والموظفين.',
+                    'إضافة دعم كامل لتعدد اللغات (العربية / الإنجليزية) لتوفير تجربة تسوق سلسة ومريحة لجميع المستخدمين.'
+                ],
+                technologies: ['لاراڤيل (Laravel)', 'Spatie Permission', 'قاعدة بيانات MySQL', 'دعم متعدد اللغات', 'لوحة تحكم الإدارة']
+            },
+            'al-amrousi': {
+                title: 'نظام العمروسي ERP',
+                subtitle: 'نظام متكامل لإدارة المنتجات، المبيعات والحسابات',
+                bgImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
+                date: '2026-02-28',
+                client: 'مجموعة العمروسي التجارية',
+                rating: '5.0',
+                duration: '30 يوم',
+                members: '1,500+',
+                overview: 'نظام متكامل لإدارة موارد المؤسسة (ERP) يغطي المنتجات والطلبات والحسابات والمبيعات مع لوحة تحكم إدارية وبنية تحتية سحابية متطورة وسريعة.',
+                features: [
+                    'تطوير نظام إدارة موارد المؤسسات (ERP) شامل باستخدام Laravel لإدارة المنتجات، الطلبات، المحاسبة، والخدمات في بيئة لوحة تحكم إدارية وتجارة إلكترونية متكاملة.',
+                    'تنفيذ بنية برمجية نمطية (Modular Architecture) مع فصل وحدات التحكم (Controllers) والنماذج (Models) لكل من الإدارة، الموقع، والـ API لضمان سهولة الصيانة والتوسع.',
+                    'دمج نظام متقدم لمصادقة وصلاحيات المستخدمين باستخدام Laravel Fortify و Jetstream، مع التحكم بالوصول المبني على الأدوار (RBAC) لتأمين التفاعلات بين العملاء والمشرفين.',
+                    'تحسين أداء قاعدة البيانات وتطبيق آلية التحميل المسبق (Eager Loading) لتقليل استعلامات الـ N+1 وتسريع تحميل صفحات المنتجات والتقارير المالية.',
+                    'تطبيق تقنيات التخزين المؤقت (Caching) مثل (Cache::rememberForever) للبيانات المتكررة مثل أعداد القائمة الجانبية (Sidebar Counts) لتقليل الحمل على السيرفر وتسريع الاستجابة.',
+                    'تحسين ملفات الواجهة الأمامية باستخدام Tailwind CSS Purging وتقليل حجم الملفات عبر Webpack Mix لزيادة سرعة وتحميل أداء المنصة.',
+                    'دمج المراقبين (Observers) والمساعدين (Helpers) لأتمتة تحديثات النماذج، تسجيل الأخطاء (Logging)، وإدارة الملفات لضمان سلامة البيانات وكفاءة العمليات الخلفية.',
+                    'تصميم قوالب Blade متجاوبة وسلسة مع مكونات قابلة لإعادة الاستخدام لتقديم تجربة مستخدم ممتازة عبر واجهات التجارة الإلكترونية ولوحة الإدارة.'
+                ],
+                technologies: ['Laravel', 'Fortify & Jetstream', 'Tailwind CSS', 'Cache Caching', 'Blade Templates', 'Database Optimization']
+            },
+            'senerm-hr': {
+                title: 'نظام HRMS لشركة سينرم جروب',
+                subtitle: 'نظام متكامل لإدارة الموارد البشرية والرواتب والموظفين',
+                bgImage: 'images/Hey.PNG',
+                mockupImage: 'images/Hey.PNG',
+                date: '2025-11-20',
+                client: 'شركة سينرم جروب (Senerm Group)',
+                rating: '5.0',
+                duration: '18 يوم',
+                members: '950+',
+                overview: 'نظام متكامل لإدارة الموارد البشرية (HRMS) يشمل إدارة الموظفين، الحضور والانصراف، والرواتب، مع واجهة إدارة وصلاحيات متكاملة لتسهيل العمليات الإدارية لشركة سينرم جروب.',
+                features: [
+                    'بناء نظام متكامل لإدارة الموارد البشرية (HRMS) يشمل الموظفين، الحضور والانصراف، الرواتب، والأدوار.',
+                    'تصميم هيكل قاعدة بيانات علاقاتية قوية مع الفهرسة والتحسين المناسب لضمان سرعة معالجة البيانات الاستعلامية.',
+                    'تنفيذ نظام مصادقة وصلاحيات وصول آمن لتأمين لوحة التحكم الإدارية.'
+                ],
+                technologies: ['Full Stack', 'قواعد بيانات علاقاتية', 'أمن المعلومات', 'إدارة الموظفين', 'لوحة تحكم إدارية']
+            },
+            'senerm-website': {
+                title: 'موقع مجموعة سينرم',
+                subtitle: 'موقع تعريفي للشركة (Company Portfolio)',
+                bgImage: 'images/png_logo.png',
+                mockupImage: 'images/png_logo.png',
+                date: '2025-09-15',
+                client: 'شركة سينرم جروب (Senerm Group)',
+                rating: '5.0',
+                duration: '12 يوم',
+                members: '600+',
+                overview: 'موقع تعريفي متكامل ومتجاوب لمجموعة سينرم يعرض خدمات وأعمال الشركة بتصميم عصري واحترافي مبني بالكامل باستخدام HTML و CSS و JavaScript مع تحسينات الأداء وتوافق كامل مع جميع الأجهزة.',
+                features: [
+                    'تطوير موقع تعريفي متجاوب بالكامل (Responsive) باستخدام HTML و CSS و JavaScript لعرض خدمات وأعمال مجموعة سينرم.',
+                    'تنفيذ تخطيطات نظيفة ومنظمة مع تطبيق أفضل ممارسات تصميم واجهة وتجربة المستخدم (UI/UX) الحديثة.',
+                    'تطبيق مبادئ التصميم المتجاوب لضمان التوافق التام مع مختلف الأجهزة وأحجام الشاشات (موبايل، تابلت، ديسكتوب).',
+                    'تحسين أداء الواجهة الأمامية وسرعة تحميل الصفحات لتقديم تجربة تصفح سلسة وسريعة.',
+                    'التعاون مع الأنظمة الخلفية عبر دمج الواجهة الأمامية الثابتة مع الخدمات الديناميكية عند الحاجة.'
+                ],
+                technologies: ['HTML5', 'CSS3', 'JavaScript', 'تصميم متجاوب (Responsive)', 'تحسين الأداء']
+            },
+            'al-tawheed-pos': {
+                title: 'نظام نقاط بيع التوحيد',
+                subtitle: 'نظام POS متكامل لسوبر ماركت التوحيد',
+                bgImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
+                date: '2025-08-10',
+                client: 'سوبر ماركت التوحيد',
+                rating: '5.0',
+                duration: '20 يوم',
+                members: '1,100+',
+                overview: 'نظام نقاط بيع (POS) متكامل مصمم خصيصاً لسوبر ماركت التوحيد، يشمل إدارة المنتجات والأقسام، سلة المشتريات، المصروفات، الرواتب، الموردين، وإدارة الورديات مع صلاحيات متعددة المستويات.',
+                features: [
+                    'بناء نظام نقاط بيع (POS) متكامل باستخدام Laravel مصمم لتلبية احتياجات سوبر ماركت التوحيد في عمليات البيع بالتجزئة.',
+                    'تنفيذ وحدات شاملة لإدارة أقسام المنتجات، سلة المشتريات، المصروفات، الرواتب، الموردين، وإدارة الورديات.',
+                    'تطوير تحديثات فورية لسلة المشتريات باستخدام JavaScript و jQuery لتوفير تجربة بيع سريعة وسلسة عند الكاشير.',
+                    'تطبيق نظام صلاحيات مبني على الأدوار (RBAC) يشمل أدوار المدير (Admin)، الموارد البشرية (HR)، والكاشير (Cashier) لضمان أمان العمليات وفصل المهام.'
+                ],
+                technologies: ['Laravel', 'JavaScript', 'jQuery', 'إدارة الصلاحيات (RBAC)', 'قاعدة بيانات MySQL']
+            },
+            'artbella': {
+                title: 'ارتبيلا',
+                subtitle: 'متجر مستحضرات تجميل متعدد البائعين',
+                bgImage: 'images/logo%20company.png',
+                mockupImage: 'images/ARTBELLA%20.PNG',
+                date: '2026-05-21',
+                client: 'Art Bella Marketplace',
+                rating: '5.0',
+                duration: '24 يوم',
+                members: '220+',
+                overview: 'متجر إلكتروني متعدد البائعين لمستحضرات التجميل والعناية، يجمع بين سوق marketplace ونظام اجتماعي داخل التطبيق مع Reels وملاحظات.Note.',
+                features: [
+                    'سوق متعدد البائعين لمنتجات التجميل والعناية الشخصية مع متاجر منفصلة لكل بائع ونظام عمولة ذكي.',
+                    'واجهة اجتماعية داخل التطبيق تتضمن Feed و Reels قصيرة لعرض المنتجات والمحتوى الجمالي بشكل تفاعلي.',
+                    'ميزة Notes لحفظ ملاحظات المنتجات، قوائم الرغبات، وتنظيم أفكار التسوق الشخصية داخل الحساب.',
+                    'دعم صوري ومرئي للمنتجات مع علامات تجارية، فيديو Reels، وإمكانية مشاركة المحتوى بين العملاء والبائعين.',
+                    'نظام مراجعات وتعليقات متقدم مع تقييمات البائعين، والإبلاغ عن المحتوى، وخيارات تفاعلية مثل الإعجاب والمشاركة.',
+                    'لوحة بائعين متقدمة لرفع المنتجات، متابعة الطلبات، إدارة المخزون، وتتبع الإيرادات والعمولة.',
+                    'بحث ذكي وتصنيف حسب العلامة التجارية، الفئة، المكونات، تقييم العملاء، والعروض الخاصة.',
+                    'إشعارات فورية ومراسلة داخلية لدعم التواصل بين العميل والبائع وإدارة العروض الخاصة.',
+                    'تقارير أداء المبيعات وسلوك المستخدمين، مع لوحة تحكم تحليلية لكل بائع ومدير المنصة.'
+                ],
+                technologies: ['Laravel', 'Vue.js', 'Realtime Notifications', 'Multi-vendor', 'Social Reels', 'Notes System']
+            },
+            'perfect-farm': {
+                title: 'بيرفكت فارم',
+                subtitle: 'منصة صحية متعددة البائعين للمرضى والمستشفيات والصيدليات',
+                bgImage: 'images/logo%20company.png',
+                mockupImage: 'images/Perfectpharma.PNG',
+                date: '2026-05-21',
+                client: 'Perfect Farm Health SaaS',
+                rating: '5.0',
+                duration: '35 يوم',
+                members: '1,800+',
+                overview: 'منصة صحية SaaS تربط المريض بالدكاترة والمستشفيات والصيدليات والموردين، وتدير الوصفات الطبية الإلكترونية، حجوزات الأطباء، وحلول البيع متعدد البائعين للصيدليات.',
+                features: [
+                    'نظام SaaS للصيدليات مع تطبيقات منفصلة لكل صيدلية مع لوحة تحكم إدارة المخزون والمبيعات والأدوية والوصفات.',
+                    'بوابة المريض لحجز مواعيد الدكاترة المسجلين واستعراض أطباء متخصصين ومتابعة الوصفات الإلكترونية بعد انتهاء الاستشارة.',
+                    'تكامل مدفوعات ذكية وإدارة فواتير للأطباء والمستشفيات والصيدليات والموردين في منصة واحدة.',
+                    'نظام وصفات طبي إلكترونية يرسل الروشتة مباشرة إلى الصيدليات المختارة بعد انتهاء الدكتورة.',
+                    'ربط المستشفيات بالصيدليات لتأمين توفر الأدوية، وإدارة الطلبات بين الصيدليات والموردين بسرعة ودقة.',
+                    'سجل المريض الطبي المركزي مع متابعة الحالات، التاريخ العلاجي، التنبيهات الدوائية، وإدارة الأعراض.',
+                    'تطبيقات متعددة البائعين للبائعين والمتاجر والصيدليات، مع دعم التسجيل والتوثيق والتحقق لكل جهة.',
+                    'لوحة تحكم لكل منشأة طبية، تتيح مراقبة الحجوزات، الحالات، الطلبات، الإيصالات، وتقارير الأداء اليومية.',
+                    'محرك ذكاء اصطناعي بسيط يساعد في توصية الأدوية، حجز المواعيد، وتجهيز الروشتة قبل إرسالها للصيدليات.'
+                ],
+                technologies: ['Laravel', 'SaaS Architecture', 'API Integrations', 'Multi-vendor Health', 'Electronic Prescriptions', 'Booking System']
+            },
+            'alqadi': {
+                title: 'القاضي',
+                subtitle: 'نظام إدارة مزرعة دواجن متكامل',
+                bgImage: 'images/farm.png',
+                mockupImage: 'images/farm.png',
+                date: '2026-05-21',
+                client: 'مشروع القاضي لإدارة المزارع',
+                rating: '5.0',
+                duration: '28 يوم',
+                members: '12',
+                overview: 'نظام إدارة مزرعة دواجن شامل يحسب دورة الإنتاج تلقائياً بعد المبيعات، ويغطي العلف، النشارة، الكتاكيت، الغاز، الأدوية، العمال، والمصاريف التشغيلية.',
+                features: [
+                    'إدارة العلف والنشارة والكتاكيت والغاز والأدوية والعمال والمصاريف اليومية في نظام واحد.',
+                    'إغلاق دورة الإنتاج وحساب صافي الجاهزية والأرباح تلقائياً بعد تسجيل المبيعات.',
+                    'إدارة جرد الكتاكيت والمخزون، وجدولة تكاليف الاستهلاك والتوزيع على كل دورة.',
+                    'تسجيل المصاريف التشغيلية المباشرة وغير المباشرة ومتابعة الأداء المالي لكل دورة إنتاج.',
+                    'تصميم واجهة إدارة للمزارع لعرض حالة الدفعات، المصاريف، والتوريدات بشكل لحظي.',
+                    'إعداد تنبيهات تلقائية للاحتياج إلى العلف، التهوية، الأدوية، وتوزيع العمال ضمن أدوار واضحة.',
+                    'تقارير فورية عن الجاهزية، المبيعات، التكلفة، والهامش بعد نهاية كل دورة.',
+                    'دعم الحسابات المتعددة للعاملين والموردين والمصاريف لضمان شفافية كاملة في إدارة المزرعة.',
+                    'هيكلة برمجية قابلة للتوسع لاستخدامها في مزرعة دواجن أو مشاريع زراعية مماثلة.'
+                ],
+                technologies: ['Laravel', 'MySQL', 'تقارير مالية', 'إدارة المخزون', 'تنبيهات تلقائية', 'نظام جرد الدورات']
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = urlParams.get('project') || 'salumida';
+            const data = PROJECTS_DATA[projectId];
+
+            if (data) {
+                // Update title & meta tags
+                document.title = `StackWay | تفاصيل المشروع - ${data.title}`;
+                const metaDesc = document.querySelector('meta[name="description"]');
+                if (metaDesc) metaDesc.setAttribute('content', `تفاصيل مشروع ${data.title} - ${data.subtitle}.`);
+
+                // Update Hero contents
+                const heroImg = document.querySelector('.hero-img-bg');
+                if (heroImg) heroImg.src = data.bgImage;
+                
+                const titleNode = document.querySelector('.project-title-area h1');
+                if (titleNode) titleNode.textContent = data.title;
+                
+                const subtitleNode = document.querySelector('.project-title-area p');
+                if (subtitleNode) subtitleNode.textContent = data.subtitle;
+
+                const mockupImg = document.querySelector('.project-mockup img');
+                if (mockupImg) {
+                    mockupImg.src = data.mockupImage;
+                    mockupImg.alt = data.title;
+                }
+
+                // Update sidebar details
+                const dateNode = document.getElementById('project-date');
+                if (dateNode) dateNode.textContent = data.date;
+
+                const clientNode = document.getElementById('project-client');
+                if (clientNode) clientNode.textContent = data.client;
+
+                // Update numbers
+                const ratingNode = document.getElementById('project-rating');
+                if (ratingNode) ratingNode.textContent = data.rating;
+
+                const durationNode = document.getElementById('project-duration');
+                if (durationNode) durationNode.textContent = data.duration;
+
+                const membersNode = document.getElementById('project-members');
+                if (membersNode) membersNode.textContent = data.members;
+
+                // Update overview & features
+                const overviewNode = document.getElementById('project-overview');
+                if (overviewNode) overviewNode.textContent = data.overview;
+
+                const featuresList = document.getElementById('project-features');
+                if (featuresList) {
+                    featuresList.innerHTML = '';
+                    data.features.forEach(feat => {
+                        const li = document.createElement('li');
+                        li.style.marginBottom = '10px';
+                        li.style.display = 'flex';
+                        li.style.alignItems = 'flex-start';
+                        li.style.gap = '10px';
+                        
+                        const icon = document.createElement('i');
+                        icon.className = 'fas fa-check-circle';
+                        icon.style.color = 'var(--clr-green)';
+                        icon.style.marginTop = '5px';
+                        
+                        const text = document.createElement('span');
+                        text.textContent = feat;
+                        
+                        li.appendChild(icon);
+                        li.appendChild(text);
+                        featuresList.appendChild(li);
+                    });
+                }
+
+                // Update technologies
+                const techBox = document.getElementById('project-tech');
+                if (techBox) {
+                    techBox.innerHTML = '';
+                    data.technologies.forEach(tech => {
+                        const span = document.createElement('span');
+                        span.className = 'tech-pill';
+                        span.textContent = tech;
+                        techBox.appendChild(span);
+                    });
+                }
+            }
+
+            // GSAP Animations
+            gsap.to('.animate-hero', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power4.out"
+            });
+
+            gsap.utils.toArray('.reveal-up').forEach((elem, i) => {
+                gsap.fromTo(elem, 
+                    { opacity: 0, y: 50 },
+                    {
+                        scrollTrigger: {
+                            trigger: elem,
+                            start: "top 90%",
+                            toggleActions: "play none none reverse"
+                        },
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        delay: (i % 3) * 0.1,
+                        ease: "power3.out"
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+</html>

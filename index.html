@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackWay | حلول برمجية مبتكرة</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="خبراء في تطوير المواقع وتطبيقات الهواتف وتصميم الجرافيك لمشروعك. نحن نقدم حلولاً متكاملة بأحدث التقنيات.">
+    <meta name="keywords" content="تطوير تطبيقات, تصميم مواقع, جرافيك ديزاين, StackWay, برمجة, UI/UX">
+    <meta name="author" content="StackWay">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/logo company.png">
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="dark-mode">
+
+    <!-- Preloader (Optional but good for premium feel) -->
+    <div id="loader" style="position: fixed; inset: 0; background: #06070a; z-index: 9999; display: flex; align-items: center; justify-content: center;">
+        <div style="width: 80px; height: 80px; border: 5px solid #00e676; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+    </div>
+
+    <header>
+        <nav class="nav-pill">
+            <div class="logo">
+                <img src="images/logo company.png" alt="StackWay Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html" class="services-trigger">الخدمات <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-right: 5px;"></i></a></li>
+                <li><a href="projects.html">المشاريع</a></li>
+                <li><a href="index.html#about">من نحن</a></li>
+                <li><a href="https://wa.me/01202325201" target="_blank" rel="noopener">تواصل معنا</a></li>
+            </ul>
+            <div class="nav-tools">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-glow" style="padding: 8px 20px; font-size: 0.8rem;">تواصل الآن</button>
+                <button class="menu-toggle" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Services Sidebar overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Services Sidebar -->
+    <aside class="services-sidebar" id="servicesSidebar">
+        <div class="sidebar-header">
+            <h3>الخدمات</h3>
+            <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="sidebar-content">
+            <a href="services.html" class="sidebar-service-item">
+                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="service-info">
+                    <h4>إنشاء تطبيقات</h4>
+                    <p>أنشئ تطبيقك الخاص بسهولة واحترافية مع أفضل التقنيات الحديثة.</p>
+                </div>
+            </a>
+            <a href="services.html" class="sidebar-service-item">
+                <div class="service-icon"><i class="fas fa-globe"></i></div>
+                <div class="service-info">
+                    <h4>إنشاء مواقع</h4>
+                    <p>أنشئ موقعك الإلكتروني باحترافية وسرعة عالية يعكس هوية مشروعك.</p>
+                </div>
+            </a>
+            <a href="services.html" class="sidebar-service-item">
+                <div class="service-icon"><i class="fas fa-microchip"></i></div>
+                <div class="service-info">
+                    <h4>أجهزة ذكية (أردوينو - سمارت هوم)</h4>
+                    <p>حوّل منزلك إلى منزل ذكي باستخدام أحدث تقنيات الأردوينو والأجهزة الذكية.</p>
+                </div>
+            </a>
+            <a href="services.html" class="sidebar-service-item">
+                <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                <div class="service-info">
+                    <h4>تصميم بوسترات وسوشيال ميديا</h4>
+                    <p>تصميمات جذابة واحترافية تساعدك على جذب العملاء وزيادة التفاعل.</p>
+                </div>
+            </a>
+            <a href="services.html" class="sidebar-service-item">
+                <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                <div class="service-info">
+                    <h4>تصميم تجربة وواجهة المستخدم (UI/UX)</h4>
+                    <p>نقدم خدمات تصميم UI/UX احترافية تشمل تحليل تجربة المستخدم.</p>
+                </div>
+            </a>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="services.html" class="btn-glow" style="width: 100%; justify-content: center;">تصفح كل الخدمات</a>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg-logo">
+                <img src="logo.svg" alt="" style="width: 800px;">
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="animate-hero">نحن نصمم حلول برمجية <span class="text-gradient">مبتكرة وذكية</span> لتطوير أعمالك بسهولة وكفاءة.</h1>
+                    <p class="animate-hero">انطلق بتطبيقك اليوم مع فريق StackWay المحترف، حيث نحول رؤيتك إلى حقيقة رقمية ملموسة.</p>
+                    <div class="hero-cta animate-hero">
+                        <button class="btn-glow" style="font-size: 1.2rem; border: 2px solid var(--clr-green);">احصل على استشارة الآن <i class="fas fa-rocket"></i></button>
+                    </div>
+                </div>
+                <div class="hero-logo-full animate-logo">
+                    <img src="logo.svg" alt="StackWay Full Logo" style="width: 100%; filter: drop-shadow(0 0 30px var(--clr-green-glow));">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <span class="section-tag">من نحن</span>
+                <h2 class="reveal">خبراء في تطوير المواقع وتطبيقات الهواتف وتصميم الجرافيك لمشروعك</h2>
+                <p class="reveal">نحن نقدم حلولاً متكاملة لتطوير المواقع وتطبيقات الهواتف وتصميم الجرافيك بأحدث التقنيات، نجعل فكرتك حقيقة ونساعدك في التميز في عالم الإنترنت والتطبيقات.</p>
+            </div>
+        </section>
+
+        <!-- Clients Slider -->
+        <section class="clients">
+            <div class="slider-container">
+                <!-- Replace placeholder client logos with project brand assets -->
+                <img src="images/ARTBELLA%20.PNG" alt="Art Bella" class="client-logo">
+                <img src="images/Perfectpharma.PNG" alt="Perfect Pharma" class="client-logo">
+                <img src="images/الصيدليه.png" alt="moataz" class="client-logo">
+                <img src="images/png_logo.png" alt="Senerm Group" class="client-logo">
+                <img src="images/Hey.PNG" alt="HEY" class="client-logo">
+                <img src="images/farm.png" alt="Perfect Farm" class="client-logo">
+                <img src="images/Salumida3%20(1).png" alt="Salumida" class="client-logo">
+                <img src="images/العمروسي.png" alt="amrousi" class="client-logo">
+                <img src="images/ايجاركو.png" alt="ejaku" class="client-logo">
+                <img src="images/Evara new.PNG" alt="Evara" class="client-logo">
+                <img src="images/توصيلة.png" alt="twsila" class="client-logo">
+                <img src="images/رونق.PNG" alt="ronk" class="client-logo">
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="projects-header">
+                    <span class="section-tag">أعمالنا</span>
+                    <h2>مشاريعنا الأخيرة</h2>
+                </div>
+                <div class="project-grid">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card reveal-up" data-category="mobile">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Salumida">
+                                    <div class="front-content-overlay">
+                                        <h3>تطبيق سالوميدا</h3>
+                                        <p>نظام الأكل الصحي والتغذية</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>تطبيق سالوميدا</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير تطبيقات</span>
+                                    <p>تطبيق يعتمد على الاشتراكات لخيارات الأكل الصحي، استشارات التغذية، والتدريب عن بعد.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">WebSockets</span>
+                                    </div>
+                                    <a href="project-details.html?project=salumida" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" alt="Ejarku">
+                                    <div class="front-content-overlay">
+                                        <h3>منصة إيجاركو</h3>
+                                        <p>نظام تأجير متعدد الأسواق</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>منصة إيجاركو</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
+                                    <p>منصة تأجير متعددة الأسواق للعقارات والسيارات مع دعم البحث بالذكاء الاصطناعي والاشتراكات.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel 12</span>
+                                        <span class="tool-pill">Filament v5</span>
+                                        <span class="tool-pill">GLM-4 AI</span>
+                                    </div>
+                                    <a href="project-details.html?project=ejarku" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800" alt="Al-Sheikh Store">
+                                    <div class="front-content-overlay">
+                                        <h3>متجر الشيخ</h3>
+                                        <p>منصة تجارة إلكترونية للهواتف</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>متجر الشيخ</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
+                                    <p>متجر إلكتروني متكامل لبيع الهواتف المحمولة وإدارة الطلبات والمنتجات بلغات متعددة.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">Spatie Permission</span>
+                                    </div>
+                                    <a href="project-details.html?project=al-sheikh" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Al-Amrousi ERP">
+                                    <div class="front-content-overlay">
+                                        <h3>نظام العمروسي ERP</h3>
+                                        <p>نظام متكامل لإدارة المنتجات، المبيعات والحسابات</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>نظام العمروسي ERP</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
+                                    <p>نظام متكامل لإدارة موارد المؤسسة (ERP) يغطي المنتجات والطلبات والحسابات والمبيعات.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">Fortify & Jetstream</span>
+                                    </div>
+                                    <a href="project-details.html?project=al-amrousi" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Growth / WhatsApp -->
+        <section class="growth">
+            <div class="container">
+                <div class="cta-box reveal-scale">
+                    <h2>نموك يبدأ معنا</h2>
+                    <p style="font-size: 1.5rem; margin-bottom: 40px; color: #000;">لا تتردد في التواصل معنا لبدء رحلة نجاحك الرقمية اليوم.</p>
+                    <a href="https://wa.me/01202325201" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> تواصل معنا عبر واتساب أو اتصل على 01202325201
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section id="why" class="why">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <span class="section-tag">لماذا تختارنا؟</span>
+                    <h2>تساعدك StackWay على إنشاء، تخصيص، وإطلاق منتجك المتميز بشكل أسرع من أي وقت مضى.</h2>
+                </div>
+                
+                <div class="process-list">
+                    <div class="process-item scroll-reveal">
+                        <div class="process-icon"><i class="fas fa-code"></i></div>
+                        <div class="process-info">
+                            <h4>بناء التطبيق</h4>
+                            <p>نقوم بتحويل التصميمات والمخططات إلى تطبيق عملي، مع كتابة الأكواد اللازمة ودمج جميع الوظائف لتوفير تطبيق يعمل بكفاءة وسلاسة.</p>
+                        </div>
+                    </div>
+                    <div class="process-item scroll-reveal">
+                        <div class="process-icon"><i class="fas fa-paint-brush"></i></div>
+                        <div class="process-info">
+                            <h4>تجربة المستخدم UI/UX</h4>
+                            <p>نصمّم واجهات التطبيق بعناية لتكون جذابة وسهلة الاستخدام، مع تنظيم العناصر بشكل منطقي وتوفير تجربة سلسة للمستخدم من أول تفاعل حتى الانتهاء من المهام.</p>
+                        </div>
+                    </div>
+                    <div class="process-item scroll-reveal">
+                        <div class="process-icon"><i class="fas fa-shield-alt"></i></div>
+                        <div class="process-info">
+                            <h4>تحقق الجودة</h4>
+                            <p>نقوم بفحص جميع وظائف التطبيق بدقة لضمان عمله دون أخطاء، والتحقق من تجربة المستخدم والتأكد من أن كل ميزة تعمل بسلاسة قبل التسليم النهائي.</p>
+                        </div>
+                    </div>
+                    <div class="process-item scroll-reveal">
+                        <div class="process-icon"><i class="fas fa-check-double"></i></div>
+                        <div class="process-info">
+                            <h4>إكمال التطبيق</h4>
+                            <p>في هذه المرحلة، نقوم بتجميع كل مكونات التطبيق والتأكد من أن كل شيء يعمل بشكل كامل وجاهز للخطوة التالية: التسليم.</p>
+                        </div>
+                    </div>
+                    <div class="process-item scroll-reveal">
+                        <div class="process-icon"><i class="fas fa-truck-loading"></i></div>
+                        <div class="process-info">
+                            <h4>تسليم التطبيق</h4>
+                            <p>نقوم بتسليم التطبيق بشكل كامل بعد الانتهاء من جميع المراحل، مع التأكد من جاهزيته للعمل بكفاءة، وتسليمه للعميل بجميع الملفات والمرفقات المطلوبة لضمان تجربة استخدام سلسة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <div class="container">
+                <div class="faq-container">
+                    <div class="robot-visual">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Robot" class="robot-bot">
+                    </div>
+                    <div class="faq-content">
+                        <span class="section-tag">الأسئلة الشائعة</span>
+                        <h2 style="margin-bottom: 30px;">ابحث عن إجابات سريعة للأسئلة الشائعة حول خدماتنا وميزاتنا.</h2>
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <div class="faq-question">كيف أبدأ مشروعي مع StackWay؟ <i class="fas fa-chevron-down"></i></div>
+                                <div class="faq-answer">يمكنك البدء بالتواصل معنا عبر واتساب أو زر الاستشارة، وسنقوم بتحديد موعد لمناقشة فكرتك وتحويلها لمشروع حقيقي.</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">هل توفرون الدعم الفني بعد التسليم؟ <i class="fas fa-chevron-down"></i></div>
+                                <div class="faq-answer">نعم، نحن نلتزم بتوفير دعم فني وصيانة دورية لضمان عمل مشروعك بأفضل صورة ممكنة.</div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question">كم تستغرق عملية بناء الموقع؟ <i class="fas fa-chevron-down"></i></div>
+                                <div class="faq-answer">تختلف المدة حسب حجم المشروع، ولكننا نتميز بالسرعة والدقة في التنفيذ.</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 50px; padding: 40px; border: 2px solid var(--clr-green); border-radius: 20px;">
+                            <h3>هل لا تزال لديك أسئلة؟</h3>
+                            <p>لا يمكنك العثور على الإجابة؟ تواصل مع فريق الدعم لحل مشكلتك.</p>
+                            <button class="btn-glow" style="margin-top: 20px;">تواصل معنا</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3 class="counter">40</h3>
+                        <p>عميل سعيد</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter">5</h3>
+                        <p>سنوات خبرة</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter">53</h3>
+                        <p>مشروع منفذ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo.svg" alt="StackWay Logo" style="height: 50px;">
+                    <p>StackWay هي شريكك الرقمي لتحويل الأفكار إلى واقع. نحن نصمم ونطور بأحدث التقنيات لضمان تميز أعمالك.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>روابط سريعة</h5>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#projects">المشاريع</a></li>
+                        <li><a href="https://wa.me/01202325201" target="_blank" rel="noopener noreferrer">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>خدماتنا</h5>
+                    <ul>
+                        <li><a href="#">تطوير ويب</a></li>
+                        <li><a href="#">تطبيقات جوال</a></li>
+                        <li><a href="#">تصميم UI/UX</a></li>
+                        <li><a href="#">نظم إدارية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>تواصل معنا</h5>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> stackway9@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> <a href="https://wa.me/01202325201" target="_blank" rel="noopener">01202325201</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> الاسكندرية، مصر</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StackWay. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

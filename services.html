@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackWay | خدماتنا</title>
+    
+    <meta name="description" content="تعرف على خدمات StackWay المتنوعة من تطوير الويب والتطبيقات والتصميم.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="dark-mode">
+
+    <header>
+        <nav class="nav-pill">
+            <div class="logo">
+                <img src="logo.svg" alt="StackWay Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="services.html" class="active">الخدمات</a></li>
+                <li><a href="projects.html">المشاريع</a></li>
+                <li><a href="index.html#about">من نحن</a></li>
+                <li><a href="index.html#contact">تواصل معنا</a></li>
+            </ul>
+            <div class="nav-tools">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-glow" style="padding: 8px 20px; font-size: 0.8rem;">تواصل الآن</button>
+                <button class="menu-toggle" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-main">
+        <!-- Services Header -->
+        <section class="services-page-header">
+            <div class="container" style="text-align: center; margin-bottom: 50px;">
+                <h1 style="font-size: 4rem; font-weight: 900; margin-bottom: 20px;" class="animate-hero">خدماتنا</h1>
+                
+                <!-- Filter Pills -->
+                <div class="filter-pills animate-hero" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px;">
+                    <button class="filter-btn active" data-filter="all">الكل</button>
+                    <button class="filter-btn" data-filter="mobile"><i class="fas fa-mobile-alt" style="margin-left: 8px;"></i> برمجة الهواتف</button>
+                    <button class="filter-btn" data-filter="web"><i class="fas fa-globe" style="margin-left: 8px;"></i> تطوير الويب</button>
+                    <button class="filter-btn" data-filter="uiux"><i class="fas fa-pen-nib" style="margin-left: 8px;"></i> تصميم واجهات UI/UX</button>
+                    <button class="filter-btn" data-filter="graphic"><i class="fas fa-paint-brush" style="margin-left: 8px;"></i> الجرافيك ديزاين</button>
+                    <button class="filter-btn" data-filter="smart"><i class="fas fa-microchip" style="margin-left: 8px;"></i> حلول تقنية مبتكرة</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section class="services-grid-section" style="padding-bottom: 100px;">
+            <div class="container">
+                <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px;">
+                    
+                    <!-- Service Card 1 -->
+                    <div class="service-card reveal-up" data-category="smart">
+                        <div class="service-card-img">
+                            <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800" alt="Smart Home">
+                            <div class="service-card-icon"><i class="fas fa-wifi"></i></div>
+                        </div>
+                        <div class="service-card-content">
+                            <h3>أجهزة ذكية (أردوينو - سمارت هوم)</h3>
+                            <p>حوّل منزلك إلى منزل ذكي باستخدام أحدث تقنيات الأردوينو والأجهزة الذكية. نقدم حلول الأجهزة الذكية باستخدام Arduino وأنظمة Smart Home.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="service-card reveal-up" data-category="graphic">
+                        <div class="service-card-img">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800" alt="Graphic Design">
+                            <div class="service-card-icon"><i class="fas fa-paint-brush"></i></div>
+                        </div>
+                        <div class="service-card-content">
+                            <h3>تصميم بوسترات وتصميمات سوشيال ميديا</h3>
+                            <p>تصميمات جذابة واحترافية تساعدك على جذب العملاء وزيادة التفاعل. نقدم تصميمات احترافية للسوشيال ميديا تشمل البوسترات.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="service-card reveal-up" data-category="uiux">
+                        <div class="service-card-img">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800" alt="UI/UX Design">
+                            <div class="service-card-icon"><i class="fas fa-vector-square"></i></div>
+                        </div>
+                        <div class="service-card-content">
+                            <h3>تصميم تجربة وواجهة المستخدم (UI/UX)</h3>
+                            <p>نقدم خدمات تصميم UI/UX احترافية تشمل تحليل تجربة المستخدم وتصميم واجهات مبتكرة وسهلة الاستخدام.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card 4 -->
+                    <div class="service-card reveal-up" data-category="web">
+                        <div class="service-card-img">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800" alt="Web Dev">
+                            <div class="service-card-icon"><i class="fas fa-laptop-code"></i></div>
+                        </div>
+                        <div class="service-card-content">
+                            <h3>تطوير وإنشاء المواقع</h3>
+                            <p>نبني مواقع إلكترونية سريعة ومتجاوبة مع كافة الأجهزة، باستخدام أحدث التقنيات لضمان أداء استثنائي وتجربة مميزة.</p>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="service-card reveal-up" data-category="mobile">
+                        <div class="service-card-img">
+                            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800" alt="Mobile App">
+                            <div class="service-card-icon"><i class="fas fa-mobile-alt"></i></div>
+                        </div>
+                        <div class="service-card-content">
+                            <h3>تطوير تطبيقات الهواتف</h3>
+                            <p>تطبيقات هواتف ذكية (iOS & Android) بأداء عالٍ وتصميم سلس يضمن لك الوصول إلى جمهورك في كل مكان.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="logo.svg" alt="StackWay Logo" style="height: 50px;">
+                    <p>StackWay هي شريكك الرقمي لتحويل الأفكار إلى واقع. نحن نصمم ونطور بأحدث التقنيات لضمان تميز أعمالك.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>روابط سريعة</h5>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="index.html#about">من نحن</a></li>
+                        <li><a href="projects.html">المشاريع</a></li>
+                        <li><a href="index.html#contact">تواصل معنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>خدماتنا</h5>
+                    <ul>
+                        <li><a href="services.html">تطوير ويب</a></li>
+                        <li><a href="services.html">تطبيقات جوال</a></li>
+                        <li><a href="services.html">تصميم UI/UX</a></li>
+                        <li><a href="services.html">نظم إدارية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>تواصل معنا</h5>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@stackway.com</li>
+                        <li><i class="fas fa-phone"></i> +20 123 456 7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> القاهرة، مصر</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 StackWay. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Services Filter Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const serviceCards = document.querySelectorAll('.service-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    serviceCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            gsap.to(card, { opacity: 1, scale: 1, duration: 0.4, display: 'block' });
+                        } else {
+                            gsap.to(card, { opacity: 0, scale: 0.8, duration: 0.4, display: 'none' });
+                        }
+                    });
+                    
+                    // Refresh ScrollTrigger after layout change
+                    setTimeout(() => ScrollTrigger.refresh(), 500);
+                });
+            });
+            
+            // Init hero animations for this page specifically since preloader is not here
+            gsap.to('.animate-hero', {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                stagger: 0.1,
+                ease: "power4.out"
+            });
+        });
+    </script>
+</body>
+</html>
