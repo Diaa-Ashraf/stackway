@@ -34,19 +34,45 @@ function toggleTheme() {
 function initHeroAnimations() {
     const tl = gsap.timeline();
     
-    tl.to('.animate-hero', {
+    tl.fromTo('.animate-logo', 
+        { opacity: 0, scale: 0.5, rotateY: -30 },
+        { opacity: 1, scale: 1, rotateY: 0, duration: 1.4, ease: "back.out(1.7)" }
+    )
+    .to('.animate-hero', {
         opacity: 1,
         y: 0,
         duration: 1,
         stagger: 0.2,
         ease: "power4.out"
-    })
-    .to('.animate-logo', {
-        opacity: 1,
-        scale: 1,
-        duration: 1.5,
-        ease: "elastic.out(1, 0.3)"
-    }, "-=0.5");
+    }, "-=0.8");
+
+    // Interactive 3D Parallax Tilt for Logo Showcase
+    const showcase = document.querySelector('.hero-logo-showcase');
+    const logoWrapper = document.querySelector('.hero-logo-wrapper');
+    
+    if (showcase && logoWrapper) {
+        showcase.addEventListener('mousemove', (e) => {
+            const rect = showcase.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            gsap.to(logoWrapper, {
+                rotateY: x * 0.15,
+                rotateX: -y * 0.15,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+
+        showcase.addEventListener('mouseleave', () => {
+            gsap.to(logoWrapper, {
+                rotateY: 0,
+                rotateX: 0,
+                duration: 0.8,
+                ease: "elastic.out(1, 0.4)"
+            });
+        });
+    }
 }
 
 // Scroll Animations
@@ -72,9 +98,9 @@ gsap.utils.toArray('.reveal-up').forEach((elem, i) => {
             toggleActions: "play none none reverse"
         },
         opacity: 0,
-        y: 100,
+        y: 80,
         duration: 1,
-        delay: i * 0.1,
+        delay: (i % 4) * 0.12,
         ease: "power3.out"
     });
 });
@@ -86,6 +112,36 @@ gsap.utils.toArray('.scroll-reveal').forEach(elem => {
             start: "top 80%",
             onEnter: () => elem.classList.add('visible')
         }
+    });
+});
+
+// Magnetic & 3D Interactive Cards Tilt
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.project-card, .service-card, .stat-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            gsap.to(card, {
+                rotateY: x * 0.04,
+                rotateX: -y * 0.04,
+                transformPerspective: 1000,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                rotateY: 0,
+                rotateX: 0,
+                duration: 0.6,
+                ease: "power2.out"
+            });
+        });
     });
 });
 
@@ -101,48 +157,82 @@ gsap.from('.cta-box', {
 });
 
 // Stats Counter
-const counters = document.querySelectorAll('.counter');
-counters.forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.getAttribute('data-target') || parseInt(counter.innerText);
-        const count = +counter.innerText;
-        const speed = 200;
-        const inc = target / speed;
-
-        if (count < target) {
-            counter.innerText = Math.ceil(count + inc);
-            setTimeout(updateCount, 1);
-        } else {
-            counter.innerText = target;
-        }
-    };
-
-    ScrollTrigger.create({
-        trigger: counter,
-        onEnter: () => {
-            if (!counter.hasAttribute('data-target')) {
-                counter.setAttribute('data-target', counter.innerText);
-                counter.innerText = '0';
-            }
-            updateCount();
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        
+        ScrollTrigger.create({
+            trigger: counter,
+            start: "top 85%",
+            onEnter: () => {
+                let obj = { val: 0 };
+                gsap.to(obj, {
+                    val: target,
+                    duration: 2,
+                    ease: "power2.out",
+                    onUpdate: () => {
+                        counter.innerText = Math.floor(obj.val);
+                    }
+                });
+            },
+            once: true
+        });
     });
 });
 
-// FAQ Accordion
-document.querySelectorAll('.faq-question').forEach(item => {
-    item.addEventListener('click', () => {
-        const parent = item.parentElement;
-        const icon = item.querySelector('i');
-        
-        parent.classList.toggle('active');
-        
-        if (parent.classList.contains('active')) {
-            icon.style.transform = 'rotate(180deg)';
-        } else {
-            icon.style.transform = 'rotate(0deg)';
-        }
+// FAQ Accordion & Interactions
+document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(item => {
+        item.addEventListener('click', () => {
+            const currentItem = item.closest('.faq-item');
+            const isActive = currentItem.classList.contains('active');
+
+            // Close other accordion items smoothly
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== currentItem) {
+                    otherItem.classList.remove('active');
+                }
+            });
+
+            // Toggle clicked item
+            if (isActive) {
+                currentItem.classList.remove('active');
+            } else {
+                currentItem.classList.add('active');
+            }
+        });
     });
+
+    // 3D Parallax Tilt for FAQ Assistant
+    const faqShowcase = document.querySelector('.faq-visual-showcase');
+    const robotBot = document.querySelector('.robot-bot');
+
+    if (faqShowcase && robotBot) {
+        faqShowcase.addEventListener('mousemove', (e) => {
+            const rect = faqShowcase.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            gsap.to(robotBot, {
+                rotateY: x * 0.12,
+                rotateX: -y * 0.12,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+        });
+
+        faqShowcase.addEventListener('mouseleave', () => {
+            gsap.to(robotBot, {
+                rotateY: 0,
+                rotateX: 0,
+                duration: 0.8,
+                ease: "elastic.out(1, 0.4)"
+            });
+        });
+    }
 });
 
 // Smooth Navbar Scroll

@@ -20,7 +20,7 @@
     <header>
         <nav class="nav-pill">
             <div class="logo">
-                <img src="logo.svg" alt="StackWay Logo">
+                <img src="images/logo company.png" alt="StackWay Logo" class="nav-logo-img">
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">الرئيسية</a></li>
@@ -43,12 +43,31 @@
 
     <main class="page-main">
         <!-- Services Header -->
-        <section class="services-page-header">
-            <div class="container" style="text-align: center; margin-bottom: 50px;">
-                <h1 style="font-size: 4rem; font-weight: 900; margin-bottom: 20px;" class="animate-hero">خدماتنا</h1>
+        <section class="services-page-header" style="position: relative; overflow: hidden; padding-top: 40px;">
+            <div class="hero-bg-glow" style="width: 450px; height: 450px; opacity: 0.7;"></div>
+            <div class="container hero-container" style="text-align: center; margin-bottom: 50px;">
                 
+                <!-- Animated Mini Logo Showcase -->
+                <div class="hero-logo-showcase animate-logo" style="width: 240px; height: 240px; margin-bottom: 25px;">
+                    <div class="floating-particles">
+                        <span class="particle p1"></span>
+                        <span class="particle p2"></span>
+                        <span class="particle p3"></span>
+                        <span class="particle p4"></span>
+                    </div>
+                    <div class="orbit-ring ring-1" style="width: 200px; height: 200px;"></div>
+                    <div class="orbit-ring ring-2" style="width: 230px; height: 230px;"></div>
+                    <div class="hero-logo-wrapper" style="width: 150px; height: 150px;">
+                        <div class="logo-glow-layer"></div>
+                        <img src="images/logo company.png" alt="StackWay Logo" class="hero-main-logo">
+                    </div>
+                </div>
+
+                <h1 class="page-title animate-hero">خدماتنا <span class="text-gradient animated-text-glow">المتكاملة</span></h1>
+                <p class="page-subtitle animate-hero" style="max-width: 650px;">نقدم لك أحدث التقنيات والحلول المبتكرة لبناء هويتك الرقمية وتطوير أعمالك بأعلى درجات الاحترافية.</p>
+
                 <!-- Filter Pills -->
-                <div class="filter-pills animate-hero" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px;">
+                <div class="filter-pills animate-hero">
                     <button class="filter-btn active" data-filter="all">الكل</button>
                     <button class="filter-btn" data-filter="mobile"><i class="fas fa-mobile-alt" style="margin-left: 8px;"></i> برمجة الهواتف</button>
                     <button class="filter-btn" data-filter="web"><i class="fas fa-globe" style="margin-left: 8px;"></i> تطوير الويب</button>
@@ -65,7 +84,7 @@
                 <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px;">
                     
                     <!-- Service Card 1 -->
-                    <div class="service-card reveal-up" data-category="smart">
+                    <div class="service-card reveal-up magnetic-card" data-category="smart">
                         <div class="service-card-img">
                             <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800" alt="Smart Home">
                             <div class="service-card-icon"><i class="fas fa-wifi"></i></div>
@@ -77,7 +96,7 @@
                     </div>
 
                     <!-- Service Card 2 -->
-                    <div class="service-card reveal-up" data-category="graphic">
+                    <div class="service-card reveal-up magnetic-card" data-category="graphic">
                         <div class="service-card-img">
                             <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800" alt="Graphic Design">
                             <div class="service-card-icon"><i class="fas fa-paint-brush"></i></div>
@@ -89,7 +108,7 @@
                     </div>
 
                     <!-- Service Card 3 -->
-                    <div class="service-card reveal-up" data-category="uiux">
+                    <div class="service-card reveal-up magnetic-card" data-category="uiux">
                         <div class="service-card-img">
                             <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800" alt="UI/UX Design">
                             <div class="service-card-icon"><i class="fas fa-vector-square"></i></div>
@@ -101,7 +120,7 @@
                     </div>
                     
                     <!-- Service Card 4 -->
-                    <div class="service-card reveal-up" data-category="web">
+                    <div class="service-card reveal-up magnetic-card" data-category="web">
                         <div class="service-card-img">
                             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800" alt="Web Dev">
                             <div class="service-card-icon"><i class="fas fa-laptop-code"></i></div>
@@ -113,7 +132,7 @@
                     </div>
 
                     <!-- Service Card 5 -->
-                    <div class="service-card reveal-up" data-category="mobile">
+                    <div class="service-card reveal-up magnetic-card" data-category="mobile">
                         <div class="service-card-img">
                             <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800" alt="Mobile App">
                             <div class="service-card-icon"><i class="fas fa-mobile-alt"></i></div>
@@ -134,7 +153,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="logo.svg" alt="StackWay Logo" style="height: 50px;">
+                    <img src="images/logo company.png" alt="StackWay Logo" style="max-height: 60px; width: auto; filter: drop-shadow(0 4px 15px rgba(84, 209, 255, 0.4));">
                     <p>StackWay هي شريكك الرقمي لتحويل الأفكار إلى واقع. نحن نصمم ونطور بأحدث التقنيات لضمان تميز أعمالك.</p>
                 </div>
                 <div class="footer-col">

@@ -54,7 +54,7 @@
     <header>
         <nav class="nav-pill">
             <div class="logo">
-                <img src="logo.svg" alt="StackWay Logo">
+                <img src="images/logo company.png" alt="StackWay Logo" class="nav-logo-img">
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">الرئيسية</a></li>
@@ -108,12 +108,30 @@
     <main class="page-main">
         <!-- Projects Header -->
         <section class="projects-page-header">
-            <div class="container" style="text-align: center; margin-bottom: 50px;">
-                <h1 style="font-size: 4rem; font-weight: 900; margin-bottom: 20px;" class="animate-hero">مشاريع مختارة</h1>
-                <p class="animate-hero" style="font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto;">مجموعة من المشاريع التي تعرض خبرات التطوير، والابتكار في التصميم، والحلول التقنية.</p>
+            <div class="hero-bg-glow" style="width: 450px; height: 450px; opacity: 0.7;"></div>
+            <div class="container hero-container" style="text-align: center; margin-bottom: 50px;">
+                
+                <!-- Animated Mini Logo Showcase -->
+                <div class="hero-logo-showcase animate-logo" style="width: 240px; height: 240px; margin-bottom: 25px;">
+                    <div class="floating-particles">
+                        <span class="particle p1"></span>
+                        <span class="particle p2"></span>
+                        <span class="particle p3"></span>
+                        <span class="particle p4"></span>
+                    </div>
+                    <div class="orbit-ring ring-1" style="width: 200px; height: 200px;"></div>
+                    <div class="orbit-ring ring-2" style="width: 230px; height: 230px;"></div>
+                    <div class="hero-logo-wrapper" style="width: 150px; height: 150px;">
+                        <div class="logo-glow-layer"></div>
+                        <img src="images/logo company.png" alt="StackWay Logo" class="hero-main-logo">
+                    </div>
+                </div>
+
+                <h1 class="page-title animate-hero">معرض <span class="text-gradient animated-text-glow">أعمالنا والمشاريع</span></h1>
+                <p class="page-subtitle animate-hero">مجموعة مختارة من أفضل أعمالنا التي تعكس التزامنا بأعلى معايير الدقة والابتكار في البرمجة والتصميم.</p>
                 
                 <!-- Filter Pills -->
-                <div class="filter-pills animate-hero" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px;">
+                <div class="filter-pills animate-hero">
                     <button class="filter-btn active" data-filter="all">الكل</button>
                     <button class="filter-btn" data-filter="mobile"><i class="fas fa-mobile-alt" style="margin-left: 8px;"></i> برمجة الهواتف</button>
                     <button class="filter-btn" data-filter="web"><i class="fas fa-globe" style="margin-left: 8px;"></i> تطوير الويب</button>

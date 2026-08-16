@@ -29,7 +29,7 @@
     <header>
         <nav class="nav-pill">
             <div class="logo">
-                <img src="images/logo company.png" alt="StackWay Logo">
+                <img src="images/logo company.png" alt="StackWay Logo" class="nav-logo-img">
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">الرئيسية</a></li>
@@ -105,27 +105,80 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero">
-            <div class="hero-bg-logo">
-                <img src="logo.svg" alt="" style="width: 800px;">
-            </div>
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="animate-hero">نحن نصمم حلول برمجية <span class="text-gradient">مبتكرة وذكية</span> لتطوير أعمالك بسهولة وكفاءة.</h1>
-                    <p class="animate-hero">انطلق بتطبيقك اليوم مع فريق StackWay المحترف، حيث نحول رؤيتك إلى حقيقة رقمية ملموسة.</p>
-                    <div class="hero-cta animate-hero">
-                        <button class="btn-glow" style="font-size: 1.2rem; border: 2px solid var(--clr-green);">احصل على استشارة الآن <i class="fas fa-rocket"></i></button>
+            <div class="hero-bg-glow"></div>
+            
+            <div class="container hero-container">
+                <!-- Hero Animated Showcase -->
+                <div class="hero-logo-showcase animate-logo">
+                    <!-- Particle orbit container -->
+                    <div class="floating-particles">
+                        <span class="particle p1"></span>
+                        <span class="particle p2"></span>
+                        <span class="particle p3"></span>
+                        <span class="particle p4"></span>
+                        <span class="particle p5"></span>
+                        <span class="particle p6"></span>
+                    </div>
+
+                    <!-- Holographic Orbit Rings -->
+                    <div class="orbit-ring ring-1"></div>
+                    <div class="orbit-ring ring-2"></div>
+
+                    <!-- Floating Tech Badges -->
+                    <div class="tech-floating-badge badge-1"><i class="fas fa-code"></i> WEBSITES</div>
+                    <div class="tech-floating-badge badge-2"><i class="fas fa-desktop"></i> SYSTEMS</div>
+                    <div class="tech-floating-badge badge-3"><i class="fas fa-cloud"></i> CLOUD</div>
+                    <div class="tech-floating-badge badge-4"><i class="fas fa-chart-line"></i> GROWTH</div>
+
+                    <!-- Main Logo Container -->
+                    <div class="hero-logo-wrapper">
+                        <div class="logo-glow-layer"></div>
+                        <img src="images/logo company.png" alt="StackWay Logo" class="hero-main-logo">
                     </div>
                 </div>
-                <div class="hero-logo-full animate-logo">
-                    <img src="logo.svg" alt="StackWay Full Logo" style="width: 100%; filter: drop-shadow(0 0 30px var(--clr-green-glow));">
+
+                <div class="hero-content">
+                    <h1 class="animate-hero">نحن نصمم حلول برمجية <span class="text-gradient animated-text-glow">مبتكرة وذكية</span> لتطوير أعمالك.</h1>
+                    <p class="animate-hero">انطلق بتطبيقك اليوم مع فريق StackWay المحترف، حيث نحول رؤيتك إلى حقيقة رقمية ملموسة.</p>
+                    <div class="hero-cta animate-hero">
+                        <button class="btn-glow" style="font-size: 1.2rem; border: 2px solid var(--clr-green);" onclick="window.open('https://wa.me/01202325201', '_blank')">احصل على استشارة الآن <i class="fas fa-rocket"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Counter Section -->
+        <section class="stats-section" style="padding: 60px 0; position: relative;">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card reveal-up">
+                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="50">0</span>+</div>
+                        <div class="stat-label">مشروع ناجح</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-icon"><i class="fas fa-smile-beam"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="40">0</span>+</div>
+                        <div class="stat-label">عميل سعيد</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="100">0</span>K+</div>
+                        <div class="stat-label">سطر كود برمجي</div>
+                    </div>
+                    <div class="stat-card reveal-up">
+                        <div class="stat-icon"><i class="fas fa-award"></i></div>
+                        <div class="stat-number"><span class="counter" data-target="99">0</span>%</div>
+                        <div class="stat-label">نسبة الرضا</div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about">
+        <section id="about" class="about" style="position: relative;">
             <div class="container">
-                <span class="section-tag">من نحن</span>
+                <span class="section-tag animated-text-glow">من نحن</span>
                 <h2 class="reveal">خبراء في تطوير المواقع وتطبيقات الهواتف وتصميم الجرافيك لمشروعك</h2>
                 <p class="reveal">نحن نقدم حلولاً متكاملة لتطوير المواقع وتطبيقات الهواتف وتصميم الجرافيك بأحدث التقنيات، نجعل فكرتك حقيقة ونساعدك في التميز في عالم الإنترنت والتطبيقات.</p>
             </div>
@@ -134,19 +187,34 @@
         <!-- Clients Slider -->
         <section class="clients">
             <div class="slider-container">
-                <!-- Replace placeholder client logos with project brand assets -->
-                <img src="images/ARTBELLA%20.PNG" alt="Art Bella" class="client-logo">
-                <img src="images/Perfectpharma.PNG" alt="Perfect Pharma" class="client-logo">
-                <img src="images/الصيدليه.png" alt="moataz" class="client-logo">
-                <img src="images/png_logo.png" alt="Senerm Group" class="client-logo">
-                <img src="images/Hey.PNG" alt="HEY" class="client-logo">
-                <img src="images/farm.png" alt="Perfect Farm" class="client-logo">
-                <img src="images/Salumida3%20(1).png" alt="Salumida" class="client-logo">
-                <img src="images/العمروسي.png" alt="amrousi" class="client-logo">
-                <img src="images/ايجاركو.png" alt="ejaku" class="client-logo">
-                <img src="images/Evara new.PNG" alt="Evara" class="client-logo">
-                <img src="images/توصيلة.png" alt="twsila" class="client-logo">
-                <img src="images/رونق.PNG" alt="ronk" class="client-logo">
+                <div class="slider-track">
+                    <img src="images/ARTBELLA%20.PNG" alt="Art Bella" class="client-logo">
+                    <img src="images/Perfectpharma.PNG" alt="Perfect Pharma" class="client-logo">
+                    <img src="images/الصيدليه.png" alt="moataz" class="client-logo">
+                    <img src="images/png_logo.png" alt="Senerm Group" class="client-logo">
+                    <img src="images/Hey.PNG" alt="HEY" class="client-logo">
+                    <img src="images/farm.png" alt="Perfect Farm" class="client-logo">
+                    <img src="images/Salumida3%20(1).png" alt="Salumida" class="client-logo">
+                    <img src="images/العمروسي.png" alt="amrousi" class="client-logo">
+                    <img src="images/ايجاركو.png" alt="ejaku" class="client-logo">
+                    <img src="images/Evara new.PNG" alt="Evara" class="client-logo">
+                    <img src="images/توصيلة.png" alt="twsila" class="client-logo">
+                    <img src="images/رونق.PNG" alt="ronk" class="client-logo">
+
+                    <!-- Duplicated Track for 100% Seamless Infinite Loop -->
+                    <img src="images/ARTBELLA%20.PNG" alt="Art Bella" class="client-logo">
+                    <img src="images/Perfectpharma.PNG" alt="Perfect Pharma" class="client-logo">
+                    <img src="images/الصيدليه.png" alt="moataz" class="client-logo">
+                    <img src="images/png_logo.png" alt="Senerm Group" class="client-logo">
+                    <img src="images/Hey.PNG" alt="HEY" class="client-logo">
+                    <img src="images/farm.png" alt="Perfect Farm" class="client-logo">
+                    <img src="images/Salumida3%20(1).png" alt="Salumida" class="client-logo">
+                    <img src="images/العمروسي.png" alt="amrousi" class="client-logo">
+                    <img src="images/ايجاركو.png" alt="ejaku" class="client-logo">
+                    <img src="images/Evara new.PNG" alt="Evara" class="client-logo">
+                    <img src="images/توصيلة.png" alt="twsila" class="client-logo">
+                    <img src="images/رونق.PNG" alt="ronk" class="client-logo">
+                </div>
             </div>
         </section>
 
@@ -154,13 +222,13 @@
         <section id="projects" class="projects">
             <div class="container">
                 <div class="projects-header">
-                    <span class="section-tag">أعمالنا</span>
-                    <h2>مشاريعنا الأخيرة</h2>
+                    <span class="section-tag animated-text-glow">أعمالنا</span>
+                    <h2>مشاريعنا الأخيرة المميزة</h2>
                 </div>
                 <div class="project-grid">
                     
                     <!-- Project 1 -->
-                    <div class="project-card reveal-up" data-category="mobile">
+                    <div class="project-card reveal-up magnetic-card" data-category="mobile">
                         <div class="project-card-flip">
                             <div class="project-card-inner">
                                 <div class="project-card-front">
@@ -185,7 +253,7 @@
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="project-card reveal-up" data-category="web">
+                    <div class="project-card reveal-up magnetic-card" data-category="web">
                         <div class="project-card-flip">
                             <div class="project-card-inner">
                                 <div class="project-card-front">
@@ -211,7 +279,7 @@
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="project-card reveal-up" data-category="web">
+                    <div class="project-card reveal-up magnetic-card" data-category="web">
                         <div class="project-card-flip">
                             <div class="project-card-inner">
                                 <div class="project-card-front">
@@ -236,7 +304,7 @@
                     </div>
 
                     <!-- Project 4 -->
-                    <div class="project-card reveal-up" data-category="sys">
+                    <div class="project-card reveal-up magnetic-card" data-category="sys">
                         <div class="project-card-flip">
                             <div class="project-card-inner">
                                 <div class="project-card-front">
@@ -264,14 +332,14 @@
             </div>
         </section>
 
-        <!-- Growth / WhatsApp -->
+        <!-- Growth / Call to Action -->
         <section class="growth">
             <div class="container">
-                <div class="cta-box reveal-scale">
-                    <h2>نموك يبدأ معنا</h2>
-                    <p style="font-size: 1.5rem; margin-bottom: 40px; color: #000;">لا تتردد في التواصل معنا لبدء رحلة نجاحك الرقمية اليوم.</p>
-                    <a href="https://wa.me/01202325201" class="whatsapp-btn">
-                        <i class="fab fa-whatsapp"></i> تواصل معنا عبر واتساب أو اتصل على 01202325201
+                <div class="cta-box reveal-scale glowing-border-box">
+                    <h2>نموك الرقمي يبدأ معنا الآن</h2>
+                    <p style="font-size: 1.4rem; margin-bottom: 35px; color: rgba(255, 255, 255, 0.9);">لا تتردد في التواصل مع خبرائنا لبدء رحلة نجاحك وتطوير فكرتك لأفضل تطبيق أو موقع.</p>
+                    <a href="https://wa.me/01202325201" class="whatsapp-btn" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i> تواصل معنا عبر واتساب | 01202325201
                     </a>
                 </div>
             </div>
@@ -281,44 +349,49 @@
         <section id="why" class="why">
             <div class="container">
                 <div style="text-align: center; margin-bottom: 60px;">
-                    <span class="section-tag">لماذا تختارنا؟</span>
-                    <h2>تساعدك StackWay على إنشاء، تخصيص، وإطلاق منتجك المتميز بشكل أسرع من أي وقت مضى.</h2>
+                    <span class="section-tag animated-text-glow">رحلة تنفيذ مشروعك</span>
+                    <h2>نظام عمل دقيق وسريع يضمن إطلاق تطبيقك بأعلى معايير الجودة</h2>
                 </div>
                 
                 <div class="process-list">
-                    <div class="process-item scroll-reveal">
+                    <div class="process-item scroll-reveal interactive-step">
+                        <div class="process-number">01</div>
                         <div class="process-icon"><i class="fas fa-code"></i></div>
                         <div class="process-info">
-                            <h4>بناء التطبيق</h4>
+                            <h4>بناء التطبيق والحلول البرمجية</h4>
                             <p>نقوم بتحويل التصميمات والمخططات إلى تطبيق عملي، مع كتابة الأكواد اللازمة ودمج جميع الوظائف لتوفير تطبيق يعمل بكفاءة وسلاسة.</p>
                         </div>
                     </div>
-                    <div class="process-item scroll-reveal">
+                    <div class="process-item scroll-reveal interactive-step">
+                        <div class="process-number">02</div>
                         <div class="process-icon"><i class="fas fa-paint-brush"></i></div>
                         <div class="process-info">
                             <h4>تجربة المستخدم UI/UX</h4>
-                            <p>نصمّم واجهات التطبيق بعناية لتكون جذابة وسهلة الاستخدام، مع تنظيم العناصر بشكل منطقي وتوفير تجربة سلسة للمستخدم من أول تفاعل حتى الانتهاء من المهام.</p>
+                            <p>نصمّم واجهات التطبيق بعناية لتكون جذابة وسهلة الاستخدام، مع تنظيم العناصر بشكل منطقي وتوفير تجربة سلسة للمستخدم من أول تفاعل.</p>
                         </div>
                     </div>
-                    <div class="process-item scroll-reveal">
+                    <div class="process-item scroll-reveal interactive-step">
+                        <div class="process-number">03</div>
                         <div class="process-icon"><i class="fas fa-shield-alt"></i></div>
                         <div class="process-info">
-                            <h4>تحقق الجودة</h4>
-                            <p>نقوم بفحص جميع وظائف التطبيق بدقة لضمان عمله دون أخطاء، والتحقق من تجربة المستخدم والتأكد من أن كل ميزة تعمل بسلاسة قبل التسليم النهائي.</p>
+                            <h4>اختبار وتحقق الجودة (QA)</h4>
+                            <p>نقوم بفحص جميع وظائف التطبيق بدقة لضمان عمله دون أخطاء، والتحقق من الأداء والأمان والتأكد من أن كل ميزة تعمل بسلاسة.</p>
                         </div>
                     </div>
-                    <div class="process-item scroll-reveal">
+                    <div class="process-item scroll-reveal interactive-step">
+                        <div class="process-number">04</div>
                         <div class="process-icon"><i class="fas fa-check-double"></i></div>
                         <div class="process-info">
-                            <h4>إكمال التطبيق</h4>
-                            <p>في هذه المرحلة، نقوم بتجميع كل مكونات التطبيق والتأكد من أن كل شيء يعمل بشكل كامل وجاهز للخطوة التالية: التسليم.</p>
+                            <h4>التجميع والربط النهائي</h4>
+                            <p>تجميع جميع أجزاء المشروع، وربطه بقواعد البيانات وخدمات السحابة لتوفير بيئة مستقرة وجاهزة للانطلاق.</p>
                         </div>
                     </div>
-                    <div class="process-item scroll-reveal">
-                        <div class="process-icon"><i class="fas fa-truck-loading"></i></div>
+                    <div class="process-item scroll-reveal interactive-step">
+                        <div class="process-number">05</div>
+                        <div class="process-icon"><i class="fas fa-rocket"></i></div>
                         <div class="process-info">
-                            <h4>تسليم التطبيق</h4>
-                            <p>نقوم بتسليم التطبيق بشكل كامل بعد الانتهاء من جميع المراحل، مع التأكد من جاهزيته للعمل بكفاءة، وتسليمه للعميل بجميع الملفات والمرفقات المطلوبة لضمان تجربة استخدام سلسة.</p>
+                            <h4>التسليم والإطلاق الرسمي</h4>
+                            <p>تسليم المشروع بجميع ملفاته وسورساته مع الدعم الفني، ورفعه على المتاجر أو السيرفرات لضمان انطلاقة قوية.</p>
                         </div>
                     </div>
                 </div>
@@ -326,55 +399,81 @@
         </section>
 
         <!-- FAQ -->
-        <section class="faq">
+        <section id="faq" class="faq" style="position: relative; overflow: hidden;">
+            <div class="faq-bg-glow"></div>
             <div class="container">
                 <div class="faq-container">
-                    <div class="robot-visual">
-                        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="Robot" class="robot-bot">
+                    <!-- Futuristic Robot / Assistant Visual Showcase -->
+                    <div class="faq-visual-showcase reveal-up">
+                        <div class="faq-orbit-ring f-ring-1"></div>
+                        <div class="faq-orbit-ring f-ring-2"></div>
+                        <div class="faq-glow-aura"></div>
+                        
+                        <!-- Floating Support Badges -->
+                        <div class="faq-floating-badge f-badge-1"><i class="fas fa-headset"></i> دعم فني 24/7</div>
+                        <div class="faq-floating-badge f-badge-2"><i class="fas fa-bolt"></i> استجابة فائقة</div>
+                        <div class="faq-floating-badge f-badge-3"><i class="fas fa-shield-check"></i> ضمان جودة 100%</div>
+
+                        <div class="robot-visual">
+                            <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="AI Support Assistant" class="robot-bot">
+                        </div>
                     </div>
+
+                    <!-- FAQ Content & Accordion -->
                     <div class="faq-content">
-                        <span class="section-tag">الأسئلة الشائعة</span>
-                        <h2 style="margin-bottom: 30px;">ابحث عن إجابات سريعة للأسئلة الشائعة حول خدماتنا وميزاتنا.</h2>
+                        <span class="section-tag animated-text-glow">الأسئلة الشائعة</span>
+                        <h2 class="reveal-up" style="margin-bottom: 30px; font-size: 2.4rem;">كل ما تحتاج معرفته عن خدماتنا <span class="text-gradient">وحلولنا الذكية</span></h2>
+                        
                         <div class="faq-list">
-                            <div class="faq-item">
-                                <div class="faq-question">كيف أبدأ مشروعي مع StackWay؟ <i class="fas fa-chevron-down"></i></div>
-                                <div class="faq-answer">يمكنك البدء بالتواصل معنا عبر واتساب أو زر الاستشارة، وسنقوم بتحديد موعد لمناقشة فكرتك وتحويلها لمشروع حقيقي.</div>
+                            <div class="faq-item reveal-up">
+                                <div class="faq-question">
+                                    <span><i class="fas fa-rocket faq-q-icon"></i> كيف أبدأ مشروعي مع StackWay؟</span>
+                                    <i class="fas fa-chevron-down toggle-arrow"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>يمكنك البدء بالتواصل معنا مباشرة عبر واتساب أو زر طلب الاستشارة، حيث نقوم بعقد جلسة استكشافية لفهم متطلباتك وتحويل فكرتك إلى خطة عمل ونموذج برمجي احترافي.</p>
+                                </div>
                             </div>
-                            <div class="faq-item">
-                                <div class="faq-question">هل توفرون الدعم الفني بعد التسليم؟ <i class="fas fa-chevron-down"></i></div>
-                                <div class="faq-answer">نعم، نحن نلتزم بتوفير دعم فني وصيانة دورية لضمان عمل مشروعك بأفضل صورة ممكنة.</div>
+
+                            <div class="faq-item reveal-up">
+                                <div class="faq-question">
+                                    <span><i class="fas fa-tools faq-q-icon"></i> هل توفرون الدعم الفني والصيانة بعد التسليم؟</span>
+                                    <i class="fas fa-chevron-down toggle-arrow"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>نعم بكل تأكيد! نحن نلتزم بتوفير فترة ضمان شاملة مع دعم فني وصيانة دورية وتحديثات أمان مستمرة لضمان عمل تطبيقك وموقعك بأعلى كفاءة واستقرار.</p>
+                                </div>
                             </div>
-                            <div class="faq-item">
-                                <div class="faq-question">كم تستغرق عملية بناء الموقع؟ <i class="fas fa-chevron-down"></i></div>
-                                <div class="faq-answer">تختلف المدة حسب حجم المشروع، ولكننا نتميز بالسرعة والدقة في التنفيذ.</div>
+
+                            <div class="faq-item reveal-up">
+                                <div class="faq-question">
+                                    <span><i class="fas fa-clock faq-q-icon"></i> كم تستغرق عملية بناء الموقع أو التطبيق؟</span>
+                                    <i class="fas fa-chevron-down toggle-arrow"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>تختلف المدة الزمنية حسب حجم المشروع وتعقيد الميزات، ولكن بفضل أطر عملنا المتطورة نتميز بالسرعة والدقة العالية في التسليم وفق جدول زمني محدد مسبقاً.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item reveal-up">
+                                <div class="faq-question">
+                                    <span><i class="fas fa-layer-group faq-q-icon"></i> ما هي التقنيات البرمجية التي تعتمدون عليها؟</span>
+                                    <i class="fas fa-chevron-down toggle-arrow"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>نعتمد على أحدث التقنيات العالمية مثل Laravel, React, Vue, Flutter, Node.js بالإضافة إلى حلول الحوسبة السحابية وقواعد البيانات الحديثة لضمان أداء خارق وقابلية للتوسع.</p>
+                                </div>
                             </div>
                         </div>
                         
-                        <div style="margin-top: 50px; padding: 40px; border: 2px solid var(--clr-green); border-radius: 20px;">
-                            <h3>هل لا تزال لديك أسئلة؟</h3>
-                            <p>لا يمكنك العثور على الإجابة؟ تواصل مع فريق الدعم لحل مشكلتك.</p>
-                            <button class="btn-glow" style="margin-top: 20px;">تواصل معنا</button>
+                        <!-- Still have questions CTA card -->
+                        <div class="faq-support-card reveal-up">
+                            <div class="faq-support-info">
+                                <h3>هل ما زال لديك أي استفسار آخر؟</h3>
+                                <p>فريقنا التقني متواجد لمساعدتك والإجابة عن كافة تساؤلاتك ومناقشة تفاصيل مشروعك.</p>
+                            </div>
+                            <a href="https://wa.me/01202325201" target="_blank" rel="noopener" class="btn-glow" style="padding: 12px 28px; white-space: nowrap; text-decoration: none;">تحدث معنا الآن <i class="fab fa-whatsapp"></i></a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stats -->
-        <section class="stats">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <h3 class="counter">40</h3>
-                        <p>عميل سعيد</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3 class="counter">5</h3>
-                        <p>سنوات خبرة</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3 class="counter">53</h3>
-                        <p>مشروع منفذ</p>
                     </div>
                 </div>
             </div>
@@ -385,7 +484,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="logo.svg" alt="StackWay Logo" style="height: 50px;">
+                    <img src="images/logo company.png" alt="StackWay Logo" style="max-height: 60px; width: auto; filter: drop-shadow(0 4px 15px rgba(84, 209, 255, 0.4));">
                     <p>StackWay هي شريكك الرقمي لتحويل الأفكار إلى واقع. نحن نصمم ونطور بأحدث التقنيات لضمان تميز أعمالك.</p>
                 </div>
                 <div class="footer-col">
