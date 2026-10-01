@@ -1502,6 +1502,66 @@ footer {
   font-size: 1.1rem;
 }
 
+/* Card Action Buttons */
+.card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+.btn-card-details {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--grad-main);
+  color: #0b0b0b;
+  border-radius: 50px;
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-card-details:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--clr-green-glow);
+  color: #000;
+}
+
+.btn-card-live {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(84, 209, 255, 0.1);
+  border: 1px solid rgba(84, 209, 255, 0.45);
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 10px 15px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-card-live:hover {
+  background: var(--clr-blue);
+  color: #06070a;
+  border-color: var(--clr-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(84, 209, 255, 0.5);
+}
+
 /* --- Enhanced Service Cards --- */
 .service-card {
   background: var(--surface-color);

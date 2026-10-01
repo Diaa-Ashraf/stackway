@@ -205,12 +205,14 @@
                 <li><a href="index.html">الرئيسية</a></li>
                 <li><a href="services.html">الخدمات</a></li>
                 <li><a href="projects.html" class="active">المشاريع</a></li>
-                <li><a href="index.html#contact">تواصل معنا</a></li>
+                <li><a href="index.html#about">من نحن</a></li>
+                <li><a href="https://wa.me/01202325201" target="_blank" rel="noopener">تواصل معنا</a></li>
             </ul>
             <div class="nav-tools">
                 <button class="theme-toggle" onclick="toggleTheme()">
                     <i class="fas fa-moon"></i>
                 </button>
+                <button class="btn-glow" style="padding: 8px 20px; font-size: 0.8rem;" onclick="window.open('https://wa.me/01202325201', '_blank')">تواصل الآن</button>
                 <button class="menu-toggle" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -257,6 +259,13 @@
             
             <!-- Sidebar Metadata -->
             <div class="meta-sidebar">
+                <div class="meta-card reveal-up" id="live-demo-card" style="display: none; border-color: rgba(84, 209, 255, 0.4); background: linear-gradient(145deg, rgba(15, 17, 26, 0.9), rgba(26, 29, 41, 0.9));">
+                    <div class="meta-icon" style="color: var(--clr-blue); background: rgba(84, 209, 255, 0.15);"><i class="fas fa-external-link-alt"></i></div>
+                    <h4>معاينة حية للمشروع</h4>
+                    <a href="#" id="project-live-btn" target="_blank" rel="noopener" class="btn-glow" style="padding: 10px 18px; font-size: 0.95rem; width: 100%; justify-content: center; margin-top: 10px;">
+                        زيارة الموقع مباشرة <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
                 <div class="meta-card reveal-up">
                     <div class="meta-icon"><i class="far fa-calendar-alt"></i></div>
                     <h4>التاريخ</h4>
@@ -362,6 +371,180 @@
 
     <script>
         const PROJECTS_DATA = {
+            'kunuz': {
+                title: 'منصة كنوز العقارية',
+                subtitle: 'استثمار وتطوير عقاري متكامل بمدينة بدر',
+                bgImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800',
+                date: '2026-03-20',
+                client: 'شركة كنوز للتطوير العقاري والاستثمار',
+                rating: '5.0',
+                duration: '22 يوم',
+                members: '1,850+',
+                liveUrl: 'https://kunuz.stackway.cloud',
+                overview: 'منصة رقمية رائدة للتطوير العقاري والاستثمار بمدينة بدر، تتيح استعراض كبرى المشروعات التجارية والإدارية كـ (أوربيت مول، مشروع محطة الوقود 4,217 م²، زاد سنتر، قمر بيزنس بلازا، والهرم بلازا) مع حاسبة أقساط استثمارية متطورة وأنظمة سداد ذكية حتى 6 سنوات بدون فوائد و0% مقدم.',
+                features: [
+                    'تطوير منصة تفاعلية متكاملة لعرض محفظة مشروعات شركة كنوز العقارية بمدينة بدر بأحدث تقنيات الويب.',
+                    'بناء حاسبة أقساط واستثمار رقمية ذكية وديناميكية تمكن المستثمرين من حساب الدفعات الشهرية، السنوية، ونسب الاستثمار بدقة.',
+                    'تصميم واجهات عرض ثلاثية الأبعاد تفاعلية (3D Perspective Showcases) مع مؤثرات انيميشن فاخرة وتفاعل الماوس ثلاثي الأبعاد.',
+                    'إدارة تفاصيل المشروعات الكبرى (أوربيت مول التجاري والإداري، مشروع محطة الوقود الحيوية 4,217م²، زاد سنتر، قمر بيزنس بلازا، الهرم بلازا).',
+                    'نظام حجز وحدات واستفسارات فورية مربوط مباشرة بقنوات خدمة العملاء والواتساب مع تتبع الحملات الإعلانية.',
+                    'دعم كامل لتعدد اللغات (عربي / إنجليزي) مع واجهات RTL و LTR متوافقة 100% مع جميع الشاشات والأجهزة.',
+                    'تحسينات SEO فائقة وهيكلة بيانات متوافقة مع محركات البحث العالمية لتحقيق أعلى تصنيف في الكلمات المفتاحية العقارية.'
+                ],
+                technologies: ['Laravel', 'JavaScript ES6+', 'GSAP 3D Animations', 'Interactive Calculator', 'Multi-language (i18n)', 'SEO Optimization', 'Responsive Architecture']
+            },
+            'team-hm': {
+                title: 'سيستم حسام منصور (Team HM)',
+                subtitle: 'نظام تدريب ومتابعة وتغذية متكامل لبطل العالم كمال أجسام',
+                bgImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800',
+                date: '2026-02-18',
+                client: 'كابتن حسام منصور - بطل العالم كمال أجسام',
+                rating: '5.0',
+                duration: '28 يوم',
+                members: '3,400+',
+                liveUrl: 'https://team-hm.com/login',
+                overview: 'نظام SaaS متكامل لإدارة التدريب الرياضي والمتابعة البدنية المباشرة للرياضيين والأبطال تحت إشراف بطل العالم حسام منصور، يشمل بناء الجداول التدريبية، الخطط الغذائية المحسوبة بالسعرات والماكروز، تقييم التطور الأسبوعي بالصور والقياسات، وتنبيهات التجديد.',
+                features: [
+                    'بناء نظام SaaS سحابي متكامل لإدارة المشتركين في برامج التدريب والتغذية لبطل العالم كمال أجسام.',
+                    'محرك متقدم لبناء وتخصيص الجداول التدريبية والتمارين الرياضية بالفيديو والشرح التفصيلي لكل عضلة.',
+                    'نظام تخطيط وجبات وأنظمة غذائية مخصصة مع حساب تلقائي للسعرات الحرارية ونسب البروتين والكارب والدهون.',
+                    'وحدة متابعة أسبوعية متطورة (Weekly Check-in) لرفع صور التطور، قياسات الجسم، الوزن، وتتبع تغير نسبة الدهون.',
+                    'لوحة تحكم للمدرب والمساعدين لإدارة آلاف المتدربين مع تنبيهات تلقائية لمواعيد التجديد والاستفسارات.',
+                    'نظام دفع إلكتروني واشتراكات دورية مع صلاحيات وصول دقيقة ومحمية بأعلى معايير الأمان (RBAC).',
+                    'تقارير ورسوم بيانية تفاعلية تعكس تقدم المتدربين ومستوى التزامهم بالخطة الرياضية.'
+                ],
+                technologies: ['Laravel', 'Vue.js', 'MySQL Optimization', 'SaaS Architecture', 'Diet & Workout Engine', 'Role-Based Access (RBAC)', 'Payment Integration']
+            },
+            'hossam-mansour-web': {
+                title: 'الموقع الرسمي لكابتن حسام منصور',
+                subtitle: 'بوابة بطل العالم كمال أجسام والتدريب الرياضي',
+                bgImage: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800',
+                date: '2026-01-25',
+                client: 'كابتن حسام منصور (Hossam Mansour)',
+                rating: '5.0',
+                duration: '16 يوم',
+                members: '5,000+',
+                liveUrl: 'https://hossammansour.com/ar/',
+                overview: 'الموقع والمنصة الرسمية لبطل العالم حسام منصور، لعرض إنجازاته الرياضية العالمية، باقات الاشتراك في التدريب الأونلاين، قصص نجاح وتحول المتدربين (Transformations)، متجر البرامج المعتمدة، ومدونة المقالات التغذوية والرياضية.',
+                features: [
+                    'تصميم وتطوير الموقع الرسمي لبطل العالم كمال أجسام بتجربة بصرية سينمائية وهوية رياضية قوية.',
+                    'معرض تفاعلي لقصص نجاح وتحولات المتدربين (Before & After Transformations) مع تفاصيل كل مرحلة.',
+                    'متجر إلكتروني لباقات التدريب والمتابعة أونلاين بمختلف المستويات والمدد الزمنية مع دعم عملات متعددة.',
+                    'نظام حجز جلسات واستشارات تدريبية وتغذوية مباشرة مع كابتن حسام منصور وفريق العمل.',
+                    'مدونة مقالات رياضية وتثقيفية متقدمة تدعم أحدث معايير تحسين محركات البحث (Rank Math SEO) لرفع الترافيك العضوي.',
+                    'أداء عالي السرعة وتوافق تام مع شاشات الهواتف الذكية والأجهزة اللوحية والمكتبية.'
+                ],
+                technologies: ['Web Engineering', 'SEO Optimization', 'Transformation Engine', 'Multi-currency Commerce', 'Speed & Performance', 'Responsive Design']
+            },
+            'tower-top': {
+                title: 'موقع تاور توب (Tower Top)',
+                subtitle: 'أعمال التشطيبات والديكور والتصميم الداخلي',
+                bgImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800',
+                date: '2025-12-10',
+                client: 'شركة تاور توب للتشطيبات والديكور (Tower Top EG)',
+                rating: '5.0',
+                duration: '15 يوم',
+                members: '1,100+',
+                liveUrl: 'https://towertop-eg.com/',
+                overview: 'موقع رسمي ومعرض أعمال تفاعلي لشركة Tower Top الرائدة في مصر بمجال التشطيبات الداخلية، الديكور، والجبسون بورد، يبرز مراحل التنفيذ الحية "من قلب الموقع" ويسهل على العملاء طلب المعاينات وعروض الأسعار الفورية.',
+                features: [
+                    'تطوير موقع عصري وتفاعلي يعكس فخامة أعمال الديكور والتشطيبات لشركة تاور توب في مصر.',
+                    'معرض مشاريع حي ومصنف (سكني، تجاري، مكاتب، فلل) مع استعراض صور وفيديوهات من أرض الواقع.',
+                    'نظام طلب معاينة وحساب تقديري لتكاليف التشطيب وتحديد الباقات والمساحات المناسبة للمشروع.',
+                    'تكامل سريع مع واتساب وقنوات الاتصال المباشر لتسهيل تحويل الزوار إلى عملاء فعليين.',
+                    'واجهة مستخدم ذات انسيابية عالية مع تأثيرات تفاعلية وسرعة تحميل فائقة وتوافق كامل مع الموبايل.'
+                ],
+                technologies: ['Modern Frontend', 'Interactive Portfolio', 'Lead Capture Engine', 'WhatsApp Integration', 'UI/UX Visual Effects', 'Mobile First']
+            },
+            'ssdds': {
+                title: 'الجمعية السعودية للأمراض وجراحة الجلد (SSDDS)',
+                subtitle: 'البوابة الرقمية الرسمية للجمعية والمؤتمرات الطبية',
+                bgImage: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1576091160558-9173983362a2?w=800',
+                date: '2026-01-15',
+                client: 'الجمعية السعودية للأمراض وجراحة الجلد - المملكة العربية السعودية',
+                rating: '5.0',
+                duration: '35 يوم',
+                members: '6,200+',
+                liveUrl: 'https://ssdds.org',
+                overview: 'البوابة الإلكترونية الرسمية للجمعية السعودية للأمراض وجراحة الجلد (تأسست 1989م)، تدير المؤتمرات الدولية، ورش العمل المعتمدة، تسجيل العضويات الطبية، نشر الأبحاث والمجلات العلمية، والفعاليات الطبية التوعوية في المملكة.',
+                features: [
+                    'بناء البوابة الرسمية للجمعية السعودية للأمراض وجراحة الجلد وفق أعلى المعايير الأمنية والطبية العالمية.',
+                    'نظام إدارة المؤتمرات والفعاليات الطبية مع التسجيل الإلكتروني، حجز التذاكر، وإصدار شهادات الساعات المعتمدة (CME).',
+                    'نظام إدارة العضويات للأطباء والاستشاريين والباحثين مع بوابات دفع إلكتروني مخصصة وتجديد تلقائي.',
+                    'مكتبة رقمية متقدمة لنشر الأبحاث والمجلات العلمية الطبية المحكمة والمقالات التخصصية في الجلدية والليزر.',
+                    'لوحة تحكم إدارية شاملة لإدارة المحتوى، الأعضاء، الأخبار، الفعاليات، ورسائل اللجان العلمية والإشرافية.',
+                    'بنية تحتية سحابية مؤمنة ضد الاختراقات وشهادات أمان متقدمة مع توافق تام مع رؤية المملكة الرقمية.'
+                ],
+                technologies: ['Laravel', 'Medical Portal Engine', 'Membership & CME System', 'Conference Management', 'Scientific Journal CMS', 'High-grade Security']
+            },
+            'al-tawheed-market': {
+                title: 'ألبان وسوبرماركت التوحيد',
+                subtitle: 'متجر إلكتروني وسوبرماركت غذائي مع نظام توصيل جغرافي',
+                bgImage: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=800',
+                date: '2025-10-14',
+                client: 'ألبان وسوبرماركت التوحيد بالعامرية - الإسكندرية',
+                rating: '5.0',
+                duration: '18 يوم',
+                members: '2,800+',
+                liveUrl: 'https://altawhid.stackway.cloud',
+                overview: 'منصة تسوق إلكتروني متكاملة وسريعة لسلسلة ألبان وسوبرماركت التوحيد في الإسكندرية، توفر منتجات الألبان والأجبان الطبيعية والسلع الغذائية مع سلة تسوق فورية، تحديد الموقع الجغرافي للتوصيل، ودعم الدفع كاش وإنستاباي مع ربط نقاط البيع (POS).',
+                features: [
+                    'تطوير متجر إلكتروني متكامل لمنتجات الألبان والسلع الغذائية مع تجربة تسوق فورية وسريعة للغاية.',
+                    'سلة تسوق ذكية وتحديث أسعار لحظي، مع تصنيف دقيق لمئات المنتجات والعروض الترويجية والخصومات اليومية.',
+                    'نظام توصيل طلبات جغرافي محدد لمناطق العامرية، كينج مريوط، وضواحي الإسكندرية مع حساب رسوم التوصيل تلقائياً.',
+                    'دعم خيارات دفع متعددة تشمل الدفع عند الاستلام وإنستاباي (InstaPay) والمحافظ الإلكترونية.',
+                    'ربط مباشر ومزامنة مع نظام إدارة المخزون ونقاط البيع (POS) لمنع نفاذ المنتجات وتحديث الكميات تلقائياً.'
+                ],
+                technologies: ['Laravel', 'Real-time Cart', 'Geolocation Delivery Engine', 'InstaPay & Cash Checkout', 'POS Sync', 'High Performance']
+            },
+            'regalest': {
+                title: 'متجر ريجاليست (Regalest Store)',
+                subtitle: 'متجر المقتنيات والساعات الفاخرة والملكية',
+                bgImage: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800',
+                date: '2026-02-05',
+                client: 'Regalest Store — Luxury Timepieces',
+                rating: '5.0',
+                duration: '20 يوم',
+                members: '980+',
+                liveUrl: 'https://regalest.stackway.cloud/',
+                overview: 'متجر تجارة إلكترونية فاخر مخصص للساعات والمقتنيات الكلاسيكية والملكية الفاخرة، صُمم بهوية Dark Luxury رفيعة المستوى وباستخدام أحدث تقنيات Tailwind و Swiper 3D لعرض التفاصيل الميكانيكية للساعات وتوفير رحلة شراء راقية.',
+                features: [
+                    'تصميم متجر إلكتروني فاخر بهوية بصرية ملوكية (Dark & Gold Luxury Aesthetic) باستخدام خطوط Cinzel و Alexandria.',
+                    'معارض صور ثلاثية الأبعاد تفاعلية باستخدام Swiper 3D لاستعراض تفاصيل الساعات ومواصفات المحركات والميناء.',
+                    'نظام تصفية وتصنيف متقدم حسب العلامة التجارية، نوع الحركة (أوتوماتيك/كوارتز)، المواد (ذهب/ستيل)، والمقاسات.',
+                    'سلة تسوق ديناميكية وصفحة دفع فورية محسنة تضمن تقليل معدل ترك السلة (Checkout Abandonment Rate).',
+                    'لوحة تحكم إدارية لمتابعة المخزون، الطلبات، الكوبونات، وتحليلات المبيعات بدقة متناهية.'
+                ],
+                technologies: ['Laravel', 'Tailwind CSS', 'Alpine.js & Vite', 'Swiper 3D Showcase', 'Luxury E-Commerce UX', 'Order Tracking']
+            },
+            'elgendy': {
+                title: 'سنتر الأستاذ محمد الجندي التعليمي',
+                subtitle: 'منصة وسنتر تعليمي ذكي لإدارة الطلاب والامتحانات',
+                bgImage: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1600',
+                mockupImage: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800',
+                date: '2025-11-05',
+                client: 'سنتر الأستاذ محمد الجندي التعليمي',
+                rating: '5.0',
+                duration: '21 يوم',
+                members: '4,100+',
+                liveUrl: 'https://elgendy.stackway.cloud/',
+                overview: 'منصة تعليمية وإدارية ذكية لسنتر الأستاذ محمد الجندي، تجمع بين نظام إدارة السنتر حضورياً ومنصة إلكترونية متطورة للطلاب، تتضمن إدارة المجموعات، الحصص، الامتحانات الإلكترونية التفاعلية، كروت الشحن، ومتابعة أولياء الأمور للدرجات والغياب لحظياً.',
+                features: [
+                    'تطوير منصة تعليمية تفاعلية متكاملة ونظام إدارة سنتر تعليمي (Educational Management System).',
+                    'بنك أسئلة واختبارات إلكترونية ذكية مع تصحيح تلقائي، مؤقت زمني، وتغذية راجعة فورية للطلاب.',
+                    'نظام إدارة الحضور والغياب للسنتر ومتابعة المذكرات والملازم الدراسية وأكواد كروت الشحن.',
+                    'بوابة خاصة لأولياء الأمور لمتابعة مستوى أبنائهم والدرجات ونسبة الحضور عبر إشعارات فورية.',
+                    'لوحة تحكم للمعلمين والإداريين لإدارة المجموعات، الفصول، المستحقات، وجداول الحصص والامتحانات.'
+                ],
+                technologies: ['Laravel', 'Tailwind CSS', 'Exam & Quiz Engine', 'Student Progress Tracker', 'Parent Portal', 'Code Charging System']
+            },
             'salumida': {
                 title: 'تطبيق سالوميدا',
                 subtitle: 'نظام الأكل الصحي والتغذية',
@@ -587,7 +770,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
-            const projectId = urlParams.get('project') || 'salumida';
+            const projectId = urlParams.get('project') || 'kunuz';
             const data = PROJECTS_DATA[projectId];
 
             if (data) {
@@ -610,6 +793,16 @@
                 if (mockupImg) {
                     mockupImg.src = data.mockupImage;
                     mockupImg.alt = data.title;
+                }
+
+                // Update live demo card & link
+                const liveCard = document.getElementById('live-demo-card');
+                const liveBtn = document.getElementById('project-live-btn');
+                if (data.liveUrl && liveCard && liveBtn) {
+                    liveCard.style.display = 'block';
+                    liveBtn.href = data.liveUrl;
+                } else if (liveCard) {
+                    liveCard.style.display = 'none';
                 }
 
                 // Update sidebar details

@@ -61,13 +61,13 @@
                 <li><a href="services.html" class="services-trigger">الخدمات <i class="fas fa-chevron-down" style="font-size: 0.8em; margin-right: 5px;"></i></a></li>
                 <li><a href="projects.html" class="active">المشاريع</a></li>
                 <li><a href="index.html#about">من نحن</a></li>
-                <li><a href="index.html#contact">تواصل معنا</a></li>
+                <li><a href="https://wa.me/01202325201" target="_blank" rel="noopener">تواصل معنا</a></li>
             </ul>
             <div class="nav-tools">
                 <button class="theme-toggle" onclick="toggleTheme()">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="btn-glow" style="padding: 8px 20px; font-size: 0.8rem;">تواصل الآن</button>
+                <button class="btn-glow" style="padding: 8px 20px; font-size: 0.8rem;" onclick="window.open('https://wa.me/01202325201', '_blank')">تواصل الآن</button>
                 <button class="menu-toggle" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -146,7 +146,267 @@
             <div class="container">
                 <div class="project-grid">
                     
-                    <!-- Project 1 -->
+                    <!-- Project 1: Kunuz -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800" alt="Kunuz Real Estate">
+                                    <div class="front-content-overlay">
+                                        <h3>منصة كنوز العقارية</h3>
+                                        <p>استثمار وتطوير عقاري بمدينة بدر</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>كنوز العقارية</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب وعقارات</span>
+                                    <p>منصة عقارية متكاملة لشركة كنوز تشمل أوربيت مول ومحطة الوقود مع حاسبة أقساط استثمارية ذكية وتصميم ثلاثي الأبعاد.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel</span>
+                                        <span class="tool-pill">GSAP 3D</span>
+                                        <span class="tool-pill">حاسبة أقساط</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=kunuz" class="btn-card-details">استكشف <i class="fas fa-arrow-left"></i></a>
+                                        <a href="https://kunuz.stackway.cloud" target="_blank" rel="noopener" class="btn-card-live" title="معاينة حية"><i class="fas fa-external-link-alt"></i> معاينة</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Team HM System -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800" alt="Team HM System">
+                                    <div class="front-content-overlay">
+                                        <h3>سيستم كابتن حسام منصور</h3>
+                                        <p>نظام تدريب وتغذية لبطل العالم</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>سيستم Team HM</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظام SaaS رياضي</span>
+                                    <p>نظام تدريب متكامل لإدارة المشتركين، بناء الجداول التدريبية والغذائية، ومتابعة التطور والقياسات لبطل العالم حسام منصور.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel</span>
+                                        <span class="tool-pill">Vue.js</span>
+                                        <span class="tool-pill">SaaS Engine</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=team-hm" class="btn-card-details">استكشف <i class="fas fa-arrow-left"></i></a>
+                                        <a href="https://team-hm.com/login" target="_blank" rel="noopener" class="btn-card-live" title="معاينة حية"><i class="fas fa-external-link-alt"></i> دخول</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Hossam Mansour Website -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800" alt="Hossam Mansour Official Website">
+                                    <div class="front-content-overlay">
+                                        <h3>موقع حسام منصور الرسمي</h3>
+                                        <p>بوابة بطل العالم كمال أجسام</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>موقع حسام منصور</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب وتسويق</span>
+                                    <p>الموقع الرسمي لعرض إنجازات بطل العالم، باقات التدريب الأونلاين، قصص نجاح وتحول المتدربين، وحجز الاستشارات.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Web Engine</span>
+                                        <span class="tool-pill">SEO Rank</span>
+                                        <span class="tool-pill">تجارة إلكترونية</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=hossam-mansour-web" class="btn-card-details">استكشف <i class="fas fa-arrow-left"></i></a>
+                                        <a href="https://hossammansour.com/ar/" target="_blank" rel="noopener" class="btn-card-live" title="معاينة حية"><i class="fas fa-external-link-alt"></i> معاينة</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Tower Top -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800" alt="Tower Top Decor">
+                                    <div class="front-content-overlay">
+                                        <h3>تاور توب للتشطيبات والديكور</h3>
+                                        <p>معرض أعمال هندسي وتصميم داخلي</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>Tower Top</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب ومعرض</span>
+                                    <p>موقع رقمي فاخر لشركة Tower Top لعرض مشاريع التشطيبات والديكور والتصميم الداخلي مع حجز المعاينات وعروض الأسعار.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Modern Web</span>
+                                        <span class="tool-pill">Portfolio UI</span>
+                                        <span class="tool-pill">Lead Capture</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=tower-top" class="btn-card-details">استكشف <i class="fas fa-arrow-left"></i></a>
+                                        <a href="https://towertop-eg.com/" target="_blank" rel="noopener" class="btn-card-live" title="معاينة حية"><i class="fas fa-external-link-alt"></i> معاينة</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: SSDDS (الجمعية السعودية) -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1576091160558-9173983362a2?w=800" alt="SSDDS">
+                                    <div class="front-content-overlay">
+                                        <h3>الجمعية السعودية للأمراض وجراحة الجلد</h3>
+                                        <p>بوابة ومؤتمرات ومجلة طبية</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>SSDDS Saudi Society</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">بوابة طبية متكاملة</span>
+                                    <p>البوابة الرقمية الرسمية للجمعية السعودية لإدارة المؤتمرات، العضويات، المجلات والأبحاث الطبية، وحجز ورش العمل CME.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel</span>
+                                        <span class="tool-pill">Medical Portal</span>
+                                        <span class="tool-pill">Event & CME</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=ssdds" class="btn-card-details">استكشف <i class="fas fa-arrow-left"></i></a>
+                                        <a href="https://ssdds.org" target="_blank" rel="noopener" class="btn-card-live" title="معاينة حية"><i class="fas fa-external-link-alt"></i> معاينة</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Regalest Store -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=800" alt="Regalest Store">
+                                    <div class="front-content-overlay">
+                                        <h3>متجر ريجاليست (Regalest)</h3>
+                                        <p>متجر الساعات والمقتنيات الملكية الفاخرة</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>Regalest Store</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">متجر إلكتروني فاخر</span>
+                                    <p>متجر تجارة إلكترونية فخم مخصص للساعات والمقتنيات الكلاسيكية الفاخرة مع معارض Swiper 3D وتصفية متقدمة وتتبع طلبات.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel</span>
+                                        <span class="tool-pill">Tailwind CSS</span>
+                                        <span class="tool-pill">Swiper 3D</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=regalest" class="btn-card-details">استكشف <i class="fas fa-arrow-left"></i></a>
+                                        <a href="https://regalest.stackway.cloud/" target="_blank" rel="noopener" class="btn-card-live" title="معاينة حية"><i class="fas fa-external-link-alt"></i> معاينة</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 7: Al-Tawhid Market -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=800" alt="Al-Tawhid Market">
+                                    <div class="front-content-overlay">
+                                        <h3>ألبان وسوبرماركت التوحيد</h3>
+                                        <p>متجر غذائي فوري وتوصيل جغرافي</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>سوبرماركت التوحيد</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تجارة إلكترونية وسوبرماركت</span>
+                                    <p>متجر إلكتروني سريع لمنتجات الألبان والأجبان والسلع الغذائية مع سلة تسوق فورية ونظام توصيل جغرافي وربط كاش وإنستاباي.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel</span>
+                                        <span class="tool-pill">Realtime Cart</span>
+                                        <span class="tool-pill">InstaPay / POS</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=al-tawheed-market" class="btn-card-details">استكشف <i class="fas fa-arrow-left"></i></a>
+                                        <a href="https://altawhid.stackway.cloud" target="_blank" rel="noopener" class="btn-card-live" title="معاينة حية"><i class="fas fa-external-link-alt"></i> تسوق</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 8: El Gendy Center -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800" alt="El Gendy Center">
+                                    <div class="front-content-overlay">
+                                        <h3>سنتر الأستاذ محمد الجندي</h3>
+                                        <p>منصة وسنتر تعليمي ذكي لإدارة الطلاب</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>سنتر الأستاذ محمد الجندي</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية وتعليمية</span>
+                                    <p>منصة تعليمية وإدارية ذكية لإدارة السنتر والطلاب، بنوك الأسئلة، الامتحانات الإلكترونية، كروت الشحن، وبوابة متابعة أولياء الأمور.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel</span>
+                                        <span class="tool-pill">EMS System</span>
+                                        <span class="tool-pill">Exam Builder</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=elgendy" class="btn-card-details">استكشف <i class="fas fa-arrow-left"></i></a>
+                                        <a href="https://elgendy.stackway.cloud/" target="_blank" rel="noopener" class="btn-card-live" title="معاينة حية"><i class="fas fa-external-link-alt"></i> معاينة</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 9: Ejarku -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" alt="Ejarku">
+                                    <div class="front-content-overlay">
+                                        <h3>منصة إيجاركو</h3>
+                                        <p>نظام تأجير متعدد الأسواق</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>منصة إيجاركو</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب وسوق</span>
+                                    <p>منصة تأجير متعددة الأسواق للعقارات والسيارات مع دعم البحث بالذكاء الاصطناعي والاشتراكات.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Laravel 12</span>
+                                        <span class="tool-pill">Filament v5</span>
+                                        <span class="tool-pill">GLM-4 AI</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=ejarku" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 10: Salumida -->
                     <div class="project-card reveal-up" data-category="mobile">
                         <div class="project-card-flip">
                             <div class="project-card-inner">
@@ -165,215 +425,15 @@
                                         <span class="tool-pill">لاراڤيل</span>
                                         <span class="tool-pill">WebSockets</span>
                                     </div>
-                                    <a href="project-details.html?project=salumida" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=salumida" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 2 -->
-                    <div class="project-card reveal-up" data-category="web">
-                        <div class="project-card-flip">
-                            <div class="project-card-inner">
-                                <div class="project-card-front">
-                                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" alt="Ejarku">
-                                    <div class="front-content-overlay">
-                                        <h3>منصة إيجاركو</h3>
-                                        <p>نظام تأجير متعدد الأسواق</p>
-                                    </div>
-                                </div>
-                                <div class="project-card-back">
-                                    <h3>منصة إيجاركو</h3>
-                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
-                                    <p>منصة تأجير متعددة الأسواق للعقارات والسيارات مع دعم البحث بالذكاء الاصطناعي والاشتراكات.</p>
-                                    <div class="tools-used">
-                                        <span class="tool-pill">Laravel 12</span>
-                                        <span class="tool-pill">Filament v5</span>
-                                        <span class="tool-pill">GLM-4 AI</span>
-                                    </div>
-                                    <a href="project-details.html?project=ejarku" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-card reveal-up" data-category="web">
-                        <div class="project-card-flip">
-                            <div class="project-card-inner">
-                                <div class="project-card-front">
-                                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800" alt="Al-Sheikh Store">
-                                    <div class="front-content-overlay">
-                                        <h3>متجر الشيخ</h3>
-                                        <p>منصة تجارة إلكترونية للهواتف</p>
-                                    </div>
-                                </div>
-                                <div class="project-card-back">
-                                    <h3>متجر الشيخ</h3>
-                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
-                                    <p>متجر إلكتروني متكامل لبيع الهواتف المحمولة وإدارة الطلبات والمنتجات بلغات متعددة.</p>
-                                    <div class="tools-used">
-                                        <span class="tool-pill">لاراڤيل</span>
-                                        <span class="tool-pill">Spatie Permission</span>
-                                    </div>
-                                    <a href="project-details.html?project=al-sheikh" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="project-card reveal-up" data-category="sys">
-                        <div class="project-card-flip">
-                            <div class="project-card-inner">
-                                <div class="project-card-front">
-                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Al-Amrousi ERP">
-                                    <div class="front-content-overlay">
-                                        <h3>نظام العمروسي ERP</h3>
-                                        <p>نظام متكامل لإدارة المنتجات، المبيعات والحسابات</p>
-                                    </div>
-                                </div>
-                                <div class="project-card-back">
-                                    <h3>نظام العمروسي ERP</h3>
-                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
-                                    <p>نظام متكامل لإدارة موارد المؤسسة (ERP) يغطي المنتجات والطلبات والحسابات والمبيعات.</p>
-                                    <div class="tools-used">
-                                        <span class="tool-pill">لاراڤيل</span>
-                                        <span class="tool-pill">Fortify & Jetstream</span>
-                                    </div>
-                                    <a href="project-details.html?project=al-amrousi" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="project-card reveal-up" data-category="sys">
-                        <div class="project-card-flip">
-                            <div class="project-card-inner">
-                                <div class="project-card-front">
-                                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800" alt="ERP System">
-                                    <div class="front-content-overlay">
-                                        <h3>نظام ERP للمصانع</h3>
-                                        <p>إدارة متكاملة لجميع الموارد</p>
-                                    </div>
-                                </div>
-                                <div class="project-card-back">
-                                    <h3>نظام ERP للمصانع</h3>
-                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
-                                    <p>نظام إداري شامل لإدارة الموارد البشرية، المشتريات، المخازن والمبيعات بشكل متكامل ومترابط.</p>
-                                    <div class="tools-used">
-                                        <span class="tool-pill">لاراڤيل</span>
-                                        <span class="tool-pill">ريأكت</span>
-                                    </div>
-                                    <a href="project-details.html" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 6 -->
-                    <div class="project-card reveal-up" data-category="sys">
-                        <div class="project-card-flip">
-                            <div class="project-card-inner">
-                                <div class="project-card-front">
-                                    <img src="images/hey.png" alt="Senerm HRMS">
-                                    <div class="front-content-overlay">
-                                        <h3>نظام HRMS لشركة سينرم</h3>
-                                        <p>إدارة الموارد البشرية والرواتب</p>
-                                    </div>
-                                </div>
-                                <div class="project-card-back">
-                                    <h3>نظام HRMS لشركة سينرم</h3>
-                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
-                                    <p>نظام متكامل لإدارة شؤون الموظفين، الحضور والانصراف، والرواتب مع صلاحيات وصول آمنة وقاعدة بيانات محسنة.</p>
-                                    <div class="tools-used">
-                                        <span class="tool-pill">Full Stack</span>
-                                        <span class="tool-pill">قواعد بيانات محسنة</span>
-                                    </div>
-                                    <a href="project-details.html?project=senerm-hr" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 7 -->
-                    <div class="project-card reveal-up" data-category="sys">
-                        <div class="project-card-flip">
-                            <div class="project-card-inner">
-                                <div class="project-card-front">
-                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800" alt="Al-Tawheed POS">
-                                    <div class="front-content-overlay">
-                                        <h3>نظام نقاط بيع التوحيد</h3>
-                                        <p>نظام POS لسوبر ماركت التوحيد</p>
-                                    </div>
-                                </div>
-                                <div class="project-card-back">
-                                    <h3>نظام نقاط بيع التوحيد</h3>
-                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
-                                    <p>نظام نقاط بيع متكامل لسوبر ماركت التوحيد يشمل إدارة المنتجات، السلة، المصروفات، الرواتب، والصلاحيات.</p>
-                                    <div class="tools-used">
-                                        <span class="tool-pill">لاراڤيل</span>
-                                        <span class="tool-pill">jQuery</span>
-                                    </div>
-                                    <a href="project-details.html?project=al-tawheed-pos" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 8 -->
-                    <div class="project-card reveal-up" data-category="web">
-                        <div class="project-card-flip">
-                            <div class="project-card-inner">
-                                <div class="project-card-front">
-                                    <img src="images/png_logo.png" alt="Senerm Group Website">
-                                    <div class="front-content-overlay">
-                                        <h3>موقع مجموعة سينرم</h3>
-                                        <p>موقع تعريفي للمجموعة</p>
-                                    </div>
-                                </div>
-                                <div class="project-card-back">
-                                    <h3>موقع مجموعة سينرم</h3>
-                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
-                                    <p>موقع تعريفي متكامل ومتجاوب لمجموعة سينرم يعرض خدمات وأعمال الشركة بتصميم عصري وأداء عالي الاستجابة.</p>
-                                    <div class="tools-used">
-                                        <span class="tool-pill">HTML & CSS</span>
-                                        <span class="tool-pill">JavaScript</span>
-                                    </div>
-                                    <a href="project-details.html?project=senerm-website" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 9 -->
-                    <div class="project-card reveal-up" data-category="sys">
-                        <div class="project-card-flip">
-                            <div class="project-card-inner">
-                                <div class="project-card-front">
-                                    <img src="images/farm.png" alt="نظام القاضي لإدارة المزارع">
-                                    <div class="front-content-overlay">
-                                        <h3>القاضي</h3>
-                                        <p>نظام إدارة مزرعة دواجن متكامل</p>
-                                    </div>
-                                </div>
-                                <div class="project-card-back">
-                                    <h3>القاضي</h3>
-                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
-                                    <p>نظام شامل لإدارة العلف، النشارة، الكتاكيت، الغاز، الأدوية، العمال، والمصاريف، مع إغلاق الدورة وحساب النتائج بعد المبيعات تلقائياً.</p>
-                                    <div class="tools-used">
-                                        <span class="tool-pill">لارافيل</span>
-                                        <span class="tool-pill">قواعد بيانات</span>
-                                        <span class="tool-pill">تقارير مالية</span>
-                                    </div>
-                                    <a href="project-details.html?project=alqadi" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 10 -->
+                    <!-- Project 11: Art Bella -->
                     <div class="project-card reveal-up" data-category="web">
                         <div class="project-card-flip">
                             <div class="project-card-inner">
@@ -393,13 +453,15 @@
                                         <span class="tool-pill">Vue.js</span>
                                         <span class="tool-pill">Realtime</span>
                                     </div>
-                                    <a href="project-details.html?project=artbella" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=artbella" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 11 -->
+                    <!-- Project 12: Perfect Farm -->
                     <div class="project-card reveal-up" data-category="web">
                         <div class="project-card-flip">
                             <div class="project-card-inner">
@@ -419,13 +481,151 @@
                                         <span class="tool-pill">API</span>
                                         <span class="tool-pill">SaaS</span>
                                     </div>
-                                    <a href="project-details.html?project=perfect-farm" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=perfect-farm" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Project 12 -->
+                    <!-- Project 13: Al Qadi Farm -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="images/farm.png" alt="نظام القاضي لإدارة المزارع">
+                                    <div class="front-content-overlay">
+                                        <h3>القاضي</h3>
+                                        <p>نظام إدارة مزرعة دواجن متكامل</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>القاضي</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
+                                    <p>نظام شامل لإدارة العلف، النشارة، الكتاكيت، الغاز، الأدوية، العمال، والمصاريف، مع إغلاق الدورة وحساب النتائج بعد المبيعات تلقائياً.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لارافيل</span>
+                                        <span class="tool-pill">قواعد بيانات</span>
+                                        <span class="tool-pill">تقارير مالية</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=alqadi" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 14: Al-Amrousi ERP -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Al-Amrousi ERP">
+                                    <div class="front-content-overlay">
+                                        <h3>نظام العمروسي ERP</h3>
+                                        <p>نظام متكامل لإدارة المنتجات والمبيعات والحسابات</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>نظام العمروسي ERP</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
+                                    <p>نظام متكامل لإدارة موارد المؤسسة (ERP) يغطي المنتجات والطلبات والحسابات والمبيعات.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">Fortify & Jetstream</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=al-amrousi" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 15: Al-Sheikh Store -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800" alt="Al-Sheikh Store">
+                                    <div class="front-content-overlay">
+                                        <h3>متجر الشيخ</h3>
+                                        <p>منصة تجارة إلكترونية للهواتف</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>متجر الشيخ</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
+                                    <p>متجر إلكتروني متكامل لبيع الهواتف المحمولة وإدارة الطلبات والمنتجات بلغات متعددة.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">لاراڤيل</span>
+                                        <span class="tool-pill">Spatie Permission</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=al-sheikh" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 16: Senerm HRMS -->
+                    <div class="project-card reveal-up" data-category="sys">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="images/hey.png" alt="Senerm HRMS">
+                                    <div class="front-content-overlay">
+                                        <h3>نظام HRMS لشركة سينرم</h3>
+                                        <p>إدارة الموارد البشرية والرواتب</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>نظام HRMS لشركة سينرم</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">نظم إدارية</span>
+                                    <p>نظام متكامل لإدارة شؤون الموظفين، الحضور والانصراف، والرواتب مع صلاحيات وصول آمنة وقاعدة بيانات محسنة.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">Full Stack</span>
+                                        <span class="tool-pill">قواعد بيانات</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=senerm-hr" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 17: Senerm Website -->
+                    <div class="project-card reveal-up" data-category="web">
+                        <div class="project-card-flip">
+                            <div class="project-card-inner">
+                                <div class="project-card-front">
+                                    <img src="images/png_logo.png" alt="Senerm Group Website">
+                                    <div class="front-content-overlay">
+                                        <h3>موقع مجموعة سينرم</h3>
+                                        <p>موقع تعريفي للمجموعة</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-back">
+                                    <h3>موقع مجموعة سينرم</h3>
+                                    <span class="project-tag" style="margin-bottom: 10px; display: inline-block;">تطوير ويب</span>
+                                    <p>موقع تعريفي متكامل ومتجاوب لمجموعة سينرم يعرض خدمات وأعمال الشركة بتصميم عصري وأداء عالي الاستجابة.</p>
+                                    <div class="tools-used">
+                                        <span class="tool-pill">HTML & CSS</span>
+                                        <span class="tool-pill">JavaScript</span>
+                                    </div>
+                                    <div class="card-actions">
+                                        <a href="project-details.html?project=senerm-website" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 18: Dashboard UI Kit -->
                     <div class="project-card reveal-up" data-category="uiux">
                         <div class="project-card-flip">
                             <div class="project-card-inner">
@@ -444,7 +644,9 @@
                                         <span class="tool-pill">فيجما</span>
                                         <span class="tool-pill">أدوبي إكس دي</span>
                                     </div>
-                                    <a href="project-details.html" class="btn-glow" style="width: 100%; justify-content: center; font-size: 1rem; padding: 10px;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    <div class="card-actions">
+                                        <a href="project-details.html" class="btn-card-details" style="width: 100%;">استكشف المشروع <i class="fas fa-arrow-left"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -485,7 +687,7 @@
             const pageNumbersContainer = document.querySelector('.page-numbers');
             const prevBtn = document.querySelector('.page-btn.prev');
             const nextBtn = document.querySelector('.page-btn.next');
-            const itemsPerPage = 4;
+            const itemsPerPage = 6;
             let currentPage = 1;
             let currentFilter = 'all';
 
