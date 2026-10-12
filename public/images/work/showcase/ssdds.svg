@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="ssdds-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05141f" />
+      <stop offset="50%" stop-color="#0a2233" />
+      <stop offset="100%" stop-color="#030d14" />
+    </linearGradient>
+    <linearGradient id="saudi-green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#008450" />
+      <stop offset="100%" stop-color="#00b06b" />
+    </linearGradient>
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c6ff" />
+      <stop offset="100%" stop-color="#0072ff" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#ssdds-bg)" />
+  
+  <!-- Subtle Medical Cross/Pattern -->
+  <g opacity="0.04" stroke="#00c6ff" stroke-width="1.5">
+    <circle cx="800" cy="450" r="300" fill="none" />
+    <circle cx="800" cy="450" r="500" fill="none" />
+  </g>
+
+  <!-- Header -->
+  <g transform="translate(80, 50)">
+    <rect width="1440" height="70" rx="14" fill="#081b29" stroke="#163852" stroke-width="1.5" />
+    <circle cx="45" cy="35" r="18" fill="url(#saudi-green)" />
+    <text x="36" y="42" font-family="'Inter', sans-serif" font-weight="900" font-size="18" fill="#ffffff">🇸🇦</text>
+    <text x="75" y="38" font-family="'Cairo', sans-serif" font-weight="800" font-size="18" fill="#ffffff">الجمعية السعودية للأمراض وجراحة الجلد</text>
+    <text x="75" y="55" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#7dd3fc" letter-spacing="1">SAUDI SOCIETY OF DERMATOLOGY &amp; DERMATOLOGIC SURGERY (EST. 1989)</text>
+    <text x="960" y="42" font-family="'Cairo', sans-serif" font-weight="600" font-size="15" fill="#cbd5e1">المؤتمرات • الساعات المعتمدة CME • العضويات • المجلة العلمية</text>
+    <rect x="1300" y="18" width="115" height="34" rx="8" fill="url(#cyan-glow)" />
+    <text x="1328" y="40" font-family="'Cairo', sans-serif" font-weight="700" font-size="13" fill="#ffffff">بوابة الأطباء</text>
+  </g>
+
+  <!-- Left Column: Annual Medical Conference & CME Accreditation -->
+  <g transform="translate(80, 160)">
+    <rect width="900" height="680" rx="20" fill="#091f30" stroke="#184364" stroke-width="1.5" />
+    
+    <g transform="translate(45, 45)">
+      <rect width="250" height="32" rx="16" fill="#0c2d44" stroke="#00c6ff" stroke-width="1" />
+      <text x="25" y="21" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#00c6ff">ANNUAL DERMATOLOGY SUMMIT</text>
+      
+      <text x="0" y="85" font-family="'Cairo', sans-serif" font-weight="900" font-size="36" fill="#ffffff">المؤتمر السنوي الدولي للأمراض الجلدية 2026</text>
+      <text x="0" y="125" font-family="'Cairo', sans-serif" font-weight="700" font-size="22" fill="#7dd3fc">مركز الملك فهد للمؤتمرات • الرياض، المملكة العربية السعودية</text>
+      <text x="0" y="165" font-family="'Cairo', sans-serif" font-weight="500" font-size="16" fill="#94a3b8">أكبر تجمع للأطباء والاستشاريين وجراحي التجميل والجلدية في الشرق الأوسط مع ورش عمل جراحية حية.</text>
+    </g>
+
+    <!-- Conference Highlights Cards -->
+    <g transform="translate(45, 250)">
+      <!-- Card 1: CME Hours -->
+      <rect width="250" height="150" rx="14" fill="#0d283e" stroke="#1d4f75" stroke-width="1" />
+      <text x="25" y="45" font-family="'Cairo', sans-serif" font-weight="700" font-size="15" fill="#7dd3fc">الساعات الطبية المعتمدة</text>
+      <text x="25" y="95" font-family="'Inter', sans-serif" font-weight="900" font-size="38" fill="#ffffff">24 CME</text>
+      <text x="25" y="125" font-family="'Cairo', sans-serif" font-weight="600" font-size="12" fill="#22c55e">معتمدة من الهيئة السعودية للتخصصات الصحية</text>
+
+      <!-- Card 2: International Speakers -->
+      <g transform="translate(280, 0)">
+        <rect width="250" height="150" rx="14" fill="#0d283e" stroke="#1d4f75" stroke-width="1" />
+        <text x="25" y="45" font-family="'Cairo', sans-serif" font-weight="700" font-size="15" fill="#7dd3fc">المتحدثين الدوليين</text>
+        <text x="25" y="95" font-family="'Inter', sans-serif" font-weight="900" font-size="38" fill="#ffffff">45+ KOLS</text>
+        <text x="25" y="125" font-family="'Cairo', sans-serif" font-weight="600" font-size="12" fill="#38bdf8">خبراء من هارفارد وأوروبا والخليج</text>
+      </g>
+
+      <!-- Card 3: Live Workshops -->
+      <g transform="translate(560, 0)">
+        <rect width="250" height="150" rx="14" fill="#0d283e" stroke="#1d4f75" stroke-width="1" />
+        <text x="25" y="45" font-family="'Cairo', sans-serif" font-weight="700" font-size="15" fill="#7dd3fc">ورش العمل الجراحية</text>
+        <text x="25" y="95" font-family="'Inter', sans-serif" font-weight="900" font-size="38" fill="#ffffff">18 Labs</text>
+        <text x="25" y="125" font-family="'Cairo', sans-serif" font-weight="600" font-size="12" fill="#fbbf24">تطبيق إكلينيكي مباشر على أحدث أجهزة الليزر</text>
+      </g>
+    </g>
+
+    <!-- Scientific Journal Indexing Banner -->
+    <g transform="translate(45, 450)">
+      <rect width="810" height="180" rx="14" fill="#081c2b" stroke="#00c6ff" stroke-width="1" />
+      <text x="35" y="45" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#00c6ff">OFFICIAL PEER-REVIEWED JOURNAL OF SSDDS</text>
+      <text x="35" y="80" font-family="'Cairo', sans-serif" font-weight="700" font-size="20" fill="#ffffff">مجلة الجمعية السعودية المحكمة لأبحاث وجراحة الجلد</text>
+      <text x="35" y="115" font-family="'Cairo', sans-serif" font-weight="500" font-size="15" fill="#94a3b8">أكثر من 1,200 بحث وورقة علمية منشورة ومفهرسة في قواعد البيانات العالمية (Scopus &amp; PubMed).</text>
+      <rect x="35" y="135" width="180" height="30" rx="6" fill="#164e63" />
+      <text x="50" y="155" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#38bdf8">SUBMIT RESEARCH PAPER</text>
+    </g>
+  </g>
+
+  <!-- Right Column: Doctor Memberships Portal & Registration -->
+  <g transform="translate(1020, 160)">
+    <rect width="500" height="680" rx="20" fill="#091f30" stroke="#184364" stroke-width="1.5" />
+    
+    <g transform="translate(45, 45)">
+      <text x="0" y="30" font-family="'Cairo', sans-serif" font-weight="800" font-size="24" fill="#ffffff">تسجيل وحجز المؤتمر الطبي</text>
+      <text x="0" y="60" font-family="'Cairo', sans-serif" font-weight="500" font-size="14" fill="#7dd3fc">بوابة الدفع الإلكتروني المعتمدة للأطباء والممارسين</text>
+
+      <!-- Form Box -->
+      <g transform="translate(0, 90)">
+        <rect width="410" height="60" rx="10" fill="#0d283e" stroke="#1d4f75" stroke-width="1" />
+        <text x="20" y="25" font-family="'Cairo', sans-serif" font-weight="600" font-size="11" fill="#7dd3fc">رقم الهيئة السعودية للتخصصات الصحية (SCFHS ID)</text>
+        <text x="20" y="47" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#ffffff">SCFHS-24-984210</text>
+
+        <rect y="80" width="410" height="60" rx="10" fill="#0d283e" stroke="#1d4f75" stroke-width="1" />
+        <text x="20" y="105" font-family="'Cairo', sans-serif" font-weight="600" font-size="11" fill="#7dd3fc">فئة العضوية (Doctor Category)</text>
+        <text x="20" y="127" font-family="'Cairo', sans-serif" font-weight="700" font-size="15" fill="#ffffff">استشاري أمراض وجراحة جلدية مسجل</text>
+
+        <rect y="160" width="410" height="60" rx="10" fill="#0d283e" stroke="#1d4f75" stroke-width="1" />
+        <text x="20" y="185" font-family="'Cairo', sans-serif" font-weight="600" font-size="11" fill="#7dd3fc">حزمة التسجيل (Full Conference + CME + Gala Dinner)</text>
+        <text x="20" y="207" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#38bdf8">1,850 SAR (Early Bird Discount)</text>
+
+        <rect y="240" width="410" height="50" rx="10" fill="url(#saudi-green)" />
+        <text x="130" y="272" font-family="'Cairo', sans-serif" font-weight="800" font-size="16" fill="#ffffff">تأكيد التسجيل والدفع المعتمد</text>
+      </g>
+
+      <!-- Trust Badges -->
+      <g transform="translate(0, 420)">
+        <rect width="410" height="150" rx="12" fill="#071724" stroke="#13364f" stroke-width="1" />
+        <text x="25" y="35" font-family="'Cairo', sans-serif" font-weight="700" font-size="14" fill="#ffffff">الاعتمادات والتراخيص الرسمية:</text>
+        <text x="25" y="65" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#94a3b8">✓ ربط فوري لنقاط التعليم الطبي مع الهيئة السعودية</text>
+        <text x="25" y="95" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#94a3b8">✓ بوابات دفع آمنة (مدى Mada / فيزا / أبل باي Apple Pay)</text>
+        <text x="25" y="125" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#94a3b8">✓ إصدار باركود الحضور الذكي والشهادات الرقمية فوراً</text>
+      </g>
+    </g>
+  </g>
+</svg>

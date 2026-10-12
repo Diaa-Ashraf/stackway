@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="hm-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040810" />
+      <stop offset="50%" stop-color="#08101e" />
+      <stop offset="100%" stop-color="#020408" />
+    </linearGradient>
+    <linearGradient id="hm-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#3a7bd5" />
+    </linearGradient>
+    <linearGradient id="hm-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d1d1" />
+      <stop offset="100%" stop-color="#1fb8b8" />
+    </linearGradient>
+    <linearGradient id="hm-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffd700" />
+      <stop offset="100%" stop-color="#ffaa00" />
+    </linearGradient>
+    <filter id="hm-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1600" height="900" fill="url(#hm-bg)" />
+  
+  <!-- Subtle Grid Pattern -->
+  <g opacity="0.06" stroke="#34d1d1" stroke-width="1">
+    <line x1="0" y1="150" x2="1600" y2="150" /><line x1="0" y1="300" x2="1600" y2="300" />
+    <line x1="0" y1="450" x2="1600" y2="450" /><line x1="0" y1="600" x2="1600" y2="600" />
+    <line x1="0" y1="750" x2="1600" y2="750" />
+    <line x1="200" y1="0" x2="200" y2="900" /><line x1="400" y1="0" x2="400" y2="900" />
+    <line x1="600" y1="0" x2="600" y2="900" /><line x1="800" y1="0" x2="800" y2="900" />
+    <line x1="1000" y1="0" x2="1000" y2="900" /><line x1="1200" y1="0" x2="1200" y2="900" />
+    <line x1="1400" y1="0" x2="1400" y2="900" />
+  </g>
+
+  <!-- App Header Bar -->
+  <rect x="60" y="50" width="1480" height="70" rx="16" fill="#0d1527" stroke="#1f2c47" stroke-width="1.5" />
+  <circle cx="100" cy="85" r="16" fill="#34d1d1" />
+  <text x="94" y="91" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#05060a">HM</text>
+  <text x="135" y="92" font-family="'Inter', sans-serif" font-weight="800" font-size="20" fill="#ffffff">TEAM HM COACHING OS</text>
+  <rect x="420" y="70" width="140" height="30" rx="15" fill="#152238" stroke="#34d1d1" stroke-width="1" />
+  <text x="445" y="90" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#34d1d1">PRO ATHLETE</text>
+  <text x="1220" y="91" font-family="'Inter', sans-serif" font-weight="600" font-size="14" fill="#9ca3af">COACH: HOSSAM MANSOUR (WORLD CHAMPION)</text>
+  <circle cx="1500" cy="85" r="10" fill="#22c55e" />
+
+  <!-- Left Column: Workout Engine & Daily Split -->
+  <g transform="translate(60, 150)">
+    <rect width="470" height="690" rx="20" fill="#0a101d" stroke="#1a2538" stroke-width="1.5" />
+    <text x="35" y="50" font-family="'Inter', sans-serif" font-weight="800" font-size="22" fill="#ffffff">TODAY'S WORKOUT SPLIT</text>
+    <text x="35" y="80" font-family="'Inter', sans-serif" font-weight="600" font-size="14" fill="#34d1d1">HYPERTROPHY PHASE • PUSH A (CHEST &amp; DELTS)</text>
+    
+    <!-- Exercise Item 1 -->
+    <rect x="35" y="110" width="400" height="90" rx="12" fill="#111c30" stroke="#223352" stroke-width="1" />
+    <text x="55" y="145" font-family="'Inter', sans-serif" font-weight="700" font-size="16" fill="#ffffff">Incline Dumbbell Press</text>
+    <text x="55" y="175" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#9ca3af">4 Sets × 8-10 Reps • RPE 9 • Rest 120s</text>
+    <rect x="360" y="140" width="60" height="30" rx="8" fill="#34d1d1" />
+    <text x="375" y="160" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#05060a">DONE</text>
+
+    <!-- Exercise Item 2 -->
+    <rect x="35" y="220" width="400" height="90" rx="12" fill="#111c30" stroke="#223352" stroke-width="1" />
+    <text x="55" y="255" font-family="'Inter', sans-serif" font-weight="700" font-size="16" fill="#ffffff">Weighted Dips (Chest Lean)</text>
+    <text x="55" y="285" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#9ca3af">3 Sets × 10-12 Reps • RIR 1 • Rest 90s</text>
+    <rect x="360" y="250" width="60" height="30" rx="8" fill="#1f2c47" />
+    <text x="370" y="270" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#34d1d1">START</text>
+
+    <!-- Exercise Item 3 -->
+    <rect x="35" y="330" width="400" height="90" rx="12" fill="#111c30" stroke="#223352" stroke-width="1" />
+    <text x="55" y="365" font-family="'Inter', sans-serif" font-weight="700" font-size="16" fill="#ffffff">Cable Lateral Raises (Behind Back)</text>
+    <text x="55" y="395" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#9ca3af">4 Sets × 15-20 Reps • Drop Set on 4th</text>
+    <rect x="360" y="360" width="60" height="30" rx="8" fill="#1f2c47" />
+    <text x="370" y="380" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#9ca3af">LOCKED</text>
+
+    <!-- Exercise Item 4 -->
+    <rect x="35" y="440" width="400" height="90" rx="12" fill="#111c30" stroke="#223352" stroke-width="1" />
+    <text x="55" y="475" font-family="'Inter', sans-serif" font-weight="700" font-size="16" fill="#ffffff">Overhead Triceps Rope Extension</text>
+    <text x="55" y="505" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#9ca3af">3 Sets × 12-15 Reps • Peak Contraction 2s</text>
+    <rect x="360" y="470" width="60" height="30" rx="8" fill="#1f2c47" />
+    <text x="370" y="490" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#9ca3af">LOCKED</text>
+
+    <!-- Volume summary -->
+    <rect x="35" y="560" width="400" height="95" rx="12" fill="#08101d" stroke="#34d1d1" stroke-width="1" />
+    <text x="55" y="595" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#34d1d1">SESSION TARGET VOLUME: 16,800 KG</text>
+    <rect x="55" y="615" width="360" height="10" rx="5" fill="#152238" />
+    <rect x="55" y="615" width="260" height="10" rx="5" fill="#34d1d1" />
+  </g>
+
+  <!-- Center Column: Nutrition Macros & Daily Fuel -->
+  <g transform="translate(560, 150)">
+    <rect width="470" height="690" rx="20" fill="#0a101d" stroke="#1a2538" stroke-width="1.5" />
+    <text x="35" y="50" font-family="'Inter', sans-serif" font-weight="800" font-size="22" fill="#ffffff">MACRONUTRIENT TARGETS</text>
+    <text x="35" y="80" font-family="'Inter', sans-serif" font-weight="600" font-size="14" fill="#34d1d1">HIGH PROTEIN CONTEST PREP • 2,850 KCAL</text>
+
+    <!-- Macro Rings -->
+    <g transform="translate(50, 110)">
+      <!-- Protein -->
+      <circle cx="60" cy="60" r="50" fill="none" stroke="#152238" stroke-width="12" />
+      <circle cx="60" cy="60" r="50" fill="none" stroke="#34d1d1" stroke-width="12" stroke-dasharray="314" stroke-dashoffset="65" />
+      <text x="45" y="66" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#ffffff">240g</text>
+      <text x="35" y="135" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#34d1d1">PROTEIN</text>
+
+      <!-- Carbs -->
+      <circle cx="190" cy="60" r="50" fill="none" stroke="#152238" stroke-width="12" />
+      <circle cx="190" cy="60" r="50" fill="none" stroke="#ffd700" stroke-width="12" stroke-dasharray="314" stroke-dashoffset="110" />
+      <text x="175" y="66" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#ffffff">280g</text>
+      <text x="175" y="135" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#ffd700">CARBS</text>
+
+      <!-- Fats -->
+      <circle cx="320" cy="60" r="50" fill="none" stroke="#152238" stroke-width="12" />
+      <circle cx="320" cy="60" r="50" fill="none" stroke="#ec4899" stroke-width="12" stroke-dasharray="314" stroke-dashoffset="200" />
+      <text x="308" y="66" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#ffffff">65g</text>
+      <text x="312" y="135" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#ec4899">FATS</text>
+    </g>
+
+    <!-- Meal Schedule -->
+    <g transform="translate(35, 270)">
+      <rect width="400" height="75" rx="10" fill="#111c30" stroke="#223352" stroke-width="1" />
+      <text x="20" y="32" font-family="'Inter', sans-serif" font-weight="700" font-size="15" fill="#ffffff">Meal 1 • 08:30 AM</text>
+      <text x="20" y="58" font-family="'Inter', sans-serif" font-weight="500" font-size="13" fill="#9ca3af">6 Egg Whites + 2 Whole Eggs + 80g Oats + Berries</text>
+
+      <rect y="90" width="400" height="75" rx="10" fill="#111c30" stroke="#223352" stroke-width="1" />
+      <text x="20" y="122" font-family="'Inter', sans-serif" font-weight="700" font-size="15" fill="#ffffff">Meal 2 (Pre-Workout) • 12:00 PM</text>
+      <text x="20" y="148" font-family="'Inter', sans-serif" font-weight="500" font-size="13" fill="#9ca3af">220g Chicken Breast + 200g Basmati Rice + Greens</text>
+
+      <rect y="180" width="400" height="75" rx="10" fill="#111c30" stroke="#223352" stroke-width="1" />
+      <text x="20" y="212" font-family="'Inter', sans-serif" font-weight="700" font-size="15" fill="#ffffff">Meal 3 (Post-Workout) • 04:00 PM</text>
+      <text x="20" y="238" font-family="'Inter', sans-serif" font-weight="500" font-size="13" fill="#9ca3af">50g Whey Isolate + Cream of Rice + Honey</text>
+
+      <rect y="270" width="400" height="75" rx="10" fill="#111c30" stroke="#223352" stroke-width="1" />
+      <text x="20" y="302" font-family="'Inter', sans-serif" font-weight="700" font-size="15" fill="#ffffff">Meal 4 • 08:00 PM</text>
+      <text x="20" y="328" font-family="'Inter', sans-serif" font-weight="500" font-size="13" fill="#9ca3af">200g Salmon Fillet + Sweet Potato + Asparagus</text>
+    </g>
+  </g>
+
+  <!-- Right Column: Weekly Check-In & Physical Analytics -->
+  <g transform="translate(1060, 150)">
+    <rect width="480" height="690" rx="20" fill="#0a101d" stroke="#1a2538" stroke-width="1.5" />
+    <text x="35" y="50" font-family="'Inter', sans-serif" font-weight="800" font-size="22" fill="#ffffff">WEEKLY CHECK-IN #14</text>
+    <text x="35" y="80" font-family="'Inter', sans-serif" font-weight="600" font-size="14" fill="#22c55e">STATUS: APPROVED BY COACH HOSSAM</text>
+
+    <!-- Metrics Cards Grid -->
+    <g transform="translate(35, 110)">
+      <rect width="190" height="90" rx="12" fill="#111c30" stroke="#223352" stroke-width="1" />
+      <text x="20" y="35" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#9ca3af">BODY WEIGHT</text>
+      <text x="20" y="70" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#ffffff">94.2 KG</text>
+      <text x="135" y="70" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#22c55e">-0.8kg</text>
+
+      <rect x="210" width="190" height="90" rx="12" fill="#111c30" stroke="#223352" stroke-width="1" />
+      <text x="230" y="35" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#9ca3af">BODY FAT EST.</text>
+      <text x="230" y="70" font-family="'Inter', sans-serif" font-weight="900" font-size="28" fill="#34d1d1">7.4%</text>
+      <text x="345" y="70" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#22c55e">-0.4%</text>
+    </g>
+
+    <!-- Progress Graph -->
+    <g transform="translate(35, 230)">
+      <rect width="410" height="200" rx="12" fill="#111c30" stroke="#223352" stroke-width="1" />
+      <text x="20" y="30" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#ffffff">12-WEEK WEIGHT &amp; FAT REDUCTION CURVE</text>
+      <!-- Polyline for chart -->
+      <polyline points="40,160 90,145 150,135 210,120 270,100 330,85 380,60" fill="none" stroke="#34d1d1" stroke-width="3" />
+      <circle cx="380" cy="60" r="6" fill="#34d1d1" />
+      <text x="340" y="45" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#34d1d1">94.2kg</text>
+    </g>
+
+    <!-- Coach Feedback Note -->
+    <g transform="translate(35, 460)">
+      <rect width="410" height="195" rx="12" fill="#15243d" stroke="#34d1d1" stroke-width="1.5" />
+      <text x="20" y="35" font-family="'Inter', sans-serif" font-weight="800" font-size="15" fill="#34d1d1">COACH HOSSAM MANSOUR NOTES:</text>
+      <text x="20" y="70" font-family="'Cairo', sans-serif" font-weight="600" font-size="15" fill="#ffffff">"تطور ممتاز في تفاصيل الظهر ونسبة الدهون."</text>
+      <text x="20" y="105" font-family="'Cairo', sans-serif" font-weight="500" font-size="14" fill="#cbd5e1">"سنقلل الكارب 30 جرام في وجبة التمرين الأسبوع القادم لزيادة التحديد العضلي، الاستشفاء ممتاز واستمر بنفس القوة."</text>
+      <rect x="20" y="145" width="370" height="35" rx="8" fill="#34d1d1" />
+      <text x="110" y="168" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#05060a">OPEN ATHLETE CHAT • ONLINE</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,316 @@
+'use client';
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HOSTING_PLANS } from '@/content/site-data';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { Button } from '@/components/ui/Button';
+import { Check, Minus, ChevronDown, Shield, Zap, Server } from 'lucide-react';
+
+interface HostingPageViewProps {
+  lang?: 'en' | 'ar';
+}
+
+export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
+  const isAr = lang === 'ar';
+  const [currency, setCurrency] = useState<'EGP' | 'USD'>('EGP');
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+
+  const comparisonCategories = [
+    {
+      title: isAr ? 'الموارد والأداء' : 'Compute & Performance',
+      rows: [
+        { name: isAr ? 'مساحة تخزين NVMe' : 'NVMe Storage', starter: '15 GB', business: '40 GB', pro: '100 GB' },
+        { name: isAr ? 'عدد المواقع المستضافة' : 'Websites Hosted', starter: '1 Site', business: '5 Sites', pro: 'Unlimited' },
+        { name: isAr ? 'خادم الويب' : 'Web Server Engine', starter: 'LiteSpeed', business: 'LiteSpeed Turbo', pro: 'LiteSpeed Enterprise' },
+        { name: isAr ? 'حد ذاكرة PHP' : 'PHP Memory Limit', starter: '512 MB', business: '1024 MB', pro: '2048 MB' },
+        { name: isAr ? 'حركة المرور (Bandwidth)' : 'Monthly Traffic', starter: 'Unmetered*', business: 'Unmetered*', pro: 'Unmetered*' },
+      ],
+    },
+    {
+      title: isAr ? 'الأمان والنسخ الاحتياطي' : 'Security & Resilience',
+      rows: [
+        { name: isAr ? 'شهادات أمان SSL' : 'SSL Certificates', starter: 'Free Standard', business: 'Free Wildcard', pro: 'Free Wildcard + EV' },
+        { name: isAr ? 'عزل حسابات CloudLinux' : 'CloudLinux CageFS', starter: 'Yes', business: 'Yes', pro: 'Yes' },
+        { name: isAr ? 'النسخ الاحتياطي التلقائي' : 'Automated Backups', starter: 'Daily (7 Days)', business: 'Daily (30 Days)', pro: 'Real-time (60 Days)' },
+        { name: isAr ? 'فحص البرمجيات الخبيثة والجدار الناري' : 'Malware Scanner & WAF', starter: 'Basic', business: 'Active Shield', pro: 'Enterprise Hardened' },
+      ],
+    },
+    {
+      title: isAr ? 'البريد والدعم الفني' : 'Mail & Support',
+      rows: [
+        { name: isAr ? 'صناديق البريد الرسمي' : 'Business Mailboxes', starter: '5 Mailboxes', business: 'Unlimited', pro: 'Unlimited' },
+        { name: isAr ? 'نقل الموقع مجاناً' : 'Free Website Migration', starter: '1 Site', business: 'Up to 5 Sites', pro: 'Unlimited' },
+        { name: isAr ? 'أولوية الدعم الفني' : 'Support Priority', starter: 'Standard 24/7', business: 'Priority 24/7', pro: 'Dedicated Engineer' },
+      ],
+    },
+  ];
+
+  const faqs = [
+    {
+      q: isAr ? 'ما الذي يميز استضافة ستاك واي عن باقي شركات الاستضافة؟' : 'How is Stackway managed hosting different from traditional web hosts?',
+      a: isAr
+        ? 'نحن فريق من مهندسي البرمجيات المتخصصين، وليس مجرد موفري مساحات خوادم. نحن نضبط كل سيرفر بما يطابق احتياجات كود موقعك، ونستخدم أقراص NVMe حقيقية وخوادم LiteSpeed، ونتدخل استباقياً لأي مشكلة قبل أن تشعر بها.'
+        : 'We are software engineers who build platforms, not a generic reseller. We calibrate PHP limits, opcode caching, LiteSpeed, and MySQL buffers specifically for your application to ensure maximum speed and stability.'
+    },
+    {
+      q: isAr ? 'هل تقومون بنقل موقعي الحالي بدون توقف؟' : 'Do you handle the migration from my existing hosting without downtime?',
+      a: isAr
+        ? 'نعم، يقوم مهندسونا بنقل كافة ملفات موقعك وقواعد بياناته وبريدك الإلكتروني بالكامل مجاناً وبدون أي انقطاع للخدمة أو فقدان للرسائل.'
+        : 'Yes. Our infrastructure team manages the entire migration of files, databases, SSL, and mailboxes free of charge with zero downtime.'
+    },
+    {
+      q: isAr ? 'هل تشمل خطة Pro نطاقاً مجانياً بالفعل؟' : 'Does the Pro plan genuinely include a free domain name?',
+      a: isAr
+        ? 'نعم، تشمل باقة Pro تسجيل أو تجديد نطاق .com مجاناً للسنة الأولى بالكامل مع حماية خصوصية WHOIS مجانية.'
+        : 'Yes, the Pro plan includes a complimentary 1-year registration or renewal for a standard .com domain with privacy protection.'
+    },
+    {
+      q: isAr ? 'ما هي سياسة الاستخدام العادل لحركة المرور؟' : 'What is the fair-use policy regarding unmetered bandwidth?',
+      a: isAr
+        ? 'حركة المرور غير محدودة لكافة الاستخدامات الطبيعية للمواقع والمتاجر والمنصات. لا نسمح فقط بمواقع التورنت أو تخزين الملفات غير القانونية الضخمة.'
+        : 'Unmetered bandwidth accommodates legitimate business traffic for websites, e-commerce, and SaaS. It simply excludes public file torrenting or illegal mass distribution.'
+    },
+    {
+      q: isAr ? 'ماذا يحدث إذا احتجت إلى خادم سحابي مخصص لاحقاً؟' : 'What happens if my business outgrows these plans?',
+      a: isAr
+        ? 'بنيتنا مصممة للتوسع السلس. نستطيع ترقية حسابك إلى خادم سحابي مخصص (Cloud VPS) أو بيئة AWS خلال دقائق وبدون إعادة بناء موقعك.'
+        : 'Our infrastructure is designed for seamless scaling. We can migrate your workloads to isolated Cloud VPS or enterprise AWS clusters in minutes.'
+    }
+  ];
+
+  return (
+    <div className="pt-28 pb-20 md:pt-40 md:pb-32 bg-[var(--bg)] min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <SectionHeader
+          number="07"
+          eyebrow={isAr ? 'خطط واستضافة الخوادم السحابية' : 'INFRASTRUCTURE & PRICING'}
+          title={isAr ? 'استضافة سحابية مدارة، فائقة السرعة.' : 'Managed NVMe cloud hosting engineered for speed.'}
+          subtitle={
+            isAr
+              ? 'أقراص NVMe، خوادم LiteSpeed المسرعة، وعزل CloudLinux، مع ضمان تشغيل 99.9% ودعم فني بشري متواصل.'
+              : 'Enterprise-grade NVMe solid-state storage, LiteSpeed caching, and proactive patch management.'
+          }
+        />
+
+        {/* Currency Switch Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 sm:mb-12 p-3 sm:p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface)]">
+          <div className="text-xs sm:text-sm font-medium text-[var(--muted)]">
+            {isAr ? 'الأسعار شاملة الدعم الفني والنسخ الاحتياطي اليومي' : 'All plans include daily backups & 24/7 technical monitoring'}
+          </div>
+
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-mono text-[var(--muted)] hidden sm:inline">
+              {isAr ? 'العملة:' : 'Currency:'}
+            </span>
+            <div className="p-1 rounded-full border border-[var(--line)] bg-[var(--bg)] flex items-center">
+              <button
+                onClick={() => setCurrency('EGP')}
+                className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                  currency === 'EGP' ? 'bg-[var(--accent)] text-white shadow-xs' : 'text-[var(--muted)]'
+                }`}
+              >
+                EGP
+              </button>
+              <button
+                onClick={() => setCurrency('USD')}
+                className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
+                  currency === 'USD' ? 'bg-[var(--accent)] text-white shadow-xs' : 'text-[var(--muted)]'
+                }`}
+              >
+                USD
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* 3 Pricing Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-24">
+          {HOSTING_PLANS.map((plan) => {
+            const price = currency === 'EGP' ? `${plan.priceEGP.toLocaleString()} EGP` : `$${plan.priceUSD}`;
+            const isPopular = plan.popular;
+
+            return (
+              <div
+                key={plan.id}
+                className={`relative rounded-3xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 ${
+                  isPopular
+                    ? 'shimmer-border p-[2px] shadow-xl ring-2 ring-[var(--accent)]/30 scale-[1.02]'
+                    : 'border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-8 md:p-10 shadow-sm'
+                }`}
+              >
+                <div className={`${isPopular ? 'shimmer-inner rounded-[calc(1.5rem-2px)] p-5 sm:p-8 md:p-10' : ''} flex flex-col justify-between h-full`}>
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-heading font-extrabold text-2xl text-[var(--ink)]">
+                        {isAr ? plan.name.ar : plan.name.en}
+                      </span>
+                      {isPopular && (
+                        <span className="mono-tag text-[10px] px-3 py-1 rounded-full bg-[var(--accent)] text-white font-bold shadow-xs">
+                          {isAr ? 'الأكثر طلباً' : 'MOST CHOSEN'}
+                        </span>
+                      )}
+                    </div>
+
+                    <p className="text-xs md:text-sm text-[var(--muted)] mb-8">
+                      {isAr ? plan.tagline.ar : plan.tagline.en}
+                    </p>
+
+                    <div className="mb-8 pb-6 border-b border-[var(--line)]">
+                      <div className="flex items-baseline gap-2">
+                        <span className="font-heading font-black text-4xl md:text-5xl text-[var(--ink)] tracking-tight">
+                          {price}
+                        </span>
+                        <span className="text-xs font-mono text-[var(--muted)]">
+                          {isAr ? '/ سنوياً' : '/ yr'}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="space-y-3.5 mb-10">
+                      <span className="mono-tag text-[11px] text-[var(--muted)] tracking-wider uppercase block">
+                        {isAr ? '// المواصفات الأساسية:' : '// SPECS:'}
+                      </span>
+                      {(isAr ? plan.specs.ar : plan.specs.en).map((spec, i) => (
+                        <div key={i} className="flex items-start gap-3 text-xs md:text-sm text-[var(--ink)]">
+                          <div className="w-4 h-4 rounded-full bg-[var(--accent-light)] text-[var(--accent)] flex items-center justify-center shrink-0 mt-0.5">
+                            <Check size={11} />
+                          </div>
+                          <span>{spec}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Button
+                    href={`https://clients.stackway.net/cart.php?a=add&pid=${plan.id}`}
+                    external
+                    variant={isPopular ? 'accent' : 'primary'}
+                    size="lg"
+                    className="w-full"
+                  >
+                    {isAr ? 'اشترك الآن وفعل استضافتك' : 'Order Now'}
+                  </Button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Detailed Comparison Table */}
+        <div className="mb-24">
+          <div className="mb-8">
+            <span className="mono-tag text-xs text-[var(--muted)] tracking-wider uppercase">
+              // DETAILED COMPARISON MATRIX
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold font-heading text-[var(--ink)] mt-1">
+              {isAr ? 'جدول المقارنة التفصيلي بين الخطط' : 'Compare All Hosting Plans Side-by-Side'}
+            </h3>
+          </div>
+
+          <div className="rounded-3xl border border-[var(--line)] bg-[var(--surface)] overflow-x-auto shadow-sm">
+            <table className="w-full min-w-[580px] text-start text-xs md:text-sm">
+              <thead>
+                <tr className="border-b border-[var(--line)] bg-[var(--surface-alt)]">
+                  <th className="p-4 md:p-6 text-start font-heading font-bold text-[var(--ink)] w-2/5">
+                    {isAr ? 'الميزة / الخاصية' : 'Specification'}
+                  </th>
+                  <th className="p-4 md:p-6 text-center font-heading font-bold text-[var(--ink)] w-1/5">
+                    Starter
+                  </th>
+                  <th className="p-4 md:p-6 text-center font-heading font-bold text-[var(--accent)] w-1/5">
+                    Business
+                  </th>
+                  <th className="p-4 md:p-6 text-center font-heading font-bold text-[var(--ink)] w-1/5">
+                    Pro
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonCategories.map((cat, idx) => (
+                  <React.Fragment key={idx}>
+                    <tr className="bg-[var(--bg)] border-b border-[var(--line)]">
+                      <td colSpan={4} className="p-3 md:p-4 font-mono font-bold text-xs text-[var(--accent)]">
+                        // {cat.title}
+                      </td>
+                    </tr>
+                    {cat.rows.map((r, rIdx) => (
+                      <tr key={rIdx} className="border-b border-[var(--line)] hover:bg-[var(--surface-alt)]/40 transition-colors">
+                        <td className="p-4 md:p-5 font-medium text-[var(--ink)]">
+                          {r.name}
+                        </td>
+                        <td className="p-4 md:p-5 text-center text-[var(--muted)] font-mono">
+                          {r.starter}
+                        </td>
+                        <td className="p-4 md:p-5 text-center font-bold text-[var(--accent)] font-mono">
+                          {r.business}
+                        </td>
+                        <td className="p-4 md:p-5 text-center font-medium text-[var(--ink)] font-mono">
+                          {r.pro}
+                        </td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* FAQ Accordion */}
+        <div className="mb-20 max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="mono-tag text-xs text-[var(--muted)] uppercase">
+              // ANSWERS & ARCHITECTURE
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold font-heading text-[var(--ink)] mt-1">
+              {isAr ? 'الأسئلة الشائعة حول الاستضافة' : 'Frequently Asked Questions'}
+            </h3>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div
+                  key={idx}
+                  className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] overflow-hidden shadow-xs"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full text-start p-6 flex items-center justify-between gap-4 cursor-pointer"
+                  >
+                    <span className="font-heading font-bold text-base md:text-lg text-[var(--ink)]">
+                      {faq.q}
+                    </span>
+                    <ChevronDown
+                      size={18}
+                      className={`text-[var(--muted)] transition-transform duration-200 shrink-0 ${
+                        isOpen ? 'rotate-180 text-[var(--accent)]' : ''
+                      }`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                      >
+                        <div className="px-6 pb-6 text-sm text-[var(--muted)] leading-relaxed border-t border-[var(--line)]/50 pt-4">
+                          {faq.a}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="sc-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050811" />
+      <stop offset="50%" stop-color="#0b1224" />
+      <stop offset="100%" stop-color="#04060c" />
+    </linearGradient>
+    <linearGradient id="sc-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#sc-bg)" />
+
+  <!-- Hexagonal / Server grid pattern -->
+  <g opacity="0.05" stroke="#06b6d4" stroke-width="1">
+    <path d="M0,150 L1600,150 M0,350 L1600,350 M0,550 L1600,550 M0,750 L1600,750" />
+    <path d="M250,0 L250,900 M650,0 L650,900 M1050,0 L1050,900 M1350,0 L1350,900" />
+  </g>
+
+  <!-- Header -->
+  <g transform="translate(80, 50)">
+    <rect width="1440" height="70" rx="14" fill="#0d172e" stroke="#1d2e54" stroke-width="1.5" />
+    <circle cx="45" cy="35" r="18" fill="url(#sc-cyan)" />
+    <text x="36" y="42" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ffffff">SC</text>
+    <text x="75" y="38" font-family="'Inter', sans-serif" font-weight="900" font-size="22" fill="#ffffff">SECURECHEAP CLOUD TELEMETRY</text>
+    <text x="75" y="55" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#22d3ee" letter-spacing="2">REAL-TIME INFRASTRUCTURE MONITORING &amp; CVE SCANNER</text>
+    <text x="1050" y="42" font-family="'Inter', sans-serif" font-weight="600" font-size="14" fill="#94a3b8">SERVERS: 1,248 ACTIVE • UPTIME: 99.992%</text>
+    <rect x="1310" y="18" width="105" height="34" rx="6" fill="#059669" />
+    <text x="1328" y="40" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#ffffff">ALL HEALTHY</text>
+  </g>
+
+  <!-- Left Column: Real-time Telemetry & Server Nodes -->
+  <g transform="translate(80, 160)">
+    <rect width="900" height="680" rx="20" fill="#091224" stroke="#182747" stroke-width="1.5" />
+    
+    <g transform="translate(45, 45)">
+      <rect width="260" height="30" rx="15" fill="#0e2340" stroke="#06b6d4" stroke-width="1" />
+      <text x="20" y="20" font-family="'Inter', sans-serif" font-weight="800" font-size="11" fill="#06b6d4" letter-spacing="1">SUB-25MS TELEMETRY PROBES</text>
+      
+      <text x="0" y="80" font-family="'Inter', sans-serif" font-weight="900" font-size="32" fill="#ffffff">Global Edge Nodes &amp; Latency Matrix</text>
+      <text x="0" y="115" font-family="'Cairo', sans-serif" font-weight="600" font-size="16" fill="#94a3b8">مراقبة سحابية لحظية للخوادم والشبكات مع تنبيهات فورية خلال أجزاء من الثانية</text>
+    </g>
+
+    <!-- Node cards 4 items -->
+    <g transform="translate(45, 180)">
+      <rect width="190" height="130" rx="12" fill="#0f1d38" stroke="#223a69" stroke-width="1" />
+      <circle cx="25" cy="30" r="6" fill="#22c55e" />
+      <text x="40" y="34" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff">US-EAST (VA)</text>
+      <text x="20" y="70" font-family="'Inter', sans-serif" font-weight="900" font-size="24" fill="#22d3ee">14ms</text>
+      <text x="20" y="100" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#94a3b8">CPU: 22% • RAM: 4.8G</text>
+
+      <g transform="translate(205, 0)">
+        <rect width="190" height="130" rx="12" fill="#0f1d38" stroke="#223a69" stroke-width="1" />
+        <circle cx="25" cy="30" r="6" fill="#22c55e" />
+        <text x="40" y="34" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff">EU-CENTRAL (FRA)</text>
+        <text x="20" y="70" font-family="'Inter', sans-serif" font-weight="900" font-size="24" fill="#22d3ee">21ms</text>
+        <text x="20" y="100" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#94a3b8">CPU: 38% • RAM: 8.2G</text>
+      </g>
+
+      <g transform="translate(410, 0)">
+        <rect width="190" height="130" rx="12" fill="#0f1d38" stroke="#223a69" stroke-width="1" />
+        <circle cx="25" cy="30" r="6" fill="#22c55e" />
+        <text x="40" y="34" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff">ME-SOUTH (BAH)</text>
+        <text x="20" y="70" font-family="'Inter', sans-serif" font-weight="900" font-size="24" fill="#22d3ee">8ms</text>
+        <text x="20" y="100" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#94a3b8">CPU: 18% • RAM: 3.1G</text>
+      </g>
+
+      <g transform="translate(615, 0)">
+        <rect width="190" height="130" rx="12" fill="#0f1d38" stroke="#223a69" stroke-width="1" />
+        <circle cx="25" cy="30" r="6" fill="#22c55e" />
+        <text x="40" y="34" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffffff">AP-SOUTHEAST</text>
+        <text x="20" y="70" font-family="'Inter', sans-serif" font-weight="900" font-size="24" fill="#22d3ee">42ms</text>
+        <text x="20" y="100" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#94a3b8">CPU: 45% • RAM: 11G</text>
+      </g>
+    </g>
+
+    <!-- Latency Curve Graph -->
+    <g transform="translate(45, 340)">
+      <rect width="810" height="280" rx="14" fill="#0b162c" stroke="#1d3056" stroke-width="1" />
+      <text x="30" y="35" font-family="'Inter', sans-serif" font-weight="800" font-size="15" fill="#ffffff">24-HOUR CONTINUOUS HTTP/TCP PING &amp; PACKET LOSS TELEMETRY</text>
+      <polyline points="30,220 120,210 210,195 300,215 390,180 480,185 570,170 660,165 750,150 780,145" fill="none" stroke="#06b6d4" stroke-width="3" />
+      <polyline points="30,240 120,235 210,230 300,240 390,225 480,230 570,220 660,215 750,210 780,205" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4" />
+      <text x="30" y="260" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#22d3ee">— Real-Time Response Time (Avg: 18.2ms)</text>
+      <text x="350" y="260" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#60a5fa">-- Target Baseline Threshold (50ms)</text>
+    </g>
+  </g>
+
+  <!-- Right Column: CVE Security Scanner & Cloud Cost Insights -->
+  <g transform="translate(1020, 160)">
+    <rect width="500" height="680" rx="20" fill="#091224" stroke="#182747" stroke-width="1.5" />
+    
+    <g transform="translate(45, 45)">
+      <text x="0" y="30" font-family="'Inter', sans-serif" font-weight="900" font-size="22" fill="#ffffff">CVE &amp; SSL SECURITY SCANNER</text>
+      <text x="0" y="60" font-family="'Cairo', sans-serif" font-weight="600" font-size="14" fill="#22d3ee">فحص تلقائي مستمر للمنافذ والثغرات وشهادات الأمان</text>
+
+      <!-- Scan status box -->
+      <g transform="translate(0, 90)">
+        <rect width="410" height="170" rx="14" fill="#0d1b33" stroke="#223a69" stroke-width="1" />
+        <text x="25" y="35" font-family="'Inter', sans-serif" font-weight="800" font-size="15" fill="#ffffff">Vulnerability Scan Report</text>
+        <text x="25" y="70" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#22c55e">✓ SSL/TLS Certificate Valid (Expires in 282 days)</text>
+        <text x="25" y="100" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#22c55e">✓ Zero Critical CVEs detected across 1,248 nodes</text>
+        <text x="25" y="130" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#38bdf8">ℹ 2 Minor Linux kernel patches scheduled tonight</text>
+      </g>
+
+      <!-- Cloud Cost Optimization -->
+      <g transform="translate(0, 290)">
+        <rect width="410" height="200" rx="14" fill="#0f223f" stroke="#06b6d4" stroke-width="1.5" />
+        <text x="25" y="35" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#06b6d4">CLOUD COST OPTIMIZATION AI</text>
+        <text x="25" y="65" font-family="'Cairo', sans-serif" font-weight="700" font-size="16" fill="#ffffff">وفرت المنصة $3,420 شهرياً للعميل</text>
+        <text x="25" y="95" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#93c5fd">من خلال اكتشاف الأقراص غير المستخدمة (Unattached EBS) وحسابات التخزين المهملة وضبط الحجم التلقائي للذاكرة.</text>
+        
+        <rect x="25" y="130" width="360" height="42" rx="8" fill="url(#sc-cyan)" />
+        <text x="85" y="157" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#050811">APPLY AI COST SAVINGS RECOMMENDATIONS</text>
+      </g>
+
+      <!-- Telegram & Slack Alerts Note -->
+      <g transform="translate(0, 520)">
+        <text x="0" y="25" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#22c55e">⚡ Multi-Channel Incident Alerts: Slack, Telegram, PagerDuty &amp; SMS</text>
+        <text x="0" y="55" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#22c55e">⚡ Automated DNS Failover to Standby Servers within 5 seconds</text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <!-- Energy Drop & Flame Insignia -->
+  <g transform="translate(14, 12)">
+    <path d="M28,6 C28,6 12,24 12,36 C12,46 19,53 28,53 C37,53 44,46 44,36 C44,24 28,6 28,6 Z" stroke="#FFFFFF" stroke-width="2.2" fill="none" opacity="0.9" />
+    <path d="M28,20 C28,20 20,30 20,38 C20,43 24,47 28,47 C32,47 36,43 36,38 C36,30 28,20 28,20 Z" stroke="#FFFFFF" stroke-width="1.5" fill="none" opacity="0.6" />
+    <circle cx="28" cy="38" r="3" fill="#FFFFFF" />
+  </g>
+  <!-- Wordmark -->
+  <text x="76" y="37" fill="#FFFFFF" font-family="'Cairo', 'Alexandria', sans-serif" font-weight="900" font-size="25" letter-spacing="1">الصفـــا للبترول</text>
+  <text x="78" y="53" fill="#FFFFFF" font-family="'Inter', sans-serif" font-weight="600" font-size="10.5" letter-spacing="2.5" opacity="0.75">AL SAFA PETROLEUM</text>
+</svg>

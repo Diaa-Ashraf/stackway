@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="ab-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#051410" />
+      <stop offset="50%" stop-color="#0b241c" />
+      <stop offset="100%" stop-color="#040d0a" />
+    </linearGradient>
+    <linearGradient id="wa-green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#25d366" />
+      <stop offset="100%" stop-color="#128c7e" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#ab-bg)" />
+
+  <!-- Chat bubble grid motif -->
+  <g opacity="0.04" stroke="#25d366" stroke-width="1.5">
+    <circle cx="200" cy="250" r="80" fill="none" />
+    <circle cx="1400" cy="650" r="120" fill="none" />
+    <line x1="0" y1="450" x2="1600" y2="450" />
+  </g>
+
+  <!-- Header -->
+  <g transform="translate(80, 50)">
+    <rect width="1440" height="70" rx="14" fill="#0d241d" stroke="#1d4d3c" stroke-width="1.5" />
+    <circle cx="45" cy="35" r="18" fill="url(#wa-green)" />
+    <text x="36" y="42" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ffffff">🤖</text>
+    <text x="75" y="38" font-family="'Cairo', sans-serif" font-weight="900" font-size="20" fill="#ffffff">عربي بوت • ArabyBot Conversational Commerce</text>
+    <text x="75" y="55" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#4ade80" letter-spacing="1">WHATSAPP CLOUD API AUTOMATION • AI SALES AGENT FOR E-COMMERCE</text>
+    <text x="1020" y="42" font-family="'Cairo', sans-serif" font-weight="600" font-size="15" fill="#cbd5e1">أتمتة المحادثات • كتالوج المنتجات • استعادة السلات</text>
+    <rect x="1300" y="18" width="115" height="34" rx="8" fill="url(#wa-green)" />
+    <text x="1328" y="40" font-family="'Cairo', sans-serif" font-weight="800" font-size="13" fill="#ffffff">لوحة التحكم</text>
+  </g>
+
+  <!-- Left Column: WhatsApp Chat Conversation Simulation -->
+  <g transform="translate(80, 160)">
+    <rect width="900" height="680" rx="20" fill="#0b1e17" stroke="#184333" stroke-width="1.5" />
+    
+    <!-- WhatsApp Window Header -->
+    <g transform="translate(30, 30)">
+      <rect width="840" height="60" rx="12" fill="#13362a" />
+      <circle cx="35" cy="30" r="18" fill="url(#wa-green)" />
+      <text x="65" y="27" font-family="'Cairo', sans-serif" font-weight="800" font-size="16" fill="#ffffff">بوت المبيعات الذكي (متجر الأناقة)</text>
+      <text x="65" y="48" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#4ade80">ONLINE • OFFICIAL META CLOUD API VERIFIED</text>
+    </g>
+
+    <!-- Chat Messages Flow -->
+    <g transform="translate(30, 110)">
+      <!-- Customer Message 1 -->
+      <g transform="translate(420, 0)">
+        <rect width="420" height="55" rx="12" fill="#1b4d3b" />
+        <text x="20" y="32" font-family="'Cairo', sans-serif" font-weight="600" font-size="14" fill="#ffffff">مساء الخير، عايز أعرف الأسعار والألوان المتاحة للشوز الكاجوال؟</text>
+        <text x="360" y="48" font-family="'Inter', sans-serif" font-weight="500" font-size="10" fill="#a7f3d0">10:14 AM ✓✓</text>
+      </g>
+
+      <!-- Bot Instant Reply 1 (AI Processed < 1s) -->
+      <g transform="translate(0, 75)">
+        <rect width="520" height="110" rx="12" fill="#142c22" stroke="#235c46" stroke-width="1" />
+        <text x="20" y="32" font-family="'Cairo', sans-serif" font-weight="700" font-size="15" fill="#4ade80">🤖 أهلاً بك يا فندم! نورت متجر الأناقة</text>
+        <text x="20" y="60" font-family="'Cairo', sans-serif" font-weight="500" font-size="14" fill="#ffffff">الحذاء الكاجوال الإيطالي متاح بـ 3 ألوان (أسود، بني، جملي) وبخصم 20% اليوم.</text>
+        <text x="20" y="88" font-family="'Cairo', sans-serif" font-weight="700" font-size="13" fill="#fbbf24">السعر بعد الخصم: 650 ج.م بدل 820 ج.م مع شحن مجاني!</text>
+      </g>
+
+      <!-- Product Carousel Card in WhatsApp -->
+      <g transform="translate(0, 205)">
+        <rect width="520" height="180" rx="12" fill="#142c22" stroke="#25d366" stroke-width="1.5" />
+        <rect x="15" y="15" width="140" height="150" rx="8" fill="#0b1b14" />
+        <circle cx="85" cy="80" r="30" fill="#1b4233" />
+        <text x="65" y="86" font-family="'Inter', sans-serif" font-weight="900" font-size="14" fill="#4ade80">SHOE</text>
+        
+        <text x="175" y="45" font-family="'Cairo', sans-serif" font-weight="800" font-size="17" fill="#ffffff">حذاء كاجوال إيطالي طبي - جلد طبيعي</text>
+        <text x="175" y="75" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#cbd5e1">المقاسات المتاحة: 41, 42, 43, 44, 45</text>
+        <text x="175" y="105" font-family="'Inter', sans-serif" font-weight="900" font-size="18" fill="#fbbf24">650 EGP</text>
+        
+        <rect x="175" y="125" width="160" height="35" rx="6" fill="url(#wa-green)" />
+        <text x="195" y="148" font-family="'Cairo', sans-serif" font-weight="800" font-size="13" fill="#ffffff">طلب المنتج الآن مباشرة</text>
+        
+        <rect x="345" y="125" width="160" height="35" rx="6" fill="#1b4233" />
+        <text x="365" y="148" font-family="'Cairo', sans-serif" font-weight="800" font-size="13" fill="#4ade80">عرض صور الألوان</text>
+      </g>
+
+      <!-- Customer One-Click Order -->
+      <g transform="translate(420, 410)">
+        <rect width="420" height="55" rx="12" fill="#1b4d3b" />
+        <text x="20" y="32" font-family="'Cairo', sans-serif" font-weight="600" font-size="14" fill="#ffffff">تمام اخترت المقاس 43 واللون الأسود، عايز أطلب!</text>
+        <text x="360" y="48" font-family="'Inter', sans-serif" font-weight="500" font-size="10" fill="#a7f3d0">10:15 AM ✓✓</text>
+      </g>
+
+      <!-- Bot Auto Checkout Confirmation -->
+      <g transform="translate(0, 480)">
+        <rect width="520" height="85" rx="12" fill="#142c22" stroke="#22c55e" stroke-width="1" />
+        <text x="20" y="32" font-family="'Cairo', sans-serif" font-weight="800" font-size="15" fill="#22c55e">✓ تم تسجيل طلبك بنجاح برقم #ORD-9842!</text>
+        <text x="20" y="60" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#ffffff">التوصيل خلال 48 ساعة والدفع عند الاستلام. شكراً لاختيارك لنا.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Column: Abandoned Cart Recovery & ROI Metrics -->
+  <g transform="translate(1020, 160)">
+    <rect width="500" height="680" rx="20" fill="#0b1e17" stroke="#184333" stroke-width="1.5" />
+    
+    <g transform="translate(45, 45)">
+      <text x="0" y="30" font-family="'Cairo', sans-serif" font-weight="900" font-size="22" fill="#ffffff">استرجاع السلات المتروكة تلقائياً</text>
+      <text x="0" y="60" font-family="'Cairo', sans-serif" font-weight="600" font-size="14" fill="#4ade80">أتمتة ذكية تزيد مبيعات متجرك بنسبة 34%</text>
+
+      <!-- Metric 1 -->
+      <g transform="translate(0, 90)">
+        <rect width="410" height="110" rx="12" fill="#102e21" stroke="#225c44" stroke-width="1" />
+        <text x="25" y="40" font-family="'Cairo', sans-serif" font-weight="700" font-size="14" fill="#9ca3af">معدل تحويل الزوار إلى مشترين:</text>
+        <text x="25" y="85" font-family="'Inter', sans-serif" font-weight="900" font-size="36" fill="#22c55e">+34.8%</text>
+        <text x="210" y="85" font-family="'Cairo', sans-serif" font-weight="600" font-size="13" fill="#4ade80">مقارنة بالشات اليدوي التقليدي</text>
+      </g>
+
+      <!-- Metric 2 -->
+      <g transform="translate(0, 220)">
+        <rect width="410" height="110" rx="12" fill="#102e21" stroke="#225c44" stroke-width="1" />
+        <text x="25" y="40" font-family="'Cairo', sans-serif" font-weight="700" font-size="14" fill="#9ca3af">متوسط سرعة الرد على العميل:</text>
+        <text x="25" y="85" font-family="'Inter', sans-serif" font-weight="900" font-size="36" fill="#22d3ee">&lt; 0.8s</text>
+        <text x="180" y="85" font-family="'Cairo', sans-serif" font-weight="600" font-size="13" fill="#38bdf8">رد فوري على مدار 24 ساعة يومياً</text>
+      </g>
+
+      <!-- Features Box -->
+      <g transform="translate(0, 350)">
+        <rect width="410" height="230" rx="12" fill="#123627" stroke="#25d366" stroke-width="1.5" />
+        <text x="25" y="35" font-family="'Cairo', sans-serif" font-weight="800" font-size="16" fill="#ffffff">مميزات الربط التقني المتقدم:</text>
+        <text x="25" y="70" font-family="'Cairo', sans-serif" font-weight="600" font-size="13" fill="#a7f3d0">✓ ربط رسمي مع WhatsApp Cloud API بدون حظر رقمك</text>
+        <text x="25" y="105" font-family="'Cairo', sans-serif" font-weight="600" font-size="13" fill="#a7f3d0">✓ مزامنة فورية مع منصات سلة و زد وشوبيفاي وووكومرس</text>
+        <text x="25" y="140" font-family="'Cairo', sans-serif" font-weight="600" font-size="13" fill="#a7f3d0">✓ إرسال بوالص الشحن ورابط التتبع التلقائي للعميل</text>
+        <text x="25" y="175" font-family="'Cairo', sans-serif" font-weight="600" font-size="13" fill="#a7f3d0">✓ إمكانية تحويل المحادثة لأي موظف دعم بضغطة زر</text>
+      </g>
+    </g>
+  </g>
+</svg>
