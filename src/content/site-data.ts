@@ -25,6 +25,8 @@ export interface ProjectItem {
   whatWeBuilt: { en: string[]; ar: string[] };
   stats: { label: { en: string; ar: string }; value: string }[];
   image: string;
+  logo?: string;
+  color?: string;
   liveUrl?: string;
 }
 
