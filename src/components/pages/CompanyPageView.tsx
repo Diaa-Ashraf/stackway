@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -15,7 +15,13 @@ export function CompanyPageView({ lang = 'en' }: CompanyPageViewProps) {
   const prefix = isAr ? '/ar' : '';
 
   return (
-    <div className="pt-28 pb-20 md:pt-40 md:pb-32 bg-[var(--bg)] min-h-screen">
+    <div className="relative isolate overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32 bg-[var(--bg)] min-h-screen">
+      {/* Subtle Tech Grid Mask & Ambient Top Glow matching HomePage & Work */}
+      <div aria-hidden="true" className="bg-grid mask-radial absolute inset-0 -z-10 opacity-70 pointer-events-none" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(140,92,255,0.15),transparent)]"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero */}
         <SectionHeader

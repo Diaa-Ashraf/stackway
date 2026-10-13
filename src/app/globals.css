@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 :root {
   /* Stackway Night Mode color system (matched from webonio palette) */
@@ -263,31 +263,37 @@ body {
 
 /* Marquee infinite animation helpers */
 @keyframes marqueeLeft {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0%, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @keyframes marqueeRight {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0%, 0, 0); }
 }
 
 .animate-marquee-left {
   display: flex;
   width: max-content;
   animation: marqueeLeft 35s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .animate-marquee-right {
   display: flex;
   width: max-content;
   animation: marqueeRight 35s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .animate-marquee-giant {
   display: flex;
   width: max-content;
   animation: marqueeLeft 40s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 .pause-hover:hover {
@@ -298,6 +304,7 @@ body {
 .mask-gradient-x {
   mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  contain: paint;
 }
 
 /* Drifting ambient background animations (exact webonio match) */
@@ -306,7 +313,7 @@ body {
     transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: translate3d(8vw, 6vh, 0) scale(1.08);
+    transform: translate3d(4vw, 3vh, 0) scale(1.04);
   }
 }
 
@@ -315,7 +322,7 @@ body {
     transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: translate3d(-6vw, -8vh, 0) scale(0.95);
+    transform: translate3d(-3vw, -4vh, 0) scale(0.97);
   }
 }
 
@@ -381,20 +388,7 @@ body {
   }
 }
 
-/* Performance Optimizations: Modern layout containment and hardware acceleration */
+/* Performance Optimizations: Stable layout containment without dynamic scrollHeight thrashing */
 .section-deferred {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 700px;
-}
-
-.animate-marquee-left,
-.animate-marquee-right,
-.animate-marquee-giant {
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-img {
-  content-visibility: auto;
+  contain: layout style;
 }

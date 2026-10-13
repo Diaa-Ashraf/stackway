@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useEffect, useRef } from 'react';
 
@@ -57,7 +57,7 @@ export function BackgroundCanvas() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    // Mouse tracking for subtle parallax
+    // Mouse tracking with throttled lerp
     let mouseX = width / 2;
     let mouseY = height / 2;
     let targetMouseX = width / 2;
@@ -70,14 +70,14 @@ export function BackgroundCanvas() {
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
-    // Pre-rendered offscreen canvas stamps for ultra-fast GPU drawing (avoiding per-frame createRadialGradient)
+    // Pre-rendered offscreen canvas stamps for ultra-fast GPU drawing
     let gridCanvas: HTMLCanvasElement | null = null;
     let tealGlowStamp: HTMLCanvasElement | null = null;
     let purpleGlowStamp: HTMLCanvasElement | null = null;
 
     const createGlowStamp = (color: string, coreColor: string): HTMLCanvasElement => {
       const stamp = document.createElement('canvas');
-      const size = 64;
+      const size = 48;
       stamp.width = size;
       stamp.height = size;
       const sCtx = stamp.getContext('2d');
@@ -117,8 +117,8 @@ export function BackgroundCanvas() {
       gridCanvas.height = height + 40;
       const gCtx = gridCanvas.getContext('2d');
       if (gCtx) {
-        gCtx.fillStyle = 'rgba(255, 255, 255, 0.045)';
-        const gridStep = 56;
+        gCtx.fillStyle = 'rgba(255, 255, 255, 0.04)';
+        const gridStep = isMobile ? 64 : 56;
         for (let x = gridStep / 2; x < gridCanvas.width; x += gridStep) {
           for (let y = gridStep / 2; y < gridCanvas.height; y += gridStep) {
             gCtx.fillRect(x, y, 1, 1);
@@ -130,18 +130,18 @@ export function BackgroundCanvas() {
       tealGlowStamp = createGlowStamp('rgba(52, 209, 209, 0.35)', 'rgba(52, 209, 209, 0.95)');
       purpleGlowStamp = createGlowStamp('rgba(140, 92, 255, 0.35)', 'rgba(140, 92, 255, 0.95)');
 
-      // 3. Constellation Nodes (optimized count for 60fps)
-      const count = isMobile ? 16 : 32;
+      // 3. Constellation Nodes (16 desktop, 8 mobile for lightning 120fps)
+      const count = isMobile ? 8 : 16;
       particles = [];
       for (let i = 0; i < count; i++) {
-        const radius = Math.random() * 1.8 + 1.2;
+        const radius = Math.random() * 1.5 + 1.2;
         const colIdx = Math.floor(Math.random() * colors.length);
         const col = colors[colIdx];
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.3,
-          vy: (Math.random() - 0.5) * 0.3,
+          vx: (Math.random() - 0.5) * 0.25,
+          vy: (Math.random() - 0.5) * 0.25,
           radius,
           baseRadius: radius,
           color: col,
@@ -150,47 +150,46 @@ export function BackgroundCanvas() {
         });
       }
 
-      // 4. Subtle Ambient Dust Particles
-      const dustCount = isMobile ? 18 : 36;
+      // 4. Subtle Ambient Dust Particles (14 desktop, 6 mobile)
+      const dustCount = isMobile ? 6 : 14;
       dust = [];
       for (let i = 0; i < dustCount; i++) {
         dust.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.18,
-          vy: (Math.random() - 0.5) * 0.18,
-          radius: Math.random() * 1.0 + 0.4,
-          alpha: Math.random() * 0.3 + 0.08,
+          vx: (Math.random() - 0.5) * 0.15,
+          vy: (Math.random() - 0.5) * 0.15,
+          radius: Math.random() * 0.8 + 0.4,
+          alpha: Math.random() * 0.25 + 0.08,
         });
       }
 
-      // 5. Right-angled PCB / Circuit Tracers matching Webonio background
+      // 5. Right-angled PCB / Circuit Tracers (5 desktop, 2 mobile)
       circuits = [];
-      const numCircuits = isMobile ? 6 : 14;
+      const numCircuits = isMobile ? 2 : 5;
 
       const architecturalPaths: { x: number; y: number }[][] = [
         [
           { x: width * 0.08, y: 72 },
-          { x: width * 0.55, y: 72 },
-          { x: width * 0.55, y: 110 },
-          { x: width * 0.88, y: 110 },
-          { x: width * 0.88, y: 145 },
+          { x: width * 0.45, y: 72 },
+          { x: width * 0.45, y: 110 },
+          { x: width * 0.82, y: 110 },
         ],
         [
-          { x: width * 0.95, y: 180 },
-          { x: width * 0.72, y: 180 },
-          { x: width * 0.72, y: 260 },
-          { x: width * 0.62, y: 260 },
+          { x: width * 0.92, y: 160 },
+          { x: width * 0.70, y: 160 },
+          { x: width * 0.70, y: 240 },
+          { x: width * 0.58, y: 240 },
         ],
         [
-          { x: width * 0.15, y: height * 0.72 },
-          { x: width * 0.38, y: height * 0.72 },
-          { x: width * 0.38, y: height * 0.84 },
-          { x: width * 0.75, y: height * 0.84 },
+          { x: width * 0.12, y: height * 0.65 },
+          { x: width * 0.35, y: height * 0.65 },
+          { x: width * 0.35, y: height * 0.78 },
+          { x: width * 0.68, y: height * 0.78 },
         ],
       ];
 
-      architecturalPaths.forEach((pts) => {
+      architecturalPaths.slice(0, numCircuits).forEach((pts) => {
         const segmentLengths: number[] = [];
         let total = 0;
         for (let i = 1; i < pts.length; i++) {
@@ -201,49 +200,16 @@ export function BackgroundCanvas() {
         circuits.push({ points: pts, totalLength: total, segmentLengths });
       });
 
-      for (let c = 0; c < numCircuits; c++) {
-        const pts: { x: number; y: number }[] = [];
-        let currX = Math.random() * width;
-        let currY = Math.random() * height;
-        pts.push({ x: currX, y: currY });
-
-        const steps = Math.floor(Math.random() * 3) + 2;
-        let horizontal = Math.random() > 0.5;
-
-        for (let s = 0; s < steps; s++) {
-          const segLen = (Math.random() * 140 + 70) * (Math.random() > 0.5 ? 1 : -1);
-          if (horizontal) {
-            currX += segLen;
-          } else {
-            currY += segLen;
-          }
-          pts.push({ x: currX, y: currY });
-          horizontal = !horizontal;
-        }
-
-        const segmentLengths: number[] = [];
-        let total = 0;
-        for (let i = 1; i < pts.length; i++) {
-          const dx = pts[i].x - pts[i - 1].x;
-          const dy = pts[i].y - pts[i - 1].y;
-          const len = Math.hypot(dx, dy);
-          segmentLengths.push(len);
-          total += len;
-        }
-
-        circuits.push({ points: pts, totalLength: total, segmentLengths });
-      }
-
-      // 6. Circuit Pulses
+      // 6. Circuit Pulses (6 desktop, 2 mobile)
       pulses = [];
-      const pulseCount = Math.floor(circuits.length * 1.8);
+      const pulseCount = isMobile ? 2 : 6;
       for (let i = 0; i < pulseCount; i++) {
-        const isPurp = Math.random() < 0.28;
+        const isPurp = i % 2 === 1;
         pulses.push({
           pathIdx: Math.floor(i % circuits.length),
           progress: Math.random(),
-          speed: Math.random() * 0.002 + 0.0012,
-          size: Math.random() * 1.2 + 2.0,
+          speed: Math.random() * 0.0018 + 0.001,
+          size: Math.random() * 0.8 + 1.8,
           color: isPurp ? '#8c5cff' : '#34d1d1',
           isPurple: isPurp,
         });
@@ -265,10 +231,10 @@ export function BackgroundCanvas() {
 
     window.addEventListener('resize', handleResize, { passive: true });
 
-    // Track scroll position to pause canvas when user scrolled deeply past hero
+    // Instantly pause canvas when user scrolls past Hero section (zero CPU/GPU drain while browsing page)
     let isVisibleOnScreen = true;
     const handleScroll = () => {
-      const scrolledPast = window.scrollY > window.innerHeight * 1.8;
+      const scrolledPast = window.scrollY > Math.min(window.innerHeight * 1.05, 800);
       if (scrolledPast && isVisibleOnScreen) {
         isVisibleOnScreen = false;
         if (animationFrameId) {
@@ -299,58 +265,67 @@ export function BackgroundCanvas() {
       mouseX += (targetMouseX - mouseX) * 0.04;
       mouseY += (targetMouseY - mouseY) * 0.04;
 
-      const parallaxX = (mouseX / width - 0.5) * 16;
-      const parallaxY = (mouseY / height - 0.5) * 16;
+      const parallaxX = (mouseX / width - 0.5) * 14;
+      const parallaxY = (mouseY / height - 0.5) * 14;
 
       ctx.clearRect(0, 0, width, height);
 
-      // 0. Architectural Precision Matrix Dots (Single DrawImage from Offscreen Canvas!)
+      // 0. Architectural Precision Matrix Dots (Single DrawImage from Offscreen Canvas)
       if (gridCanvas) {
         ctx.drawImage(gridCanvas, parallaxX * 0.1 - 20, parallaxY * 0.1 - 20);
       }
 
-      // 1. Draw Circuit Tracer Lines & Terminal Pads
       const p25X = parallaxX * 0.25;
       const p25Y = parallaxY * 0.25;
+      const isMobile = width < 768;
 
-      for (let c = 0; c < circuits.length; c++) {
-        const path = circuits[c];
-        const pts = path.points;
-        if (pts.length < 2) continue;
-
-        const isPurple = c % 4 === 0;
-        ctx.strokeStyle = isPurple ? 'rgba(140, 92, 255, 0.18)' : 'rgba(52, 209, 209, 0.16)';
+      // 1. Draw Circuit Tracer Lines (Batched into single path & stroke)
+      if (circuits.length > 0) {
+        ctx.strokeStyle = 'rgba(52, 209, 209, 0.14)';
         ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.moveTo(pts[0].x + p25X, pts[0].y + p25Y);
-        for (let i = 1; i < pts.length; i++) {
-          ctx.lineTo(pts[i].x + p25X, pts[i].y + p25Y);
+        for (let c = 0; c < circuits.length; c++) {
+          const pts = circuits[c].points;
+          if (pts.length < 2) continue;
+          ctx.moveTo(pts[0].x + p25X, pts[0].y + p25Y);
+          for (let i = 1; i < pts.length; i++) {
+            ctx.lineTo(pts[i].x + p25X, pts[i].y + p25Y);
+          }
         }
         ctx.stroke();
 
-        // Terminal solder ring on ends
-        const start = pts[0];
-        const end = pts[pts.length - 1];
-        const ringColor = isPurple ? 'rgba(140, 92, 255, 0.4)' : 'rgba(52, 209, 209, 0.4)';
-
-        ctx.strokeStyle = ringColor;
+        // Terminal solder rings (Batched stroke)
+        ctx.strokeStyle = 'rgba(52, 209, 209, 0.35)';
         ctx.beginPath();
-        ctx.arc(start.x + p25X, start.y + p25Y, 3, 0, Math.PI * 2);
+        for (let c = 0; c < circuits.length; c++) {
+          const pts = circuits[c].points;
+          if (pts.length < 2) continue;
+          const start = pts[0];
+          const end = pts[pts.length - 1];
+          ctx.moveTo(start.x + p25X + 3, start.y + p25Y);
+          ctx.arc(start.x + p25X, start.y + p25Y, 3, 0, Math.PI * 2);
+          ctx.moveTo(end.x + p25X + 3, end.y + p25Y);
+          ctx.arc(end.x + p25X, end.y + p25Y, 3, 0, Math.PI * 2);
+        }
         ctx.stroke();
 
+        // Terminal center dots (Batched fill)
+        ctx.fillStyle = 'rgba(52, 209, 209, 0.4)';
         ctx.beginPath();
-        ctx.arc(end.x + p25X, end.y + p25Y, 3, 0, Math.PI * 2);
-        ctx.stroke();
-
-        // Center dot
-        ctx.fillStyle = ringColor;
-        ctx.beginPath();
-        ctx.arc(start.x + p25X, start.y + p25Y, 1, 0, Math.PI * 2);
-        ctx.arc(end.x + p25X, end.y + p25Y, 1, 0, Math.PI * 2);
+        for (let c = 0; c < circuits.length; c++) {
+          const pts = circuits[c].points;
+          if (pts.length < 2) continue;
+          const start = pts[0];
+          const end = pts[pts.length - 1];
+          ctx.moveTo(start.x + p25X + 1, start.y + p25Y);
+          ctx.arc(start.x + p25X, start.y + p25Y, 1, 0, Math.PI * 2);
+          ctx.moveTo(end.x + p25X + 1, end.y + p25Y);
+          ctx.arc(end.x + p25X, end.y + p25Y, 1, 0, Math.PI * 2);
+        }
         ctx.fill();
       }
 
-      // 2. Draw Traveling Circuit Signal Pulses with Cached Glow Stamps
+      // 2. Traveling Circuit Signal Pulses with Cached Glow Stamps
       for (let p = 0; p < pulses.length; p++) {
         const pulse = pulses[p];
         const circuit = circuits[pulse.pathIdx];
@@ -380,50 +355,53 @@ export function BackgroundCanvas() {
         const drawX = posX + p25X;
         const drawY = posY + p25Y;
 
-        // Blazing-fast cached glow stamp
         const stamp = pulse.isPurple ? purpleGlowStamp : tealGlowStamp;
         if (stamp) {
-          const glowSize = pulse.size * 6;
+          const glowSize = pulse.size * 5;
           ctx.drawImage(stamp, drawX - glowSize / 2, drawY - glowSize / 2, glowSize, glowSize);
         }
 
-        // Intense White Core Dot
+        // White core dot
         ctx.beginPath();
-        ctx.arc(drawX, drawY, pulse.size * 0.9, 0, Math.PI * 2);
+        ctx.arc(drawX, drawY, pulse.size * 0.8, 0, Math.PI * 2);
         ctx.fillStyle = '#ffffff';
         ctx.fill();
       }
 
-      // 3. Constellation Connecting Lines (Optimized squared distance)
-      const p50X = parallaxX * 0.5;
-      const p50Y = parallaxY * 0.5;
-      const maxDistance = width < 768 ? 85 : 120;
-      const maxDistanceSq = maxDistance * maxDistance;
-      ctx.lineWidth = 0.75;
+      // 3. Constellation Connecting Lines (Batched into a single stroke; skipped on mobile)
+      const p50X = parallaxX * 0.45;
+      const p50Y = parallaxY * 0.45;
 
-      for (let i = 0; i < particles.length; i++) {
-        const piX = particles[i].x + p50X;
-        const piY = particles[i].y + p50Y;
+      if (!isMobile) {
+        const maxDistance = 110;
+        const maxDistanceSq = maxDistance * maxDistance;
+        ctx.lineWidth = 0.75;
+        ctx.strokeStyle = 'rgba(52, 209, 209, 0.08)';
+        ctx.beginPath();
 
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = piX - (particles[j].x + p50X);
-          const dy = piY - (particles[j].y + p50Y);
-          const distSq = dx * dx + dy * dy;
+        for (let i = 0; i < particles.length; i++) {
+          const piX = particles[i].x + p50X;
+          const piY = particles[i].y + p50Y;
 
-          if (distSq < maxDistanceSq) {
-            const alpha = (1 - Math.sqrt(distSq) / maxDistance) * 0.15;
-            ctx.strokeStyle = `rgba(52, 209, 209, ${alpha})`;
-            ctx.beginPath();
-            ctx.moveTo(piX, piY);
-            ctx.lineTo(particles[j].x + p50X, particles[j].y + p50Y);
-            ctx.stroke();
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = piX - (particles[j].x + p50X);
+            const dy = piY - (particles[j].y + p50Y);
+            const distSq = dx * dx + dy * dy;
+
+            if (distSq < maxDistanceSq) {
+              ctx.moveTo(piX, piY);
+              ctx.lineTo(particles[j].x + p50X, particles[j].y + p50Y);
+            }
           }
         }
+        ctx.stroke();
       }
 
-      // 4. Subtle Dust Particles
+      // 4. Subtle Ambient Dust Particles (Batched into single path & fill)
       const p20X = parallaxX * 0.2;
       const p20Y = parallaxY * 0.2;
+      ctx.fillStyle = 'rgba(156, 163, 175, 0.15)';
+      ctx.beginPath();
       for (let i = 0; i < dust.length; i++) {
         const d = dust[i];
         d.x += d.vx;
@@ -434,11 +412,10 @@ export function BackgroundCanvas() {
         if (d.y < 0) d.y = height;
         if (d.y > height) d.y = 0;
 
-        ctx.beginPath();
+        ctx.moveTo(d.x + p20X + d.radius, d.y + p20Y);
         ctx.arc(d.x + p20X, d.y + p20Y, d.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(156, 163, 175, ${d.alpha})`;
-        ctx.fill();
       }
+      ctx.fill();
 
       // 5. Constellation Nodes with Cached Stamps
       for (let i = 0; i < particles.length; i++) {
@@ -451,7 +428,7 @@ export function BackgroundCanvas() {
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
-        const pulse = Math.sin(time + p.pulsePhase) * 0.3 + 1;
+        const pulse = Math.sin(time + p.pulsePhase) * 0.25 + 1;
         const currentRadius = p.baseRadius * pulse;
         const drawX = p.x + p50X;
         const drawY = p.y + p50Y;
@@ -459,7 +436,7 @@ export function BackgroundCanvas() {
         // Cached Outer Glow
         const stamp = p.isPurple ? purpleGlowStamp : tealGlowStamp;
         if (stamp) {
-          const glowSize = currentRadius * 5;
+          const glowSize = currentRadius * 4.5;
           ctx.drawImage(stamp, drawX - glowSize / 2, drawY - glowSize / 2, glowSize, glowSize);
         }
 
@@ -501,16 +478,12 @@ export function BackgroundCanvas() {
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none"
     >
-      {/* Drifting Ambient Orb 1: Purple Glow (Top-Left) */}
+      {/* Static Ambient Atmospheric Radial Glows (Zero runtime compositing / blur recalculation) */}
       <div
-        className="absolute -top-[20vh] -left-[10vw] h-[70vh] w-[60vw] rounded-full bg-[radial-gradient(closest-side,rgba(106,95,193,0.18),transparent)] blur-3xl animate-[drift-a_38s_ease-in-out_infinite]"
-        style={{ willChange: 'transform' }}
+        className="absolute -top-[10vh] -left-[10vw] h-[55vh] w-[50vw] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(106,95,193,0.12),transparent_70%)]"
       />
-
-      {/* Drifting Ambient Orb 2: Teal Signal Glow (Bottom-Right) */}
       <div
-        className="absolute -right-[15vw] -bottom-[25vh] h-[75vh] w-[65vw] rounded-full bg-[radial-gradient(closest-side,rgba(52,209,209,0.14),transparent)] blur-3xl animate-[drift-b_46s_ease-in-out_infinite]"
-        style={{ willChange: 'transform' }}
+        className="absolute -right-[10vw] -bottom-[15vh] h-[60vh] w-[55vw] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(52,209,209,0.10),transparent_70%)]"
       />
 
       {/* Background Interactive Canvas (PCB circuit tracers + particles + constellations) */}

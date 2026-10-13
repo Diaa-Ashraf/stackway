@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -352,6 +352,8 @@ export function MorphingCoreVisual() {
     // Morph cycle timer (every 5.5 seconds transition to next shape)
     let currentShape = 0;
     const interval = setInterval(() => {
+      if (!isVisible || !isTabActive) return;
+
       currentShape = (currentShape + 1) % shapes.length;
       setActiveShapeIdx(currentShape);
 
@@ -377,7 +379,7 @@ export function MorphingCoreVisual() {
 
     const updateSize = () => {
       if (!canvas) return;
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       const rect = canvas.getBoundingClientRect();
       width = rect.width || 400;
       height = rect.height || 400;
@@ -432,7 +434,7 @@ export function MorphingCoreVisual() {
 
       time += 0.02;
 
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       ctx.save();
       ctx.scale(dpr, dpr);
       ctx.clearRect(0, 0, width, height);
@@ -494,39 +496,74 @@ export function MorphingCoreVisual() {
         });
       }
 
-      // Draw wireframe connecting lines
+      // Draw wireframe connecting lines (Batched into single path & stroke)
       ctx.lineWidth = 1;
+      ctx.strokeStyle = 'rgba(52, 209, 209, 0.32)';
+      ctx.beginPath();
       for (let e = 0; e < activeEdges.length; e++) {
         const edge = activeEdges[e];
         const p1 = projected[edge.p1];
         const p2 = projected[edge.p2];
 
         if (p1 && p2) {
-          const lineAlpha = ((p1.alpha + p2.alpha) / 2) * 0.55;
-          ctx.strokeStyle = `rgba(52, 209, 209, ${lineAlpha})`;
-          ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
           ctx.lineTo(p2.x, p2.y);
-          ctx.stroke();
         }
       }
+      ctx.stroke();
 
-      // Draw vertices / glow dots
+      // Draw vertices / glow dots (Batched into single paths for 60fps)
+      // 1. Soft outer halo (cyan)
+      ctx.fillStyle = 'rgba(52, 209, 209, 0.22)';
+      ctx.beginPath();
       for (let i = 0; i < projected.length; i++) {
         const pt = projected[i];
-
-        // Soft outer halo
-        ctx.beginPath();
-        ctx.arc(pt.x, pt.y, pt.size * 2.2, 0, Math.PI * 2);
-        ctx.fillStyle = pt.color === '#8c5cff' ? 'rgba(140, 92, 255, 0.35)' : 'rgba(52, 209, 209, 0.35)';
-        ctx.fill();
-
-        // Bright core
-        ctx.beginPath();
-        ctx.arc(pt.x, pt.y, Math.max(1, pt.size), 0, Math.PI * 2);
-        ctx.fillStyle = pt.color;
-        ctx.fill();
+        if (pt.color !== '#8c5cff') {
+          const hr = pt.size * 2.0;
+          ctx.moveTo(pt.x + hr, pt.y);
+          ctx.arc(pt.x, pt.y, hr, 0, Math.PI * 2);
+        }
       }
+      ctx.fill();
+
+      // 2. Soft outer halo (purple)
+      ctx.fillStyle = 'rgba(140, 92, 255, 0.22)';
+      ctx.beginPath();
+      for (let i = 0; i < projected.length; i++) {
+        const pt = projected[i];
+        if (pt.color === '#8c5cff') {
+          const hr = pt.size * 2.0;
+          ctx.moveTo(pt.x + hr, pt.y);
+          ctx.arc(pt.x, pt.y, hr, 0, Math.PI * 2);
+        }
+      }
+      ctx.fill();
+
+      // 3. Bright core (cyan)
+      ctx.fillStyle = '#34d1d1';
+      ctx.beginPath();
+      for (let i = 0; i < projected.length; i++) {
+        const pt = projected[i];
+        if (pt.color !== '#8c5cff') {
+          const r = Math.max(1, pt.size);
+          ctx.moveTo(pt.x + r, pt.y);
+          ctx.arc(pt.x, pt.y, r, 0, Math.PI * 2);
+        }
+      }
+      ctx.fill();
+
+      // 4. Bright core (purple)
+      ctx.fillStyle = '#8c5cff';
+      ctx.beginPath();
+      for (let i = 0; i < projected.length; i++) {
+        const pt = projected[i];
+        if (pt.color === '#8c5cff') {
+          const r = Math.max(1, pt.size);
+          ctx.moveTo(pt.x + r, pt.y);
+          ctx.arc(pt.x, pt.y, r, 0, Math.PI * 2);
+        }
+      }
+      ctx.fill();
 
       ctx.restore();
       animId = requestAnimationFrame(render);

@@ -1,4 +1,4 @@
-﻿export interface ServiceItem {
+export interface ServiceItem {
   id: string;
   slug: string;
   code: string;
@@ -95,7 +95,7 @@ export const CLIENT_NAMES = [
 
 export const CLIENT_NAMES_AR = [
   "كنوز للاستثمار العقاري", "تاور توب للديكور الداخلي", "سيستم كابتن حسام منصور", "الجمعية السعودية للجلدية",
-  "ألبان وسوبرماركت التوحيد", "المتجر الملكي ريجاليست", "الصفا للخدمات البترولية", "سنتر الجندي التعليمي",
+  "ألبان وسوبرماركت التوحيد", "المتجر الملكي ريجاليست", "الصفا للخدمات البترولية", "سنتر الأستاذ محمد الغندي",
   "إيجاركو لتأجير السيارات", "مجموعة العمروسي للتجارة", "صيدلية المعتز الكبرى", "آرت بيلا للتشطيبات والجبسون بورد",
   "بيرفكت فارما الطبية", "سلوميدا للتوريدات", "توصيلة إكسبريس للخدمات اللوجستية", "رونق للتجارة الرقمية",
   "إيفارا للمقتنيات الفاخرة", "شركة كينج توت الصناعية", "شرفة لتكنولوجيا البناء", "ديار للاستثمار والتطوير",
@@ -554,7 +554,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
       { label: { en: "Weekly Check-ins", ar: "متابعة أسبوعية مسجلة" }, value: "24,000+" },
       { label: { en: "System Reliability", ar: "جاهزية واستقرار النظام" }, value: "99.98%" }
     ],
-    image: "/images/work/showcase/team-hm.svg",
+    image: "/images/work/showcase/team-hm.webp",
     liveUrl: "https://team-hm.com/login"
   },
   {
@@ -594,7 +594,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
       { label: { en: "Transformations", ar: "قصة نجاح وتحول" }, value: "850+" },
       { label: { en: "Page Load Speed", ar: "سرعة تحميل الصفحة" }, value: "0.8s" }
     ],
-    image: "/images/work/showcase/hossam-mansour.svg",
+    image: "/images/work/showcase/hossam-mansour.webp",
     liveUrl: "https://hossammansour.com/ar/"
   },
   {
@@ -674,14 +674,14 @@ export const PROJECTS_LIST: ProjectItem[] = [
       { label: { en: "Average Delivery Time", ar: "متوسط وقت التوصيل" }, value: "24min" },
       { label: { en: "Order Accuracy", ar: "دقة تسليم الطلبات" }, value: "99.4%" }
     ],
-    image: "/images/work/showcase/al-tawheed.svg",
+    image: "/images/work/showcase/al-tawheed.webp",
     liveUrl: "https://altawhid.stackway.cloud"
   },
   {
     id: "regalest",
     slug: "regalest",
     number: "07",
-    title: { en: "Regalest Royal Store", ar: "متجر ريجاليست للساعات الفاخرة" },
+    title: { en: "Regalest Royal Store", ar: "المتجر الملكي ريجاليست" },
     subtitle: { 
       en: "Bespoke royal timepieces & luxury collectibles e-commerce boutique.", 
       ar: "متجر المقتنيات والساعات الفاخرة والملكية بتجربة تسوق راقية." 
@@ -714,7 +714,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
       { label: { en: "Mobile Engagement", ar: "تفاعل مستخدمي الجوال" }, value: "+65%" },
       { label: { en: "Checkout Abandonment", ar: "انخفاض ترك السلة" }, value: "-38%" }
     ],
-    image: "/images/work/showcase/regalest.svg",
+    image: "/images/work/showcase/regalest.webp",
     liveUrl: "https://regalest.stackway.cloud"
   },
   {
@@ -761,10 +761,10 @@ export const PROJECTS_LIST: ProjectItem[] = [
     id: "elgendy",
     slug: "elgendy",
     number: "09",
-    title: { en: "El Gendy Center LMS", ar: "سنتر الأستاذ محمد الجندي" },
+    title: { en: "Mr. Mohamed El Ghandy Center", ar: "سنتر الأستاذ محمد الغندي" },
     subtitle: { 
       en: "Smart educational LMS platform, online examination engine, and student tracking.", 
-      ar: "منصة وسنتر تعليمي ذكي لإدارة الطلاب والامتحانات الإلكترونية وكروت الشحن." 
+      ar: "منصة وسنتر تعليمي ذكي (بداية قوية .. لمستقبل أفضل) لإدارة الطلاب والامتحانات الإلكترونية وكروت الشحن." 
     },
     category: { en: "EdTech & LMS", ar: "التعليم الإلكتروني وإدارة السناتر" },
     tags: {
@@ -772,8 +772,8 @@ export const PROJECTS_LIST: ProjectItem[] = [
       ar: ["منصة LMS تعليمية", "محرك الامتحانات الذكية", "بوابة ولي الأمر", "كروت الشحن والأكواد"]
     },
     summary: {
-      en: "An intelligent learning management platform for Mr. Mohamed El Gendy Educational Center, featuring timed online exams, attendance barcodes, parent grade alerts, and scratch-card lecture access.",
-      ar: "منصة تعليمية وإدارية ذكية لسنتر الأستاذ محمد الجندي، تجمع بين نظام إدارة السنتر حضورياً ومنصة إلكترونية متطورة للطلاب، تتضمن إدارة المجموعات، الامتحانات التفاعلية، وكروت الشحن."
+      en: "An intelligent learning management platform for Mr. Mohamed El Ghandy Educational Center, featuring timed online exams, attendance barcodes, parent grade alerts, and scratch-card lecture access.",
+      ar: "منصة تعليمية وإدارية ذكية لسنتر الأستاذ محمد الغندي (بداية قوية .. لمستقبل أفضل)، تجمع بين نظام إدارة السنتر حضورياً ومنصة إلكترونية متطورة للطلاب، تتضمن إدارة المجموعات، الامتحانات التفاعلية، وكروت الشحن."
     },
     whatWeBuilt: {
       en: [
@@ -794,7 +794,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
       { label: { en: "Exams Completed", ar: "امتحان مكتمل ومصحح" }, value: "38,000+" },
       { label: { en: "Parent Satisfaction", ar: "رضا أولياء الأمور" }, value: "98.5%" }
     ],
-    image: "/images/work/showcase/elgendy.svg",
+    image: "/images/work/showcase/elgendy.webp",
     liveUrl: "https://elgendy.stackway.cloud/"
   },
   {

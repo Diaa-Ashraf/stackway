@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
@@ -24,11 +24,12 @@ export function Header({ lang = 'en' }: HeaderProps) {
   const prefix = isAr ? '/ar' : '';
 
   useEffect(() => {
+    let prev = false;
     const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+      const next = window.scrollY > 30;
+      if (next !== prev) {
+        prev = next;
+        setScrolled(next);
       }
     };
 

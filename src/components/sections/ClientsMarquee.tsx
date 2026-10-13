@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -9,14 +9,15 @@ interface ClientsMarqueeProps {
 }
 
 const CLIENT_IMAGE_LOGOS = [
-  { name: { en: 'Kunuz Real Estate', ar: 'كنوز العقارية' }, img: '/images/work/kunuz.svg' },
+  { name: { en: 'Kunuz Real Estate', ar: 'كنوز العقارية' }, img: '/images/work/kunuz.webp' },
   { name: { en: 'Tower Top EG', ar: 'تاور توب للديكور' }, img: '/images/work/tower-top.svg' },
-  { name: { en: 'Team HM System', ar: 'سيستم كابتن حسام منصور' }, img: '/images/work/team-hm.svg' },
+  { name: { en: 'Team HM System', ar: 'سيستم كابتن حسام منصور' }, img: '/images/work/team-hm.webp' },
+  { name: { en: 'Hossam Mansour Official', ar: 'موقع كابتن حسام منصور' }, img: '/images/work/hossam-mansour.webp' },
   { name: { en: 'SSDDS Society', ar: 'الجمعية السعودية للجلدية' }, img: '/images/work/ssdds.svg' },
-  { name: { en: 'Al Tawhid Market', ar: 'سوبرماركت التوحيد' }, img: '/images/work/al-tawheed.svg' },
-  { name: { en: 'Regalest Store', ar: 'المتجر الملكي ريجاليست' }, img: '/images/work/regalest.svg' },
+  { name: { en: 'Al Tawhid Market', ar: 'سوبرماركت التوحيد' }, img: '/images/work/al-tawheed.webp' },
+  { name: { en: 'Regalest Store', ar: 'المتجر الملكي ريجاليست' }, img: '/images/work/regalest.webp' },
   { name: { en: 'Al Safa Petroleum', ar: 'شركة الصفا للبترول' }, img: '/images/work/al-safa.svg' },
-  { name: { en: 'El Gendy Center', ar: 'سنتر الأستاذ محمد الجندي' }, img: '/images/work/elgendy.svg' },
+  { name: { en: 'El Ghandy Center', ar: 'سنتر الأستاذ محمد الغندي' }, img: '/images/work/elgendy.webp' },
   { name: { en: 'Art Bella', ar: 'آرت بيلا للتشطيبات' }, img: '/images/artbella.webp' },
   { name: { en: 'Perfect Pharma', ar: 'بيرفكت فارما' }, img: '/images/perfectpharma.webp' },
   { name: { en: 'Moataz Pharmacy', ar: 'صيدلية المعتز' }, img: '/images/moataz.webp' },
@@ -66,6 +67,7 @@ export function ClientsMarquee({ lang = 'en' }: ClientsMarqueeProps) {
                     height={24}
                     sizes="28px"
                     loading="lazy"
+                    unoptimized
                     className="max-h-6 w-auto object-contain brightness-90 group-hover:brightness-100 transition-all"
                   />
                 </div>

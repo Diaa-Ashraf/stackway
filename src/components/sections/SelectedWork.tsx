@@ -181,6 +181,7 @@ export function SelectedWork({ lang = 'en' }: SelectedWorkProps) {
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority={currentIndex === 0}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#080d14]/90 via-transparent to-transparent pointer-events-none" />
                 </motion.div>

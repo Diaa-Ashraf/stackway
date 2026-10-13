@@ -30,11 +30,18 @@ export function InsightSlugView({ slug, lang = 'en' }: InsightSlugViewProps) {
   const otherArticles = INSIGHTS_ARTICLES.filter((a) => a.slug !== slug);
 
   return (
-    <div className="pt-32 pb-24 md:pt-44 md:pb-32 bg-[var(--bg)] min-h-screen relative">
+    <div className="relative isolate overflow-hidden pt-32 pb-24 md:pt-44 md:pb-32 bg-[var(--bg)] min-h-screen">
       {/* Article Reading Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[3px] bg-[var(--accent)] origin-left z-50 pointer-events-none"
         style={{ scaleX }}
+      />
+
+      {/* Subtle Tech Grid Mask & Ambient Top Glow matching HomePage & Work */}
+      <div aria-hidden="true" className="bg-grid mask-radial absolute inset-0 -z-10 opacity-70 pointer-events-none" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(140,92,255,0.15),transparent)]"
       />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
