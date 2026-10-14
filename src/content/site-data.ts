@@ -62,6 +62,7 @@ export interface TestimonialItem {
   quote: { en: string; ar: string };
   projectSlug: string;
   image: string;
+  showcaseImage?: string;
 }
 
 export interface InsightArticle {
@@ -1264,32 +1265,61 @@ export const TESTIMONIALS: TestimonialItem[] = [
       en: "I worked with Stackway to design a website for my company, and they were excellent in understanding our needs and executing them professionally. I highly recommend them to all companies looking for quality and efficiency in web design.",
       ar: "تعاملت مع ستاك واي لتصميم وتطوير موقع شركتي، وكانوا رائعين في استيعاب كافة متطلباتنا وتنفيذها باحترافية استثنائية وسرعة فائقة. أنصح بهم بشدة لكل من يبحث عن الجودة الحقيقية والالتزام."
     },
-    projectSlug: "hossam-mansour",
-    image: "/images/salumida.webp"
+    projectSlug: "team-hm",
+    image: "/images/work/team-hm.webp",
+    showcaseImage: "/images/work/showcase/team-hm.webp"
   },
   {
-    id: "loai",
-    name: "Loai Dowidar",
-    role: { en: "CEO & Founder", ar: "المؤسس والرئيس التنفيذي" },
-    company: "My Fitness Bag",
+    id: "kunuz",
+    name: "Eng. Ahmed Kunuz",
+    role: { en: "Managing Director", ar: "العضو المنتدب ورئيس مجلس الإدارة" },
+    company: "Kunuz Real Estate",
     quote: {
-      en: "Stackway transformed our e-commerce operations. The checkout velocity increased our mobile conversion rate by over 50%, and their hosting has never dropped a single minute during our peak Black Friday campaigns.",
-      ar: "نقلت ستاك واي متجرنا الإلكتروني إلى مستوى جديد كلياً. سرعة إتمام الشراء ضاعفت تحويلات الجوال بأكثر من 50%، ولم تتوقف استضافتهم دقيقة واحدة حتى في أوقات ذروة المبيعات والحملات الكبرى."
+      en: "Stackway engineered a standout digital platform for Kunuz Real Estate. The interactive 3D commercial showcase and dynamic instalment calculator significantly increased our qualified investor inquiries.",
+      ar: "طوّرت ستاك واي منصة رقمية استثنائية لشركة كنوز العقارية. معرض المشروعات ثلاثي الأبعاد وحاسبة الأقساط الاستثمارية الذكية ضاعفت معدل استفسارات المستثمرين والعملاء التجاريين بشكل ملحوظ."
     },
-    projectSlug: "my-fitness-bag",
-    image: "/images/ejaku.webp"
+    projectSlug: "kunuz",
+    image: "/images/work/kunuz.webp",
+    showcaseImage: "/images/work/showcase/kunuz.webp"
   },
   {
-    id: "ahmed",
-    name: "Dr. Ahmed Hashim",
-    role: { en: "Managing Director", ar: "المدير العام واستشاري الجراحة" },
-    company: "Dr. Ahmad Hashem Centers",
+    id: "tower-top",
+    name: "Eng. Mahmoud Tower",
+    role: { en: "Founder & Operations Director", ar: "المؤسس ومدير العمليات" },
+    company: "Tower Top EG",
+    quote: {
+      en: "The real-world on-site portfolio and interactive finishing cost estimator built by Stackway elevated our brand credibility and helped us close dozens of high-value residential and commercial fitout contracts.",
+      ar: "معرض الأعمال الحي 'من قلب الموقع' وحاسبة تكاليف التشطيب الفورية التي صممتها ستاك واي عززت ثقة العملاء وساعدتنا في إغلاق عشرات التعاقدات السكنية والتجارية الكبرى."
+    },
+    projectSlug: "tower-top",
+    image: "/images/work/tower-top.svg",
+    showcaseImage: "/images/work/showcase/tower-top.webp"
+  },
+  {
+    id: "ssdds",
+    name: "Prof. Dr. Abdullah Al-Eisa",
+    role: { en: "Board Member & Medical Director", ar: "عضو مجلس الإدارة والمدير الطبي" },
+    company: "SSDDS Saudi Society",
     quote: {
       en: "Finding a technical team that treats your reputation and digital infrastructure with such meticulous care is rare. Stackway delivered an immaculate medical portal and continues to support us proactively every week.",
       ar: "من النادر إيجاد فريق تقني يتعامل مع سمعتك وبنيتك الرقمية بهذا القدر من الدقة والاهتمام. قدمت ستاك واي بوابة طبية استثنائية وتواصل دعمنا بشكل استباقي ومستمر."
     },
-    projectSlug: "securecheap",
-    image: "/images/artbella.webp"
+    projectSlug: "ssdds",
+    image: "/images/work/ssdds.svg",
+    showcaseImage: "/images/work/showcase/ssdds.svg"
+  },
+  {
+    id: "elgendy",
+    name: "Mr. Mohamed El Ghandy",
+    role: { en: "Educational Director & Founder", ar: "المؤسس والمشرف العام" },
+    company: "El Ghandy Center",
+    quote: {
+      en: "The LMS examination engine and automated student tracking transformed our center operations. Thousands of students take timed exams simultaneously without a single second of downtime.",
+      ar: "نظام الامتحانات الإلكترونية وإدارة الحضور بالباركود وكروت الشحن نقلت إدارة السنتر إلى مرحلة متطورة كلياً. آلاف الطلاب يؤدون الامتحانات في وقت واحد بكل سلاسة واستقرار تام."
+    },
+    projectSlug: "elgendy",
+    image: "/images/work/elgendy.webp",
+    showcaseImage: "/images/work/showcase/elgendy.webp"
   }
 ];
 

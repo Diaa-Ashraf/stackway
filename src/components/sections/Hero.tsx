@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -98,13 +98,13 @@ export function Hero({ lang = 'en' }: HeroProps) {
               </span>
             </div>
             <div className="hidden sm:flex items-center gap-4 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all text-xs font-mono text-[var(--muted)]">
-              <span>Art Bella</span>
+              <span>{isAr ? 'كنوز العقارية' : 'Kunuz'}</span>
               <span>•</span>
-              <span>Perfect Pharma</span>
+              <span>{isAr ? 'تاور توب' : 'Tower Top'}</span>
               <span>•</span>
-              <span>Evara</span>
+              <span>{isAr ? 'حسام منصور' : 'Team HM'}</span>
               <span>•</span>
-              <span>Salumida</span>
+              <span>{isAr ? 'الجمعية السعودية' : 'SSDDS'}</span>
             </div>
           </div>
         </div>

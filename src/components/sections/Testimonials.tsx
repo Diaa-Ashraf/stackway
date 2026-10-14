@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -65,8 +65,8 @@ export function Testimonials({ lang = 'en' }: TestimonialsProps) {
                     : 'border-transparent bg-transparent hover:bg-[#080d14]/60 text-[var(--muted)]'
                 }`}
               >
-                <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-[var(--line)] shrink-0">
-                  <Image src={t.image} alt={t.name} fill sizes="48px" className="object-cover" />
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-[var(--line)] shrink-0 bg-[#0c1220] flex items-center justify-center">
+                  <Image src={t.image} alt={t.name} fill sizes="48px" className="object-contain p-1 rounded-full" />
                   {isActive && (
                     <div className="absolute inset-0 rounded-full border-2 border-[var(--accent)] animate-pulse" />
                   )}
@@ -128,22 +128,26 @@ export function Testimonials({ lang = 'en' }: TestimonialsProps) {
           </div>
 
           {/* Project Screenshot / Visual */}
-          <div className="lg:col-span-4 relative h-64 md:h-80 rounded-2xl overflow-hidden border border-[var(--line)] bg-[var(--surface-alt)] shadow-md">
+          <div className="lg:col-span-4 relative h-64 md:h-80 rounded-2xl overflow-hidden border border-[var(--line)] bg-[#04060c] shadow-md flex items-center justify-center">
             <AnimatePresence mode="wait">
               <motion.div
-                key={activeTestimonial.image}
-                initial={{ opacity: 0, clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)' }}
-                animate={{ opacity: 1, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
-                exit={{ opacity: 0, clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)' }}
-                transition={{ duration: 0.5 }}
-                className="relative w-full h-full"
+                key={activeTestimonial.showcaseImage || activeTestimonial.image}
+                initial={{ opacity: 0, scale: 0.96 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.4 }}
+                className="relative w-full h-full flex items-center justify-center"
               >
                 <Image
-                  src={activeTestimonial.image}
+                  src={activeTestimonial.showcaseImage || activeTestimonial.image}
                   alt={activeTestimonial.company}
                   fill
                   sizes="(max-width: 1024px) 100vw, 400px"
-                  className="object-cover"
+                  className={
+                    (activeTestimonial.showcaseImage || activeTestimonial.image).endsWith('.svg')
+                      ? 'object-contain p-8'
+                      : 'object-cover'
+                  }
                 />
               </motion.div>
             </AnimatePresence>
