@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="tawhid-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06130d" />
+      <stop offset="50%" stop-color="#0a2419" />
+      <stop offset="100%" stop-color="#030c08" />
+    </linearGradient>
+    <linearGradient id="fresh-green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="dairy-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#tawhid-bg)" />
+
+  <!-- Header -->
+  <g transform="translate(80, 50)">
+    <rect width="1440" height="70" rx="14" fill="#0b2318" stroke="#174330" stroke-width="1.5" />
+    <circle cx="45" cy="35" r="18" fill="url(#fresh-green)" />
+    <text x="36" y="42" font-family="'Cairo', sans-serif" font-weight="900" font-size="16" fill="#ffffff">ت</text>
+    <text x="75" y="38" font-family="'Cairo', sans-serif" font-weight="800" font-size="20" fill="#ffffff">سوبر ماركت وألبان التوحيد</text>
+    <text x="75" y="55" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#6ee7b7" letter-spacing="1">AL TAWHID SUPERMARKET &amp; FRESH DAIRY (ALEXANDRIA)</text>
+    <text x="940" y="42" font-family="'Cairo', sans-serif" font-weight="600" font-size="15" fill="#cbd5e1">الألبان الطبيعية • الأجبان • السوبرماركت • العروض اليومية</text>
+    <rect x="1310" y="18" width="105" height="34" rx="8" fill="url(#fresh-green)" />
+    <text x="1335" y="41" font-family="'Cairo', sans-serif" font-weight="800" font-size="14" fill="#ffffff">السلة (4)</text>
+  </g>
+
+  <!-- Left Column: Fresh Grocery & Dairy Storefront Catalog -->
+  <g transform="translate(80, 160)">
+    <rect width="900" height="680" rx="20" fill="#0c251a" stroke="#1a4c35" stroke-width="1.5" />
+    
+    <g transform="translate(45, 45)">
+      <rect width="250" height="32" rx="16" fill="#133d2b" stroke="#10b981" stroke-width="1" />
+      <text x="25" y="21" font-family="'Cairo', sans-serif" font-weight="700" font-size="13" fill="#34d399">طازج يومياً من مزارعنا بالإسكندرية</text>
+      
+      <text x="0" y="85" font-family="'Cairo', sans-serif" font-weight="900" font-size="34" fill="#ffffff">ألبان وأجبان طبيعية 100% بدون إضافات</text>
+      <text x="0" y="120" font-family="'Cairo', sans-serif" font-weight="600" font-size="17" fill="#6ee7b7">خدمة التوصيل السريع لجميع أحياء الإسكندرية خلال 30 دقيقة</text>
+    </g>
+
+    <!-- Product Grid 4 items -->
+    <g transform="translate(45, 180)">
+      <!-- Item 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="190" height="230" rx="12" fill="#102e20" stroke="#1e543b" stroke-width="1" />
+        <rect x="15" y="15" width="160" height="110" rx="8" fill="#081b12" />
+        <circle cx="95" cy="70" r="30" fill="#194833" />
+        <text x="75" y="77" font-family="'Inter', sans-serif" font-weight="900" font-size="18" fill="#34d399">MILK</text>
+        <text x="15" y="150" font-family="'Cairo', sans-serif" font-weight="800" font-size="14" fill="#ffffff">حليب جاموسي طازج</text>
+        <text x="15" y="172" font-family="'Cairo', sans-serif" font-weight="500" font-size="12" fill="#9ca3af">1 كجم • طبيعي كامل الدسم</text>
+        <text x="15" y="205" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#fbbf24">38 EGP</text>
+        <rect x="140" y="185" width="35" height="28" rx="6" fill="#10b981" />
+        <text x="152" y="204" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ffffff">+</text>
+      </g>
+
+      <!-- Item 2 -->
+      <g transform="translate(205, 0)">
+        <rect width="190" height="230" rx="12" fill="#102e20" stroke="#1e543b" stroke-width="1" />
+        <rect x="15" y="15" width="160" height="110" rx="8" fill="#081b12" />
+        <circle cx="95" cy="70" r="30" fill="#194833" />
+        <text x="68" y="77" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#fbbf24">CHEESE</text>
+        <text x="15" y="150" font-family="'Cairo', sans-serif" font-weight="800" font-size="14" fill="#ffffff">جبنة رومي قديمة فاخرة</text>
+        <text x="15" y="172" font-family="'Cairo', sans-serif" font-weight="500" font-size="12" fill="#9ca3af">500 جم • بطارخ بيور</text>
+        <text x="15" y="205" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#fbbf24">145 EGP</text>
+        <rect x="140" y="185" width="35" height="28" rx="6" fill="#10b981" />
+        <text x="152" y="204" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ffffff">+</text>
+      </g>
+
+      <!-- Item 3 -->
+      <g transform="translate(410, 0)">
+        <rect width="190" height="230" rx="12" fill="#102e20" stroke="#1e543b" stroke-width="1" />
+        <rect x="15" y="15" width="160" height="110" rx="8" fill="#081b12" />
+        <circle cx="95" cy="70" r="30" fill="#194833" />
+        <text x="72" y="77" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#34d399">CREAM</text>
+        <text x="15" y="150" font-family="'Cairo', sans-serif" font-weight="800" font-size="14" fill="#ffffff">قشطة بلدي طبيعية</text>
+        <text x="15" y="172" font-family="'Cairo', sans-serif" font-weight="500" font-size="12" fill="#9ca3af">250 جم • طازجة يومية</text>
+        <text x="15" y="205" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#fbbf24">75 EGP</text>
+        <rect x="140" y="185" width="35" height="28" rx="6" fill="#10b981" />
+        <text x="152" y="204" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ffffff">+</text>
+      </g>
+
+      <!-- Item 4 -->
+      <g transform="translate(615, 0)">
+        <rect width="190" height="230" rx="12" fill="#102e20" stroke="#1e543b" stroke-width="1" />
+        <rect x="15" y="15" width="160" height="110" rx="8" fill="#081b12" />
+        <circle cx="95" cy="70" r="30" fill="#194833" />
+        <text x="72" y="77" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#34d399">YOGURT</text>
+        <text x="15" y="150" font-family="'Cairo', sans-serif" font-weight="800" font-size="14" fill="#ffffff">زبادي بلدي فخار</text>
+        <text x="15" y="172" font-family="'Cairo', sans-serif" font-weight="500" font-size="12" fill="#9ca3af">علبة عائلية • كامل الدسم</text>
+        <text x="15" y="205" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#fbbf24">22 EGP</text>
+        <rect x="140" y="185" width="35" height="28" rx="6" fill="#10b981" />
+        <text x="152" y="204" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ffffff">+</text>
+      </g>
+    </g>
+
+    <!-- POS & Inventory live sync note -->
+    <g transform="translate(45, 450)">
+      <rect width="810" height="180" rx="14" fill="#081f14" stroke="#10b981" stroke-width="1" />
+      <text x="35" y="45" font-family="'Inter', sans-serif" font-weight="800" font-size="17" fill="#10b981">REAL-TIME POS &amp; WAREHOUSE INVENTORY SYNC</text>
+      <text x="35" y="80" font-family="'Cairo', sans-serif" font-weight="700" font-size="18" fill="#ffffff">نظام ربط فوري مع كاشير ونقاط بيع الفروع</text>
+      <text x="35" y="115" font-family="'Cairo', sans-serif" font-weight="500" font-size="15" fill="#a7f3d0">الكميات المعروضة في المتجر متزامنة لحظياً مع أرفف ومخازن الفروع لمنع طلب منتج نفذت كميته، مع تحديث تلقائي للأسعار.</text>
+    </g>
+  </g>
+
+  <!-- Right Column: Geolocation Delivery & InstaPay Checkout -->
+  <g transform="translate(1020, 160)">
+    <rect width="500" height="680" rx="20" fill="#0c251a" stroke="#1a4c35" stroke-width="1.5" />
+    
+    <g transform="translate(45, 45)">
+      <text x="0" y="30" font-family="'Cairo', sans-serif" font-weight="800" font-size="24" fill="#ffffff">سلة الشراء والتوصيل الفوري</text>
+      <text x="0" y="60" font-family="'Cairo', sans-serif" font-weight="500" font-size="14" fill="#34d399">تحديد دقيق للموقع عبر GPS ورسوم التوصيل</text>
+
+      <!-- Geolocation delivery card -->
+      <g transform="translate(0, 90)">
+        <rect width="410" height="85" rx="12" fill="#102e20" stroke="#1e543b" stroke-width="1" />
+        <text x="20" y="32" font-family="'Cairo', sans-serif" font-weight="700" font-size="15" fill="#ffffff">عنوان التوصيل (GPS المحدد):</text>
+        <text x="20" y="60" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#6ee7b7">الإسكندرية • سموحة • شارع فوزي معاذ</text>
+        <rect x="300" y="25" width="90" height="32" rx="6" fill="#174330" />
+        <text x="315" y="47" font-family="'Cairo', sans-serif" font-weight="700" font-size="12" fill="#34d399">تغيير الموقع</text>
+      </g>
+
+      <!-- Order items preview -->
+      <g transform="translate(0, 200)">
+        <text x="0" y="20" font-family="'Cairo', sans-serif" font-weight="700" font-size="15" fill="#cbd5e1">الملخص المالي للطلب:</text>
+        <text x="0" y="55" font-family="'Cairo', sans-serif" font-weight="500" font-size="14" fill="#9ca3af">إجمالي المنتجات (4 أصناف):</text>
+        <text x="330" y="55" font-family="'Inter', sans-serif" font-weight="800" font-size="15" fill="#ffffff">280 EGP</text>
+
+        <text x="0" y="90" font-family="'Cairo', sans-serif" font-weight="500" font-size="14" fill="#9ca3af">رسوم التوصيل السريع (نطاق سموحة):</text>
+        <text x="345" y="90" font-family="'Inter', sans-serif" font-weight="800" font-size="15" fill="#34d399">20 EGP</text>
+
+        <line x1="0" y1="110" x2="410" y2="110" stroke="#1e543b" stroke-width="1" />
+        <text x="0" y="140" font-family="'Cairo', sans-serif" font-weight="800" font-size="18" fill="#ffffff">الإجمالي المطلوب:</text>
+        <text x="315" y="140" font-family="'Inter', sans-serif" font-weight="900" font-size="22" fill="#fbbf24">300 EGP</text>
+      </g>
+
+      <!-- InstaPay & Cash Checkout -->
+      <g transform="translate(0, 380)">
+        <text x="0" y="20" font-family="'Cairo', sans-serif" font-weight="700" font-size="14" fill="#cbd5e1">طرق الدفع المدعومة:</text>
+        <rect y="40" width="195" height="50" rx="10" fill="#133d2b" stroke="#10b981" stroke-width="1.5" />
+        <text x="35" y="72" font-family="'Cairo', sans-serif" font-weight="800" font-size="15" fill="#34d399">إنستاباي (InstaPay)</text>
+
+        <rect x="215" y="40" width="195" height="50" rx="10" fill="#102e20" stroke="#1e543b" stroke-width="1" />
+        <text x="255" y="72" font-family="'Cairo', sans-serif" font-weight="800" font-size="15" fill="#ffffff">الدفع عند الاستلام</text>
+
+        <rect y="120" width="410" height="55" rx="12" fill="url(#fresh-green)" />
+        <text x="135" y="155" font-family="'Cairo', sans-serif" font-weight="900" font-size="18" fill="#ffffff">إتمام وتأكيد الطلب الآن</text>
+      </g>
+    </g>
+  </g>
+</svg>

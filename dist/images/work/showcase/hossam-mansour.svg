@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="hm-brand-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0c" />
+      <stop offset="50%" stop-color="#141419" />
+      <stop offset="100%" stop-color="#070709" />
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e5c07b" />
+      <stop offset="50%" stop-color="#ffd700" />
+      <stop offset="100%" stop-color="#b8860b" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#hm-brand-bg)" />
+  
+  <!-- Subtle dark vignette -->
+  <circle cx="800" cy="450" r="600" fill="#ffd700" opacity="0.03" />
+
+  <!-- Navigation Bar -->
+  <g transform="translate(80, 50)">
+    <rect width="1440" height="70" rx="14" fill="#121218" stroke="#252532" stroke-width="1.5" />
+    <text x="40" y="44" font-family="'Inter', sans-serif" font-weight="900" font-size="24" fill="url(#gold-grad)">HOSSAM MANSOUR</text>
+    <text x="315" y="44" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#ffd700" letter-spacing="3">IFBB PRO / WORLD CHAMPION</text>
+    <text x="850" y="42" font-family="'Cairo', sans-serif" font-weight="600" font-size="16" fill="#cbd5e1">الرئيسية • قصة النجاح • باقات التدريب • التحولات • المقالات</text>
+    <rect x="1270" y="18" width="140" height="36" rx="8" fill="url(#gold-grad)" />
+    <text x="1305" y="42" font-family="'Cairo', sans-serif" font-weight="800" font-size="15" fill="#05060a">اشترك الآن</text>
+  </g>
+
+  <!-- Hero Section with Championship Accolades -->
+  <g transform="translate(80, 160)">
+    <rect width="900" height="680" rx="20" fill="#111116" stroke="#22222e" stroke-width="1.5" />
+    
+    <!-- Gold Medals & Championship Banner -->
+    <g transform="translate(45, 50)">
+      <rect width="320" height="34" rx="17" fill="#201c10" stroke="#ffd700" stroke-width="1" />
+      <circle cx="20" cy="17" r="7" fill="#ffd700" />
+      <text x="36" y="22" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#ffd700">★ IFBB WORLD CHAMPION TITLE</text>
+      
+      <text x="0" y="95" font-family="'Cairo', sans-serif" font-weight="900" font-size="44" fill="#ffffff">المنصة الرسمية لبطل العالم كمال أجسام</text>
+      <text x="0" y="145" font-family="'Cairo', sans-serif" font-weight="800" font-size="34" fill="url(#gold-grad)">كابتن حسام منصور</text>
+      <text x="0" y="195" font-family="'Cairo', sans-serif" font-weight="500" font-size="17" fill="#9ca3af">انضم لأقوى منظومة تدريب وتغذية متخصصة لتحقيق أفضل فورمة وبناء العضلات وخسارة الدهون بأحدث النظم العلمية.</text>
+    </g>
+
+    <!-- Transformations Before & After Cards -->
+    <g transform="translate(45, 300)">
+      <text x="0" y="25" font-family="'Cairo', sans-serif" font-weight="800" font-size="20" fill="#ffffff">قصص نجاح وتحولات المتدربين (Before &amp; After)</text>
+      
+      <!-- Card 1 -->
+      <g transform="translate(0, 45)">
+        <rect width="250" height="270" rx="14" fill="#181820" stroke="#2c2c3c" stroke-width="1" />
+        <rect x="15" y="15" width="220" height="150" rx="10" fill="#0d0d12" />
+        <circle cx="125" cy="90" r="35" fill="#252535" />
+        <text x="85" y="96" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#ffd700">- 18 KG</text>
+        <text x="25" y="195" font-family="'Cairo', sans-serif" font-weight="700" font-size="16" fill="#ffffff">محمد العوضي</text>
+        <text x="25" y="220" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#9ca3af">برنامج 16 أسبوع تحول جذري</text>
+        <text x="25" y="245" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#22c55e">24% BF ➔ 9.8% BF</text>
+      </g>
+
+      <!-- Card 2 -->
+      <g transform="translate(275, 45)">
+        <rect width="250" height="270" rx="14" fill="#181820" stroke="#2c2c3c" stroke-width="1" />
+        <rect x="15" y="15" width="220" height="150" rx="10" fill="#0d0d12" />
+        <circle cx="125" cy="90" r="35" fill="#252535" />
+        <text x="85" y="96" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#ffd700">+ 8.5 KG</text>
+        <text x="25" y="195" font-family="'Cairo', sans-serif" font-weight="700" font-size="16" fill="#ffffff">أحمد سامح</text>
+        <text x="25" y="220" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#9ca3af">تجهيز بطولة فيزيك محلي</text>
+        <text x="25" y="245" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#22c55e">مركز أول ذهبية</text>
+      </g>
+
+      <!-- Card 3 -->
+      <g transform="translate(550, 45)">
+        <rect width="250" height="270" rx="14" fill="#181820" stroke="#2c2c3c" stroke-width="1" />
+        <rect x="15" y="15" width="220" height="150" rx="10" fill="#0d0d12" />
+        <circle cx="125" cy="90" r="35" fill="#252535" />
+        <text x="85" y="96" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#ffd700">- 14 KG</text>
+        <text x="25" y="195" font-family="'Cairo', sans-serif" font-weight="700" font-size="16" fill="#ffffff">عمر فوزي</text>
+        <text x="25" y="220" font-family="'Cairo', sans-serif" font-weight="500" font-size="13" fill="#9ca3af">خسارة دهون وتنسيق قوام</text>
+        <text x="25" y="245" font-family="'Inter', sans-serif" font-weight="700" font-size="13" fill="#22c55e">تحول في 12 أسبوع</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Column: Subscriptions & Coaching Packages -->
+  <g transform="translate(1020, 160)">
+    <rect width="500" height="680" rx="20" fill="#111116" stroke="#ffd700" stroke-width="1.5" />
+    
+    <g transform="translate(45, 50)">
+      <text x="0" y="30" font-family="'Cairo', sans-serif" font-weight="800" font-size="24" fill="#ffffff">باقات التدريب الأونلاين المباشر</text>
+      <text x="0" y="60" font-family="'Cairo', sans-serif" font-weight="500" font-size="14" fill="#ffd700">متابعة خاصة ومباشرة من كابتن حسام منصور</text>
+
+      <!-- Tier 1 -->
+      <g transform="translate(0, 90)">
+        <rect width="410" height="155" rx="14" fill="#181822" stroke="#2e2e42" stroke-width="1" />
+        <text x="25" y="38" font-family="'Cairo', sans-serif" font-weight="800" font-size="19" fill="#ffffff">باقة الـ 3 شهور (VIP Transformation)</text>
+        <text x="25" y="70" font-family="'Cairo', sans-serif" font-weight="600" font-size="14" fill="#cbd5e1">جدول تمارين مخصص + خطة دايت مرنة + شات واتساب</text>
+        <text x="25" y="105" font-family="'Inter', sans-serif" font-weight="900" font-size="24" fill="url(#gold-grad)">$249 <tspan font-size="14" font-weight="500" fill="#9ca3af">/ 3 Months</tspan></text>
+        <rect x="290" y="80" width="100" height="34" rx="8" fill="url(#gold-grad)" />
+        <text x="312" y="102" font-family="'Cairo', sans-serif" font-weight="800" font-size="14" fill="#05060a">اختر الباقة</text>
+      </g>
+
+      <!-- Tier 2 (Highlighted) -->
+      <g transform="translate(0, 265)">
+        <rect width="410" height="155" rx="14" fill="#201a0d" stroke="#ffd700" stroke-width="1.5" />
+        <rect x="290" y="-12" width="105" height="24" rx="6" fill="#ffd700" />
+        <text x="303" y="4" font-family="'Inter', sans-serif" font-weight="800" font-size="11" fill="#05060a">MOST POPULAR</text>
+        <text x="25" y="38" font-family="'Cairo', sans-serif" font-weight="800" font-size="19" fill="#ffd700">باقة الـ 6 شهور (Championship Prep)</text>
+        <text x="25" y="70" font-family="'Cairo', sans-serif" font-weight="600" font-size="14" fill="#cbd5e1">متابعة أسبوعية بالصور وتعديل السعرات والمكملات</text>
+        <text x="25" y="105" font-family="'Inter', sans-serif" font-weight="900" font-size="24" fill="url(#gold-grad)">$420 <tspan font-size="14" font-weight="500" fill="#9ca3af">/ 6 Months</tspan></text>
+        <rect x="290" y="80" width="100" height="34" rx="8" fill="url(#gold-grad)" />
+        <text x="312" y="102" font-family="'Cairo', sans-serif" font-weight="800" font-size="14" fill="#05060a">اختر الباقة</text>
+      </g>
+
+      <!-- Live Guarantees -->
+      <g transform="translate(0, 450)">
+        <text x="0" y="25" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#22c55e">✓ Secure Online Checkout (Stripe, Fawry, InstaPay)</text>
+        <text x="0" y="55" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#22c55e">✓ 24-Hour Direct Onboarding via WhatsApp</text>
+        <text x="0" y="85" font-family="'Inter', sans-serif" font-weight="700" font-size="14" fill="#22c55e">✓ Customized Macro Nutrient Calculations</text>
+      </g>
+    </g>
+  </g>
+</svg>

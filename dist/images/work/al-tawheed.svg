@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <!-- Fresh Grocery & Market Basket Icon -->
+  <g transform="translate(14, 14)">
+    <path d="M10,22 L46,22 L40,48 L16,48 Z" stroke="#FFFFFF" stroke-width="2.5" fill="none" opacity="0.9" />
+    <path d="M20,22 C20,12 36,12 36,22" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <circle cx="21" cy="53" r="2.5" fill="#FFFFFF" />
+    <circle cx="35" cy="53" r="2.5" fill="#FFFFFF" />
+    <line x1="19" y1="30" x2="37" y2="30" stroke="#FFFFFF" stroke-width="1.5" opacity="0.6" />
+    <line x1="22" y1="39" x2="34" y2="39" stroke="#FFFFFF" stroke-width="1.5" opacity="0.6" />
+  </g>
+  <!-- Arabic & English Wordmark -->
+  <text x="76" y="37" fill="#FFFFFF" font-family="'Cairo', 'Alexandria', sans-serif" font-weight="900" font-size="26" letter-spacing="1">التَّــوحِيد</text>
+  <text x="78" y="53" fill="#FFFFFF" font-family="'Inter', sans-serif" font-weight="600" font-size="11" letter-spacing="3" opacity="0.75">AL-TAWHID MARKET</text>
+</svg>
