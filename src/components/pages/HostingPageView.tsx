@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HOSTING_PLANS } from '@/content/site-data';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Button } from '@/components/ui/Button';
-import { Check, Minus, ChevronDown, Shield, Zap, Server } from 'lucide-react';
+import { FinalCta } from '@/components/sections/FinalCta';
+import { Check, ChevronDown, Shield, Zap, Server, Sparkles } from 'lucide-react';
 
 interface HostingPageViewProps {
   lang?: 'en' | 'ar';
@@ -13,6 +14,7 @@ interface HostingPageViewProps {
 
 export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
   const isAr = lang === 'ar';
+  const prefix = isAr ? '/ar' : '';
   const [currency, setCurrency] = useState<'EGP' | 'USD'>('EGP');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -80,40 +82,53 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
   ];
 
   return (
-    <div className="relative isolate overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32 bg-[var(--bg)] min-h-screen">
+    <div className="relative isolate overflow-hidden pt-28 pb-0 md:pt-40 bg-[var(--bg)] min-h-screen">
       {/* Subtle Tech Grid Mask & Ambient Top Glow matching HomePage & Work */}
       <div aria-hidden="true" className="bg-grid mask-radial absolute inset-0 -z-10 opacity-70 pointer-events-none" />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(140,92,255,0.15),transparent)]"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(0,242,254,0.12),transparent)]"
       />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <SectionHeader
-          number="07"
-          eyebrow={isAr ? 'خطط واستضافة الخوادم السحابية' : 'INFRASTRUCTURE & PRICING'}
-          title={isAr ? 'استضافة سحابية مدارة، فائقة السرعة.' : 'Managed NVMe cloud hosting engineered for speed.'}
-          subtitle={
-            isAr
-              ? 'أقراص NVMe، خوادم LiteSpeed المسرعة، وعزل CloudLinux، مع ضمان تشغيل 99.9% ودعم فني بشري متواصل.'
-              : 'Enterprise-grade NVMe solid-state storage, LiteSpeed caching, and proactive patch management.'
-          }
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <SectionHeader
+            number="07"
+            eyebrow={isAr ? 'خطط واستضافة الخوادم السحابية' : 'INFRASTRUCTURE & PRICING'}
+            title={isAr ? 'استضافة سحابية مدارة، فائقة السرعة.' : 'Managed NVMe cloud hosting engineered for speed.'}
+            subtitle={
+              isAr
+                ? 'أقراص NVMe، خوادم LiteSpeed المسرعة، وعزل CloudLinux، مع ضمان تشغيل 99.9% ودعم فني بشري متواصل.'
+                : 'Enterprise-grade NVMe solid-state storage, LiteSpeed caching, and proactive patch management.'
+            }
+          />
+        </motion.div>
 
         {/* Currency Switch Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-8 sm:mb-12 p-3 sm:p-4 rounded-2xl border border-[var(--line)] bg-[var(--surface)]">
-          <div className="text-xs sm:text-sm font-medium text-[var(--muted)]">
-            {isAr ? 'الأسعار شاملة الدعم الفني والنسخ الاحتياطي اليومي' : 'All plans include daily backups & 24/7 technical monitoring'}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-10 sm:mb-14 p-4 rounded-2xl border border-[#1b253b] bg-[#070b14] shadow-lg"
+        >
+          <div className="text-xs sm:text-sm font-medium text-[var(--muted)] flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>{isAr ? 'الأسعار تشمل الدعم الفني المباشر والنسخ الاحتياطي اليومي' : 'All plans include daily backups & 24/7 technical monitoring'}</span>
           </div>
 
           <div className="flex items-center gap-3">
             <span className="text-xs font-mono text-[var(--muted)] hidden sm:inline">
               {isAr ? 'العملة:' : 'Currency:'}
             </span>
-            <div className="p-1 rounded-full border border-[var(--line)] bg-[var(--bg)] flex items-center">
+            <div className="p-1 rounded-full border border-[#1b253b] bg-[#04060c] flex items-center">
               <button
                 onClick={() => setCurrency('EGP')}
                 className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
-                  currency === 'EGP' ? 'bg-[var(--accent)] text-white shadow-xs' : 'text-[var(--muted)]'
+                  currency === 'EGP' ? 'bg-[var(--accent)] text-black shadow-md font-bold' : 'text-[var(--muted)] hover:text-white'
                 }`}
               >
                 EGP
@@ -121,39 +136,43 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
               <button
                 onClick={() => setCurrency('USD')}
                 className={`px-3 py-1 rounded-full text-xs font-mono font-bold transition-all cursor-pointer ${
-                  currency === 'USD' ? 'bg-[var(--accent)] text-white shadow-xs' : 'text-[var(--muted)]'
+                  currency === 'USD' ? 'bg-[var(--accent)] text-black shadow-md font-bold' : 'text-[var(--muted)] hover:text-white'
                 }`}
               >
                 USD
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* 3 Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-24">
-          {HOSTING_PLANS.map((plan) => {
+        {/* 3 Pricing Cards Grid with Motion Reveals */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch mb-24 sm:mb-32">
+          {HOSTING_PLANS.map((plan, idx) => {
             const price = currency === 'EGP' ? `${plan.priceEGP.toLocaleString()} EGP` : `$${plan.priceUSD}`;
             const isPopular = plan.popular;
 
             return (
-              <div
+              <motion.div
                 key={plan.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`relative rounded-3xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-2 ${
                   isPopular
-                    ? 'shimmer-border p-[2px] shadow-xl ring-2 ring-[var(--accent)]/30 scale-[1.02]'
-                    : 'border border-[var(--line)] bg-[var(--surface)] p-5 sm:p-8 md:p-10 shadow-sm'
+                    ? 'p-[2px] bg-gradient-to-b from-cyan-400 via-[var(--accent)] to-purple-600 shadow-[0_0_40px_rgba(0,242,254,0.15)] scale-[1.02]'
+                    : 'border border-[#1b253b] bg-[#070b14] p-6 sm:p-8 md:p-10 shadow-xl hover:border-[var(--accent)]/50'
                 }`}
               >
-                <div className={`${isPopular ? 'shimmer-inner rounded-[calc(1.5rem-2px)] p-5 sm:p-8 md:p-10' : ''} flex flex-col justify-between h-full`}>
+                <div className={`${isPopular ? 'rounded-[calc(1.5rem-2px)] bg-[#070b14] p-6 sm:p-8 md:p-10' : ''} flex flex-col justify-between h-full`}>
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className="font-heading font-extrabold text-2xl text-[var(--ink)]">
+                      <span className="font-heading font-extrabold text-2xl text-white">
                         {isAr ? plan.name.ar : plan.name.en}
                       </span>
                       {isPopular && (
-                        <span className="mono-tag text-[10px] px-3 py-1 rounded-full bg-[var(--accent)] text-white font-bold shadow-xs">
-                          {isAr ? 'الأكثر طلباً' : 'MOST CHOSEN'}
+                        <span className="mono-tag text-[10px] px-3 py-1 rounded-full bg-[var(--accent)] text-black font-extrabold shadow-md animate-pulse">
+                          {isAr ? 'الأكثر طلباً' : 'MOST POPULAR'}
                         </span>
                       )}
                     </div>
@@ -162,9 +181,9 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
                       {isAr ? plan.tagline.ar : plan.tagline.en}
                     </p>
 
-                    <div className="mb-8 pb-6 border-b border-[var(--line)]">
+                    <div className="mb-8 pb-6 border-b border-[#141b2b]">
                       <div className="flex items-baseline gap-2">
-                        <span className="font-heading font-black text-4xl md:text-5xl text-[var(--ink)] tracking-tight">
+                        <span className="font-heading font-black text-4xl md:text-5xl text-white tracking-tight">
                           {price}
                         </span>
                         <span className="text-xs font-mono text-[var(--muted)]">
@@ -178,8 +197,8 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
                         {isAr ? '// المواصفات الأساسية:' : '// SPECS:'}
                       </span>
                       {(isAr ? plan.specs.ar : plan.specs.en).map((spec, i) => (
-                        <div key={i} className="flex items-start gap-3 text-xs md:text-sm text-[var(--ink)]">
-                          <div className="w-4 h-4 rounded-full bg-[var(--accent-light)] text-[var(--accent)] flex items-center justify-center shrink-0 mt-0.5">
+                        <div key={i} className="flex items-start gap-3 text-xs md:text-sm text-gray-200">
+                          <div className="w-4 h-4 rounded-full bg-[#0c1322] border border-[#1b253b] text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
                             <Check size={11} />
                           </div>
                           <span>{spec}</span>
@@ -193,41 +212,46 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
                     external
                     variant={isPopular ? 'accent' : 'primary'}
                     size="lg"
-                    className="w-full"
+                    className="w-full text-center justify-center"
                   >
                     {isAr ? 'اشترك الآن وفعل استضافتك' : 'Order Now'}
                   </Button>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Detailed Comparison Table */}
-        <div className="mb-24">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-24 sm:mb-32"
+        >
           <div className="mb-8">
             <span className="mono-tag text-xs text-[var(--muted)] tracking-wider uppercase">
               // DETAILED COMPARISON MATRIX
             </span>
-            <h3 className="text-2xl md:text-3xl font-bold font-heading text-[var(--ink)] mt-1">
+            <h3 className="text-2xl md:text-3xl font-bold font-heading text-white mt-1">
               {isAr ? 'جدول المقارنة التفصيلي بين الخطط' : 'Compare All Hosting Plans Side-by-Side'}
             </h3>
           </div>
 
-          <div className="rounded-3xl border border-[var(--line)] bg-[var(--surface)] overflow-x-auto shadow-sm">
+          <div className="rounded-3xl border border-[#1b253b] bg-[#070b14] overflow-x-auto shadow-2xl">
             <table className="w-full min-w-[580px] text-start text-xs md:text-sm">
               <thead>
-                <tr className="border-b border-[var(--line)] bg-[var(--surface-alt)]">
-                  <th className="p-4 md:p-6 text-start font-heading font-bold text-[var(--ink)] w-2/5">
+                <tr className="border-b border-[#141b2b] bg-[#04060c]">
+                  <th className="p-4 md:p-6 text-start font-heading font-bold text-white w-2/5">
                     {isAr ? 'الميزة / الخاصية' : 'Specification'}
                   </th>
-                  <th className="p-4 md:p-6 text-center font-heading font-bold text-[var(--ink)] w-1/5">
+                  <th className="p-4 md:p-6 text-center font-heading font-bold text-gray-300 w-1/5">
                     Starter
                   </th>
-                  <th className="p-4 md:p-6 text-center font-heading font-bold text-[var(--accent)] w-1/5">
+                  <th className="p-4 md:p-6 text-center font-heading font-bold text-cyan-400 w-1/5">
                     Business
                   </th>
-                  <th className="p-4 md:p-6 text-center font-heading font-bold text-[var(--ink)] w-1/5">
+                  <th className="p-4 md:p-6 text-center font-heading font-bold text-purple-400 w-1/5">
                     Pro
                   </th>
                 </tr>
@@ -235,23 +259,23 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
               <tbody>
                 {comparisonCategories.map((cat, idx) => (
                   <React.Fragment key={idx}>
-                    <tr className="bg-[var(--bg)] border-b border-[var(--line)]">
+                    <tr className="bg-[#050811] border-b border-[#141b2b]">
                       <td colSpan={4} className="p-3 md:p-4 font-mono font-bold text-xs text-[var(--accent)]">
                         // {cat.title}
                       </td>
                     </tr>
                     {cat.rows.map((r, rIdx) => (
-                      <tr key={rIdx} className="border-b border-[var(--line)] hover:bg-[var(--surface-alt)]/40 transition-colors">
-                        <td className="p-4 md:p-5 font-medium text-[var(--ink)]">
+                      <tr key={rIdx} className="border-b border-[#141b2b] hover:bg-[#0c1322]/50 transition-colors">
+                        <td className="p-4 md:p-5 font-medium text-gray-200">
                           {r.name}
                         </td>
                         <td className="p-4 md:p-5 text-center text-[var(--muted)] font-mono">
                           {r.starter}
                         </td>
-                        <td className="p-4 md:p-5 text-center font-bold text-[var(--accent)] font-mono">
+                        <td className="p-4 md:p-5 text-center font-bold text-cyan-400 font-mono">
                           {r.business}
                         </td>
-                        <td className="p-4 md:p-5 text-center font-medium text-[var(--ink)] font-mono">
+                        <td className="p-4 md:p-5 text-center font-medium text-white font-mono">
                           {r.pro}
                         </td>
                       </tr>
@@ -261,15 +285,20 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
               </tbody>
             </table>
           </div>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion */}
-        <div className="mb-20 max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20 max-w-4xl mx-auto"
+        >
           <div className="text-center mb-12">
             <span className="mono-tag text-xs text-[var(--muted)] uppercase">
               // ANSWERS & ARCHITECTURE
             </span>
-            <h3 className="text-2xl md:text-3xl font-bold font-heading text-[var(--ink)] mt-1">
+            <h3 className="text-2xl md:text-3xl font-bold font-heading text-white mt-1">
               {isAr ? 'الأسئلة الشائعة حول الاستضافة' : 'Frequently Asked Questions'}
             </h3>
           </div>
@@ -280,13 +309,13 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
               return (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-[var(--line)] bg-[var(--surface)] overflow-hidden shadow-xs"
+                  className="rounded-2xl border border-[#1b253b] bg-[#070b14] overflow-hidden shadow-lg transition-colors hover:border-[var(--accent)]/40"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
                     className="w-full text-start p-6 flex items-center justify-between gap-4 cursor-pointer"
                   >
-                    <span className="font-heading font-bold text-base md:text-lg text-[var(--ink)]">
+                    <span className="font-heading font-bold text-base md:text-lg text-white">
                       {faq.q}
                     </span>
                     <ChevronDown
@@ -305,7 +334,7 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.25 }}
                       >
-                        <div className="px-6 pb-6 text-sm text-[var(--muted)] leading-relaxed border-t border-[var(--line)]/50 pt-4">
+                        <div className="px-6 pb-6 text-sm text-[var(--muted)] leading-relaxed border-t border-[#141b2b] pt-4">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -315,8 +344,13 @@ export function HostingPageView({ lang = 'en' }: HostingPageViewProps) {
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Global Final CTA matching HomePage */}
+      <FinalCta lang={lang} />
     </div>
   );
 }
+
+export default HostingPageView;

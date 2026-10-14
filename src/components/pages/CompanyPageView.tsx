@@ -2,9 +2,13 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { COMPANY_VALUES, STATS_LIST, TECH_ITEMS, WHY_POINTS } from '@/content/site-data';
+import { motion } from 'framer-motion';
+import { COMPANY_VALUES, STATS_LIST, TECH_ITEMS } from '@/content/site-data';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Button } from '@/components/ui/Button';
+import { FinalCta } from '@/components/sections/FinalCta';
+import { fadeInUp, staggerContainer } from '@/components/motion/motion-variants';
+import { Shield, Award, Terminal, Cpu, Clock, CheckCircle } from 'lucide-react';
 
 interface CompanyPageViewProps {
   lang?: 'en' | 'ar';
@@ -15,33 +19,46 @@ export function CompanyPageView({ lang = 'en' }: CompanyPageViewProps) {
   const prefix = isAr ? '/ar' : '';
 
   return (
-    <div className="relative isolate overflow-hidden pt-28 pb-20 md:pt-40 md:pb-32 bg-[var(--bg)] min-h-screen">
+    <div className="relative isolate overflow-hidden pt-28 pb-0 md:pt-40 bg-[var(--bg)] min-h-screen">
       {/* Subtle Tech Grid Mask & Ambient Top Glow matching HomePage & Work */}
       <div aria-hidden="true" className="bg-grid mask-radial absolute inset-0 -z-10 opacity-70 pointer-events-none" />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(140,92,255,0.15),transparent)]"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-96 bg-[radial-gradient(ellipse_50%_60%_at_50%_0%,rgba(0,242,254,0.12),transparent)]"
       />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero */}
-        <SectionHeader
-          number="05"
-          eyebrow={isAr ? 'قصة ورؤية ستاك واي' : 'ABOUT STACKWAY'}
-          title={isAr ? '11 عاماً من البناء الهندسي والشراكة.' : 'Eleven years building with clients, not just for them.'}
-          subtitle={
-            isAr
-              ? 'تأسست ستاك واي على مبدأ بسيط: التصميم البصري الخلاب لا قيمة له دون كود برمجي متماسك وبنية تحتية سحابية لا تسقط.'
-              : 'Founded on a foundational principle: visual elegance is meaningless without resilient code and bulletproof cloud infrastructure.'
-          }
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <SectionHeader
+            number="05"
+            eyebrow={isAr ? 'قصة ورؤية ستاك واي' : 'ABOUT STACKWAY'}
+            title={isAr ? '11 عاماً من البناء الهندسي والشراكة.' : 'Eleven years building with clients, not just for them.'}
+            subtitle={
+              isAr
+                ? 'تأسست ستاك واي على مبدأ بسيط: التصميم البصري الخلاب لا قيمة له دون كود برمجي متماسك وبنية تحتية سحابية لا تسقط.'
+                : 'Founded on a foundational principle: visual elegance is meaningless without resilient code and bulletproof cloud infrastructure.'
+            }
+          />
+        </motion.div>
 
-        {/* Narrative Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16 sm:mb-20 items-center">
-          <div className="lg:col-span-7 space-y-6 text-sm sm:text-base md:text-lg text-[var(--muted)] leading-relaxed">
-            <p className="text-[var(--ink)] font-medium text-lg sm:text-xl md:text-2xl">
+        {/* Narrative Grid with Motion Reveals */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-20 sm:mb-28 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: isAr ? 20 : -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 space-y-6 text-sm sm:text-base md:text-lg text-[var(--muted)] leading-relaxed"
+          >
+            <p className="text-white font-medium text-lg sm:text-xl md:text-2xl leading-snug">
               {isAr
                 ? 'نحن لسنا مجرد وكالة رقمية تصمم وتغادر، بل نحن الذراع التقني لشركائنا.'
-                : "We are an engineering collective and infrastructure partner for businesses that cannot afford downtime."}
+                : 'We are an engineering collective and infrastructure partner for businesses that cannot afford downtime.'}
             </p>
             <p>
               {isAr
@@ -53,29 +70,40 @@ export function CompanyPageView({ lang = 'en' }: CompanyPageViewProps) {
                 ? 'اليوم، نخدم أكثر من 41 علامة تجارية ومنصة في الشرق الأوسط وأوروبا والولايات المتحدة، وندير أنظمة تعالج ملايين الزيارات والطلبات الرقمية شهرياً.'
                 : 'Today, we power over 41 enterprise brands across the MENA region, Europe, and North America, managing systems that process millions of transactions every month.'}
             </p>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-5 p-5 sm:p-8 md:p-12 rounded-3xl border border-[var(--line)] bg-[#080d14] shadow-xl space-y-6 sm:space-y-8">
-            <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#d4af37]/60 shadow-[0_0_15px_rgba(212,175,55,0.3)] shrink-0 bg-black">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 p-6 sm:p-8 md:p-12 rounded-3xl border border-[#1b253b] bg-[#070b14] shadow-2xl space-y-6 sm:space-y-8 relative overflow-hidden"
+          >
+            <div
+              aria-hidden="true"
+              className="absolute -top-24 -right-24 w-48 h-48 bg-[#d4af37]/10 rounded-full blur-3xl pointer-events-none"
+            />
+
+            <div className="flex items-center gap-4 relative z-10">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-[#d4af37]/60 shadow-[0_0_20px_rgba(212,175,55,0.35)] shrink-0 bg-black">
                 <Image
                   src="/images/stackway-brand-logo.webp"
                   alt="Stackway"
                   fill
-                  sizes="48px"
+                  sizes="56px"
                   className="object-cover"
                 />
               </div>
               <div>
-                <h4 className="font-heading font-bold text-base sm:text-lg text-[var(--ink)]">Stackway LLC</h4>
-                <p className="text-[10px] sm:text-xs font-mono text-[var(--muted)]">EST. 2018 // DIGITAL ENGINEERING</p>
+                <h4 className="font-heading font-bold text-lg sm:text-xl text-white">Stackway LLC</h4>
+                <p className="text-[10px] sm:text-xs font-mono text-cyan-400">EST. 2018 // DIGITAL ENGINEERING</p>
               </div>
             </div>
 
-            <div className="space-y-3 sm:space-y-4 pt-4 border-t border-[var(--line)]">
+            <div className="space-y-4 pt-4 border-t border-[#141b2b] relative z-10">
               <div className="flex justify-between items-center text-xs sm:text-sm">
                 <span className="text-[var(--muted)]">{isAr ? 'المقر الرئيسي:' : 'Headquarters:'}</span>
-                <span className="font-semibold text-[var(--ink)]">Wyoming, USA & Cairo, EG</span>
+                <span className="font-semibold text-white">Wyoming, USA & Cairo, EG</span>
               </div>
               <div className="flex justify-between items-center text-xs sm:text-sm">
                 <span className="text-[var(--muted)]">{isAr ? 'الاعتماد التقني:' : 'Certifications:'}</span>
@@ -83,66 +111,90 @@ export function CompanyPageView({ lang = 'en' }: CompanyPageViewProps) {
               </div>
               <div className="flex justify-between items-center text-xs sm:text-sm">
                 <span className="text-[var(--muted)]">{isAr ? 'متوسط سرعة الاستجابة:' : 'Average Response:'}</span>
-                <span className="font-semibold text-emerald-600 font-mono">&lt; 15 mins</span>
+                <span className="font-semibold text-emerald-400 font-mono">&lt; 15 mins (24/7)</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Stats Row */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-16 sm:mb-24">
+        {/* Stats Row with Animated Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-20 sm:mb-28">
           {STATS_LIST.map((stat, i) => (
-            <div key={i} className="p-4 sm:p-8 rounded-2xl border border-[var(--line)] bg-[var(--surface)] text-center shadow-xs">
-              <div className="font-heading font-black text-3xl sm:text-4xl md:text-6xl text-[var(--ink)] mb-2">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="p-5 sm:p-8 rounded-2xl border border-[#1b253b] bg-[#070b14] text-center shadow-lg hover:border-[var(--accent)] transition-all hover:-translate-y-1"
+            >
+              <div className="font-heading font-black text-3xl sm:text-4xl md:text-6xl text-white mb-2">
                 {stat.value}{stat.value !== '24/7' && <span className="text-[var(--accent)]">+</span>}
               </div>
               <div className="text-[11px] sm:text-xs md:text-sm text-[var(--muted)] font-medium">
                 {isAr ? stat.label.ar : stat.label.en}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Core Principles / Values */}
-        <div className="mb-24">
+        <div className="mb-20 sm:mb-28">
           <div className="mb-12">
             <span className="mono-tag text-xs text-[var(--muted)] tracking-wider">
               // ARCHITECTURAL CODE & VALUES
             </span>
-            <h3 className="text-3xl font-bold font-heading text-[var(--ink)] mt-1">
+            <h3 className="text-3xl font-bold font-heading text-white mt-1">
               {isAr ? 'المبادئ والقيم التي تحكم عملنا' : 'The principles we engineer by'}
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            {COMPANY_VALUES.map((val) => (
-              <div
+            {COMPANY_VALUES.map((val, idx) => (
+              <motion.div
                 key={val.num}
-                className="p-5 sm:p-8 rounded-3xl border border-[var(--line)] bg-[var(--surface)] shadow-xs flex flex-col justify-between"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                className="group relative p-6 sm:p-9 rounded-3xl border border-[#1b253b] bg-[#070b14] shadow-xl hover:border-[var(--accent)] transition-all duration-300 overflow-hidden"
               >
-                <div>
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: 'radial-gradient(circle at 100% 0%, rgba(0, 242, 254, 0.08) 0%, transparent 60%)',
+                  }}
+                />
+
+                <div className="relative z-10">
                   <div className="font-mono text-xs font-bold text-[var(--accent)] mb-3">
                     {val.num}
                   </div>
-                  <h4 className="font-heading font-bold text-lg sm:text-xl text-[var(--ink)] mb-3">
+                  <h4 className="font-heading font-bold text-xl sm:text-2xl text-white mb-3 group-hover:text-[var(--accent)] transition-colors">
                     {isAr ? val.title.ar : val.title.en}
                   </h4>
                   <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
                     {isAr ? val.desc.ar : val.desc.en}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Technology Partners */}
-        <div className="p-5 sm:p-8 md:p-12 rounded-3xl border border-[var(--line)] bg-[var(--surface)] mb-16 sm:mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="p-6 sm:p-10 md:p-14 rounded-3xl border border-[#1b253b] bg-[#070b14] shadow-2xl mb-20"
+        >
           <div className="text-center mb-10">
             <span className="mono-tag text-xs text-[var(--muted)]">
               // INFRASTRUCTURE ALLIANCE
             </span>
-            <h3 className="text-2xl font-bold font-heading text-[var(--ink)] mt-1">
+            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white mt-1">
               {isAr ? 'شركاء البنية التحتية والمنصات المعتمدة' : 'Official Technology & Cloud Partners'}
             </h3>
           </div>
@@ -151,9 +203,9 @@ export function CompanyPageView({ lang = 'en' }: CompanyPageViewProps) {
             {TECH_ITEMS.map((t) => (
               <div
                 key={t.number}
-                className="p-4 rounded-xl border border-[var(--line)] bg-[var(--bg)] text-center flex flex-col items-center justify-center"
+                className="p-5 rounded-2xl border border-[#141b2b] bg-[#04060c] text-center flex flex-col items-center justify-center hover:border-[var(--accent)]/50 transition-colors"
               >
-                <div className="font-heading font-bold text-base text-[var(--ink)] mb-1">
+                <div className="font-heading font-bold text-base text-white mb-1">
                   {t.name}
                 </div>
                 <div className="text-[10px] font-mono text-[var(--muted)]">
@@ -162,15 +214,13 @@ export function CompanyPageView({ lang = 'en' }: CompanyPageViewProps) {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Start Project CTA */}
-        <div className="text-center space-y-4">
-          <Button href={`${prefix}/start`} variant="primary" size="lg">
-            {isAr ? 'ابدأ العمل معنا اليوم' : 'Build With Us'}
-          </Button>
-        </div>
+        </motion.div>
       </div>
+
+      {/* Global Final CTA matching HomePage */}
+      <FinalCta lang={lang} />
     </div>
   );
 }
+
+export default CompanyPageView;

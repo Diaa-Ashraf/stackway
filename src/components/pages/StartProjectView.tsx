@@ -143,43 +143,52 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
         </div>
 
         {/* Wizard Card Container */}
-        <div className="p-5 sm:p-8 md:p-14 rounded-3xl border border-[var(--line)] bg-[var(--surface)] shadow-xl relative overflow-hidden">
-          {submitted ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12 space-y-6"
-            >
-              <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto border border-emerald-500/20">
-                <Check size={32} />
-              </div>
+        <div className="p-5 sm:p-8 md:p-14 rounded-3xl border border-[var(--line)] bg-[#070b14]/90 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+          {/* Ambient Corner Glows */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[radial-gradient(ellipse_at_top_right,rgba(0,242,254,0.1),transparent_70%)] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[radial-gradient(ellipse_at_bottom_left,rgba(140,92,255,0.1),transparent_70%)] pointer-events-none" />
 
-              <h3 className="text-3xl font-heading font-bold text-[var(--ink)]">
-                {isAr ? 'تم استلام طلبك بنجاح!' : 'Inquiry Received Successfully!'}
-              </h3>
+          <AnimatePresence mode="wait">
+            {submitted ? (
+              <motion.div
+                key="submitted"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.4 }}
+                className="text-center py-12 space-y-6 relative z-10"
+              >
+                <div className="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto border border-emerald-500/20 shadow-[0_0_25px_rgba(16,185,129,0.2)]">
+                  <Check size={32} />
+                </div>
 
-              <p className="text-base text-[var(--muted)] max-w-md mx-auto leading-relaxed">
-                {isAr
-                  ? `شكراً لك يا ${formData.name}. تم إرسال تفاصيل مشروعك إلى مهندسينا، وسنتواصل معك عبر البريد ${formData.email} خلال 24 ساعة.`
-                  : `Thank you, ${formData.name}. Our engineering leads are analyzing your scope. We will contact you at ${formData.email} within 24 hours.`}
-              </p>
+                <h3 className="text-3xl font-heading font-bold text-white">
+                  {isAr ? 'تم استلام طلبك بنجاح!' : 'Inquiry Received Successfully!'}
+                </h3>
 
-              <div className="pt-4">
-                <Button href={prefix || '/'} variant="secondary" size="md">
-                  {isAr ? 'العودة إلى الصفحة الرئيسية' : 'Return to Home'}
-                </Button>
-              </div>
-            </motion.div>
-          ) : (
-            <div>
-              {/* STEP 1: Capabilities Selection */}
-              {currentStep === 1 && (
-                <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  className="space-y-6"
-                >
+                <p className="text-base text-[var(--muted)] max-w-md mx-auto leading-relaxed">
+                  {isAr
+                    ? `شكراً لك يا ${formData.name}. تم إرسال تفاصيل مشروعك إلى مهندسينا، وسنتواصل معك عبر البريد ${formData.email} خلال 24 ساعة.`
+                    : `Thank you, ${formData.name}. Our engineering leads are analyzing your scope. We will contact you at ${formData.email} within 24 hours.`}
+                </p>
+
+                <div className="pt-4">
+                  <Button href={prefix || '/'} variant="secondary" size="md">
+                    {isAr ? 'العودة إلى الصفحة الرئيسية' : 'Return to Home'}
+                  </Button>
+                </div>
+              </motion.div>
+            ) : (
+              <div key={`step-${currentStep}`} className="relative z-10">
+                {/* STEP 1: Capabilities Selection */}
+                {currentStep === 1 && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    className="space-y-6"
+                  >
                   <div>
                     <h3 className="text-2xl font-heading font-bold text-[var(--ink)] mb-1">
                       {isAr ? 'ما هي التخصصات التي تحتاجها في مشروعك؟' : 'Which capabilities does your project require?'}
@@ -241,13 +250,14 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
               {/* STEP 2: Budget & Timeline */}
               {currentStep === 2 && (
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   className="space-y-8"
                 >
                   <div>
-                    <h3 className="text-2xl font-heading font-bold text-[var(--ink)] mb-1">
+                    <h3 className="text-2xl font-heading font-bold text-white mb-1">
                       {isAr ? 'ما هي الميزانية التقديرية والجدول الزمني؟' : 'What is your investment range & timeline?'}
                     </h3>
                     <p className="text-xs md:text-sm text-[var(--muted)]">
@@ -268,11 +278,11 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
                           onClick={() => setBudget(b.label)}
                           className={`p-4 rounded-2xl border text-start transition-all cursor-pointer ${
                             budget === b.label
-                              ? 'border-[var(--accent)] bg-[var(--accent-light)] text-[var(--ink)] ring-1 ring-[var(--accent)]'
-                              : 'border-[var(--line)] bg-[var(--bg)] text-[var(--muted)] hover:border-[var(--ink)]'
+                              ? 'border-[var(--accent)] bg-[var(--accent-light)] text-white ring-1 ring-[var(--accent)] shadow-[0_0_20px_rgba(0,242,254,0.15)]'
+                              : 'border-[var(--line)] bg-[#05060a]/80 text-[var(--muted)] hover:border-[var(--line-strong)] hover:text-white'
                           }`}
                         >
-                          <div className="font-heading font-bold text-base text-[var(--ink)] mb-1">
+                          <div className="font-heading font-bold text-base text-white mb-1">
                             {b.label}
                           </div>
                           <div className="text-xs text-[var(--muted)]">{b.desc}</div>
@@ -294,11 +304,11 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
                           onClick={() => setTimeline(t.label)}
                           className={`p-3 sm:p-3.5 rounded-xl border text-center transition-all cursor-pointer ${
                             timeline === t.label
-                              ? 'border-[var(--accent)] bg-[var(--accent-light)] text-[var(--ink)] ring-1 ring-[var(--accent)]'
-                              : 'border-[var(--line)] bg-[var(--bg)] text-[var(--muted)] hover:border-[var(--ink)]'
+                              ? 'border-[var(--accent)] bg-[var(--accent-light)] text-white ring-1 ring-[var(--accent)] shadow-[0_0_15px_rgba(0,242,254,0.15)]'
+                              : 'border-[var(--line)] bg-[#05060a]/80 text-[var(--muted)] hover:border-[var(--line-strong)] hover:text-white'
                           }`}
                         >
-                          <div className="font-medium text-xs text-[var(--ink)]">{t.label}</div>
+                          <div className="font-medium text-xs text-white">{t.label}</div>
                         </button>
                       ))}
                     </div>
@@ -308,7 +318,7 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
                     <button
                       type="button"
                       onClick={() => setCurrentStep(1)}
-                      className="px-4 py-2 text-xs font-mono text-[var(--muted)] hover:text-[var(--ink)] flex items-center gap-1.5 cursor-pointer"
+                      className="px-4 py-2 text-xs font-mono text-[var(--muted)] hover:text-white flex items-center gap-1.5 cursor-pointer transition-colors"
                     >
                       <ArrowLeft size={14} className="rtl:rotate-180" />
                       <span>{isAr ? 'الرجوع' : 'Back'}</span>
@@ -325,13 +335,14 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
               {currentStep === 3 && (
                 <motion.form
                   onSubmit={handleSubmit}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   className="space-y-6"
                 >
                   <div>
-                    <h3 className="text-2xl font-heading font-bold text-[var(--ink)] mb-1">
+                    <h3 className="text-2xl font-heading font-bold text-white mb-1">
                       {isAr ? 'تفاصيل المشروع ومعلومات التواصل' : 'Project overview & contact details'}
                     </h3>
                     <p className="text-xs md:text-sm text-[var(--muted)]">
@@ -349,7 +360,7 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder={isAr ? 'أحمد محمد' : 'Alexander Wright'}
-                        className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--bg)] text-sm text-[var(--ink)] focus:outline-none focus:border-[var(--accent)]"
+                        className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[#05060a]/80 text-sm text-white placeholder-[var(--muted)]/50 focus:outline-none focus:border-[var(--accent)] transition-colors"
                       />
                       {errors.name && <p className="text-[11px] text-red-500 mt-1">{errors.name}</p>}
                     </div>
@@ -363,7 +374,7 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="name@company.com"
-                        className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--bg)] text-sm text-[var(--ink)] focus:outline-none focus:border-[var(--accent)]"
+                        className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[#05060a]/80 text-sm text-white placeholder-[var(--muted)]/50 focus:outline-none focus:border-[var(--accent)] transition-colors"
                       />
                       {errors.email && <p className="text-[11px] text-red-500 mt-1">{errors.email}</p>}
                     </div>
@@ -380,7 +391,7 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+20 111 000 0000"
                         dir="ltr"
-                        className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--bg)] text-sm text-[var(--ink)] focus:outline-none focus:border-[var(--accent)]"
+                        className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[#05060a]/80 text-sm text-white placeholder-[var(--muted)]/50 focus:outline-none focus:border-[var(--accent)] transition-colors"
                       />
                       {errors.phone && <p className="text-[11px] text-red-500 mt-1">{errors.phone}</p>}
                     </div>
@@ -394,7 +405,7 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                         placeholder={isAr ? 'اسم مؤسستك' : 'Acme Corporation'}
-                        className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--bg)] text-sm text-[var(--ink)] focus:outline-none focus:border-[var(--accent)]"
+                        className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[#05060a]/80 text-sm text-white placeholder-[var(--muted)]/50 focus:outline-none focus:border-[var(--accent)] transition-colors"
                       />
                     </div>
                   </div>
@@ -412,7 +423,7 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
                           ? 'أخبرنا عن فكرتك، الميزات المستهدفة، أو المشكلة التي تريد حلها...'
                           : 'Tell us what you want to build, current bottlenecks, or target deadlines...'
                       }
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--bg)] text-sm text-[var(--ink)] focus:outline-none focus:border-[var(--accent)] resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--line)] bg-[#05060a]/80 text-sm text-white placeholder-[var(--muted)]/50 focus:outline-none focus:border-[var(--accent)] resize-none transition-colors"
                     />
                   </div>
 
@@ -420,7 +431,7 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
                     <button
                       type="button"
                       onClick={() => setCurrentStep(2)}
-                      className="px-4 py-2 text-xs font-mono text-[var(--muted)] hover:text-[var(--ink)] flex items-center gap-1.5 cursor-pointer"
+                      className="px-4 py-2 text-xs font-mono text-[var(--muted)] hover:text-white flex items-center gap-1.5 cursor-pointer transition-colors"
                     >
                       <ArrowLeft size={14} className="rtl:rotate-180" />
                       <span>{isAr ? 'الرجوع' : 'Back'}</span>
@@ -434,6 +445,7 @@ export function StartProjectView({ lang = 'en' }: StartProjectViewProps) {
               )}
             </div>
           )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

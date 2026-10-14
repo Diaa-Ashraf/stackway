@@ -9,7 +9,9 @@ import {
   getAdjacentProjects,
   ProjectShowcaseItem,
 } from '@/content/projects-showcase';
+import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, ArrowLeft } from 'lucide-react';
+import { FinalCta } from '@/components/sections/FinalCta';
 
 interface WorkSlugViewProps {
   slug: string;
@@ -54,7 +56,12 @@ export function WorkSlugView({ slug, lang = 'en' }: WorkSlugViewProps) {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 grid items-center gap-10 lg:grid-cols-12">
           {/* Left Column: Breadcrumb, Eyebrow, H1, Subtitle, Live Link */}
-          <div className="relative z-10 lg:col-span-7 space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="relative z-10 lg:col-span-7 space-y-6"
+          >
             {/* Breadcrumb */}
             <nav aria-label="Breadcrumb">
               <ol className="font-mono text-xs flex items-center gap-2 text-[var(--muted)]">
@@ -119,10 +126,15 @@ export function WorkSlugView({ slug, lang = 'en' }: WorkSlugViewProps) {
                 </a>
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Right Column: High-tech Gyroscope Blueprint Matrix Graphic */}
-          <div className="lg:col-span-5 flex items-center justify-center select-none">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 flex items-center justify-center select-none"
+          >
             <div className="relative mx-auto aspect-square w-full max-w-[18rem] sm:max-w-[28rem] flex items-center justify-center">
               <svg viewBox="0 0 400 400" className="h-full w-full max-w-[28rem]" fill="none" aria-hidden="true">
                 <defs>
@@ -191,12 +203,18 @@ export function WorkSlugView({ slug, lang = 'en' }: WorkSlugViewProps) {
                 </g>
               </svg>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 2. Full-Width Showcase Visual Banner */}
-      <section className="max-w-7xl mx-auto px-6 pt-12 lg:pt-16">
+      <motion.section
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="max-w-7xl mx-auto px-6 pt-12 lg:pt-16"
+      >
         <div className="group overflow-hidden rounded-t-2xl border border-[var(--line)] shadow-2xl">
           <div className="relative grid place-items-center overflow-hidden bg-[#080d14] aspect-[21/9] max-sm:aspect-[4/3]">
             {/* Background Grid */}
@@ -267,10 +285,16 @@ export function WorkSlugView({ slug, lang = 'en' }: WorkSlugViewProps) {
             </dd>
           </div>
         </dl>
-      </section>
+      </motion.section>
 
       {/* 4. Deep Dive: Overview & What We Built */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-24 border-b border-[var(--line)]">
+      <motion.section
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-24 border-b border-[var(--line)]"
+      >
         <div className="grid gap-12 lg:grid-cols-12 items-start">
           {/* Left Column: Overview */}
           <div className="lg:col-span-7 space-y-6">
@@ -302,7 +326,7 @@ export function WorkSlugView({ slug, lang = 'en' }: WorkSlugViewProps) {
             </ul>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* 5. More Work: Adjacent Projects Showcase */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-24 border-b border-[var(--line)]">
@@ -320,11 +344,17 @@ export function WorkSlugView({ slug, lang = 'en' }: WorkSlugViewProps) {
         </div>
 
         <ul className="grid gap-6 md:grid-cols-2">
-          {[prev, next].map((adj) => {
+          {[prev, next].map((adj, i) => {
             const adjTitle = isAr ? adj.titleAr : adj.title;
             const adjCat = isAr ? adj.category.ar : adj.category.en;
             return (
-              <li key={adj.slug}>
+              <motion.li
+                key={adj.slug}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+              >
                 <Link
                   href={`${prefix}/work/${adj.slug}`}
                   className="group block overflow-hidden rounded-xl border border-[var(--line)] bg-[#05060a]/90 hover:border-[var(--line-strong)] transition-all shadow-xl hover:-translate-y-1"
@@ -366,50 +396,14 @@ export function WorkSlugView({ slug, lang = 'en' }: WorkSlugViewProps) {
                     />
                   </div>
                 </Link>
-              </li>
+              </motion.li>
             );
           })}
         </ul>
       </section>
 
-      {/* 6. Bottom CTA Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 text-center">
-        <div className="p-6 sm:p-10 md:p-16 rounded-3xl border border-[var(--line)] bg-[#080d14]/80 backdrop-blur-xl relative overflow-hidden">
-          {/* Subtle Glow in Center */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[var(--accent)] opacity-10 blur-3xl pointer-events-none" />
-
-          <p className="font-mono text-xs text-[var(--accent)] uppercase tracking-widest mb-3">
-            {isAr ? '// هل تخطط لإطلاق مشروعك القادم؟' : '// READY TO BUILD?'}
-          </p>
-
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-white tracking-tight max-w-2xl mx-auto">
-            {isAr ? 'لديك فكرة؟ فلنبنها معاً.' : "Have an idea? Let's build it."}
-          </h2>
-
-          <p className="mt-4 text-xs sm:text-base text-[var(--muted)] max-w-xl mx-auto leading-relaxed">
-            {isAr
-              ? 'تحدث مع فريقنا الهندسي اليوم، ولنبدأ في تحويل فكرتك إلى نظام رقمي متكامل يحقق نتائج أعمال ملموسة.'
-              : 'Tell us what you are building. We will assess architecture, timelines, and launch a system engineered for real performance.'}
-          </p>
-
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <Link
-              href={`${prefix}/start`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[var(--accent)] text-[#05060a] font-bold text-xs sm:text-sm hover:brightness-110 shadow-[0_8px_30px_-8px_var(--accent-glow)] transition-all"
-            >
-              <span>{isAr ? 'ابدأ مشروعاً معنا' : 'Start a Project'}</span>
-              <ArrowRight size={15} className="rtl:rotate-180" />
-            </Link>
-
-            <Link
-              href={`${prefix}/work`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md border border-[var(--line-strong)] bg-[var(--surface)] text-white font-semibold text-xs sm:text-sm hover:bg-[var(--surface-strong)] transition-all"
-            >
-              <span>{isAr ? 'استكشف كافة الأعمال' : 'View All Projects'}</span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* 6. Unified Final CTA Section */}
+      <FinalCta lang={lang} />
     </div>
   );
 }

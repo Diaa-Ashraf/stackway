@@ -3,8 +3,10 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { PROJECTS_SHOWCASE, ProjectShowcaseItem } from '@/content/projects-showcase';
+import { FinalCta } from '@/components/sections/FinalCta';
 
 interface WorkPageViewProps {
   lang?: 'en' | 'ar';
@@ -251,44 +253,8 @@ export function WorkPageView({ lang = 'en' }: WorkPageViewProps) {
         </ul>
       </section>
 
-      {/* 3. Bottom CTA Section matching Webonio */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 text-center">
-        <div className="p-6 sm:p-10 md:p-16 rounded-3xl border border-[var(--line)] bg-[#080d14]/80 backdrop-blur-xl relative overflow-hidden">
-          {/* Subtle Glow in Center */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[var(--accent)] opacity-10 blur-3xl pointer-events-none" />
-
-          <p className="font-mono text-xs text-[var(--accent)] uppercase tracking-widest mb-3">
-            {isAr ? '// هل تخطط لإطلاق مشروعك القادم؟' : '// READY TO BUILD?'}
-          </p>
-
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-heading text-white tracking-tight max-w-2xl mx-auto">
-            {isAr ? 'لديك فكرة؟ فلنبنها معاً.' : "Have an idea? Let's build it."}
-          </h2>
-
-          <p className="mt-4 text-xs sm:text-base text-[var(--muted)] max-w-xl mx-auto leading-relaxed">
-            {isAr
-              ? 'تحدث مع فريقنا الهندسي اليوم، ولنبدأ في تحويل فكرتك إلى نظام رقمي متكامل يحقق نتائج أعمال ملموسة.'
-              : 'Tell us what you are building. We will assess architecture, timelines, and launch a system engineered for real performance.'}
-          </p>
-
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <Link
-              href={`${prefix}/start`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md bg-[var(--accent)] text-[#05060a] font-bold text-xs sm:text-sm hover:brightness-110 shadow-[0_8px_30px_-8px_var(--accent-glow)] transition-all"
-            >
-              <span>{isAr ? 'ابدأ مشروعاً معنا' : 'Start a Project'}</span>
-              <ArrowRight size={15} className="rtl:rotate-180" />
-            </Link>
-
-            <Link
-              href={`${prefix}/services`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md border border-[var(--line-strong)] bg-[var(--surface)] text-white font-semibold text-xs sm:text-sm hover:bg-[var(--surface-strong)] transition-all"
-            >
-              <span>{isAr ? 'استكشف كافة الخدمات' : 'Explore Services'}</span>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* 3. Global Final CTA matching HomePage */}
+      <FinalCta lang={lang} />
     </div>
   );
 }
